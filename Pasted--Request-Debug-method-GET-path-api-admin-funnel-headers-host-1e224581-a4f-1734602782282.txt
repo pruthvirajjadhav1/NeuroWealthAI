@@ -1,0 +1,219 @@
+[Request Debug] {
+  method: 'GET',
+  path: '/api/admin/funnel',
+  headers: {
+    host: '1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev',
+    'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
+    accept: '*/*',
+    'accept-encoding': 'gzip, deflate, br, zstd',
+    'accept-language': 'en-US,en;q=0.9,fr-FR;q=0.8,fr;q=0.7',
+    cookie: 'connect.sid=s%3AAZTQNnrAOZQJJ-3GI3VLZQMl2J5OTvDV.e%2BEqO95CjR9SwEDMymmEUAjtkeFIK5gSpMGGmD3D3iQ',
+    'if-none-match': 'W/"5d7-WJapw8JBMtkJA1J7hGtjTByMwi4"',
+    referer: 'https://1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev/admin/funnel',
+    'sec-ch-ua': '"Google Chrome";v="131", "Chromium";v="131", "Not_A Brand";v="24"',
+    'sec-ch-ua-mobile': '?0',
+    'sec-ch-ua-platform': '"macOS"',
+    'sec-fetch-dest': 'empty',
+    'sec-fetch-mode': 'cors',
+    'sec-fetch-site': 'same-origin',
+    'x-forwarded-for': '94.207.103.154, 10.84.1.6',
+    'x-forwarded-proto': 'https',
+    'x-replit-user-bio': '',
+    'x-replit-user-id': '',
+    'x-replit-user-name': '',
+    'x-replit-user-profile-image': '',
+    'x-replit-user-roles': '',
+    'x-replit-user-teams': '',
+    'x-replit-user-url': ''
+  },
+  body: {},
+  timestamp: '2024-12-19T10:05:41.723Z'
+}
+[Funnel Analytics Request] {
+  requestId: 'c1j9us',
+  query: { timeframe: '30d' },
+  user: { id: 1, isAdmin: true },
+  timestamp: '2024-12-19T10:05:41.724Z'
+}
+[Funnel Analytics Timeframe] {
+  requestId: 'c1j9us',
+  timeframe: '30d',
+  startDate: undefined,
+  endDate: undefined,
+  timestamp: '2024-12-19T10:05:41.724Z'
+}
+[Funnel Analytics Query Start] {
+  requestId: 'c1j9us',
+  timeRange: {
+    start: '2024-11-19T10:05:41.724Z',
+    end: '2024-12-19T10:05:41.724Z'
+  },
+  timestamp: '2024-12-19T10:05:41.724Z'
+}
+[Funnel Analytics Recent Events] {
+  requestId: 'c1j9us',
+  eventCount: 10,
+  events: [
+    {
+      id: 12,
+      type: 'quiz_step',
+      data: '1',
+      userId: null,
+      sessionId: 'VO7hGNayDN46h6x2SCJ8npaDDlgx3vbO',
+      createdAt: 2024-12-19T10:03:28.500Z
+    },
+    {
+      id: 11,
+      type: 'quiz_start',
+      data: null,
+      userId: null,
+      sessionId: 'VO7hGNayDN46h6x2SCJ8npaDDlgx3vbO',
+      createdAt: 2024-12-19T10:03:26.982Z
+    },
+    {
+      id: 10,
+      type: 'page_view',
+      data: '/intro',
+      userId: null,
+      sessionId: 'VO7hGNayDN46h6x2SCJ8npaDDlgx3vbO',
+      createdAt: 2024-12-19T10:03:22.869Z
+    },
+    {
+      id: 9,
+      type: 'page_view',
+      data: '/intro',
+      userId: null,
+      sessionId: 'VO7hGNayDN46h6x2SCJ8npaDDlgx3vbO',
+      createdAt: 2024-12-19T10:03:22.850Z
+    },
+    {
+      id: 8,
+      type: 'registration_token_generated',
+      data: '79750338-7ed8-4e35-b541-e7eb1895a202',
+      userId: null,
+      sessionId: 'SjE31oQq31aivCZov9yXfNNfni8IN2ly',
+      createdAt: 2024-12-19T10:01:26.073Z
+    },
+    {
+      id: 7,
+      type: 'intro_complete',
+      data: null,
+      userId: null,
+      sessionId: 'lrMK4AnJ974wptWWYTH1sYmA3UGdJFDl',
+      createdAt: 2024-12-19T10:01:24.909Z
+    },
+    {
+      id: 6,
+      type: 'quiz_step',
+      data: '3',
+      userId: null,
+      sessionId: 'zi5mdiVSVOmvsctYIAjLjTjzdCBlMS5N',
+      createdAt: 2024-12-19T10:01:20.818Z
+    },
+    {
+      id: 5,
+      type: 'quiz_step',
+      data: '2',
+      userId: null,
+      sessionId: 'Ub7RBeYtlR7ExCxfZXceFcAXbIqK7TxT',
+      createdAt: 2024-12-19T10:01:18.406Z
+    },
+    {
+      id: 4,
+      type: 'quiz_step',
+      data: '1',
+      userId: null,
+      sessionId: 'J8LkJEAkaMuYk1YPJOsZLnI2ghhiFad1',
+      createdAt: 2024-12-19T10:00:58.614Z
+    },
+    {
+      id: 3,
+      type: 'quiz_start',
+      data: null,
+      userId: null,
+      sessionId: 'ei8P1zWcK4nrPqex_qWamqVtJe3npgPv',
+      createdAt: 2024-12-19T10:00:57.067Z
+    }
+  ],
+  timestamp: '2024-12-19T10:05:41.991Z'
+}
+[Funnel Analytics Base Query] {
+  requestId: 'c1j9us',
+  sql: 'select "userId" from "funnel_events" where ("funnel_events"."eventType" = $1 and "funnel_events"."eventData" = $2 and "funnel_events"."createdAt" > $3 AND "funnel_events"."createdAt" <= $4)',
+  params: [
+    'page_view',
+    '/intro',
+    2024-11-19T10:05:41.724Z,
+    2024-12-19T10:05:41.724Z
+  ],
+  timestamp: '2024-12-19T10:05:41.992Z'
+}
+[Funnel Analytics Query] {
+  requestId: 'c1j9us',
+  query: PgSelectBase {
+    _: { selectedFields: [Object] },
+    config: {
+      withList: [],
+      table: [PgTable],
+      fields: [Object],
+      distinct: undefined,
+      setOperators: [],
+      where: [SQL]
+    },
+    joinsNotNullableMap: { funnel_events: true },
+    tableName: 'funnel_events',
+    isPartialSelect: true,
+    session: NodePgSession {
+      dialect: [PgDialect],
+      logger: NoopLogger {},
+      client: [BoundPool],
+      schema: [Object],
+      options: [Object]
+    },
+    dialect: PgDialect { casing: [CasingCache] },
+    leftJoin: [Function (anonymous)],
+    rightJoin: [Function (anonymous)],
+    innerJoin: [Function (anonymous)],
+    fullJoin: [Function (anonymous)],
+    union: [Function (anonymous)],
+    unionAll: [Function (anonymous)],
+    intersect: [Function (anonymous)],
+    intersectAll: [Function (anonymous)],
+    except: [Function (anonymous)],
+    exceptAll: [Function (anonymous)],
+    authToken: undefined,
+    execute: [Function: execute]
+  },
+  timestamp: '2024-12-19T10:05:41.992Z'
+}
+[Funnel Analytics Result] {
+  requestId: 'c1j9us',
+  funnelData: {
+    lastUpdated: '2024-12-19T10:05:42.507Z',
+    timeframe: '30d',
+    startDate: '2024-11-19T10:05:41.724Z',
+    endDate: '2024-12-19T10:05:41.724Z',
+    steps: [
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object],
+      [Object]
+    ]
+  },
+  timestamp: '2024-12-19T10:05:42.507Z'
+}
+[Response Debug] {
+  path: '/funnel',
+  statusCode: 200,
+  responseData: '{"lastUpdated":"2024-12-19T10:05:42.507Z","timeframe":"30d","startDate":"2024-11-19T10:05:41.724Z","endDate":"2024-12-19T10:05:41.724Z","steps":[{"id":"intro_views","name":"Landing Page Views","value":0,"description":"Visitors on main /intro landing page","conversionRate":100},{"id":"quiz_starts","name":"Quiz Started","value":0,"description":"Users who begin the quiz","conversionRate":0},{"id":"quiz_step1","name":"Quiz Step 1","value":0,"description":"Users who complete question 1","conversionRate":0},{"id":"quiz_step2","name":"Quiz Step 2","value":0,"description":"Users who complete question 2","conversionRate":0},{"id":"quiz_step3","name":"Quiz Step 3","value":0,"description":"Users who complete question 3","conversionRate":0},{"id":"intro_complete","name":"Intro Completed","value":0,"description":"Users who click the final button","conversionRate":0},{"id":"registrations","name":"Free Registrations","value":0,"description":"Users who register a free account","conversionRate":0},{"id":"first_analysis","name":"First Analysis","value":0,"description":"Free users who complete first voice analysis","conversionRate":0},{"id":"trial_views","name":"Trial Page Views","value":0,"description":"Free users who reach the trial page","conversionRate":0},{"id":"trial_signups","name":"Trial Signups","value":0,"description":"Users who start a trial","conversionRate":0},{"id":"paid_users","name":"Paid Users","value":0,"description":"Trial users who convert to paid","conversionRate":0}]}',
+  timestamp: '2024-12-19T10:05:42.508Z'
+}
+[Response Debug] {
+  path: '/funnel',
+  statusCode: 200,
+  responseData: '{"lastUpdated":"2024-12-19T10:05:42.507Z","timeframe":"30d","startDate":"2024-11-19T10:05:41.724Z","endDate":"2024-12-19T10:05:41.724Z","steps":[{"id":"intro_views","name":"Landing Page Views","value":0,"description":"Visitors on main /intro landing page","conversionRate":100},{"id":"quiz_starts","name":"Quiz Started","value":0,"description":"Users who begin the quiz","conversionRate":0},{"id":"quiz_step1","name":"Quiz Step 1","value":0,"description":"Users who complete question 1","conversionRate":0},{"id":"quiz_step2","name":"Quiz Step 2","value":0,"description":"Users who complete question 2","conversionRate":0},{"id":"quiz_step3","name":"Quiz Step 3","value":0,"description":"Users who complete question 3","conversionRate":0},{"id":"intro_complete","name":"Intro Completed","value":0,"description":"Users who click the final button","conversionRate":0},{"id":"registrations","name":"Free Registrations","value":0,"description":"Users who register a free account","conversionRate":0},{"id":"first_analysis","name":"First Analysis","value":0,"description":"Free users who complete first voice analysis","conversionRate":0},{"id":"trial_views","name":"Trial Page Views","value":0,"description":"Free users who reach the trial page","conversionRate":0},{"id":"trial_signups","name":"Trial Signups","value":0,"description":"Users who start a trial","conversionRate":0},{"id":"paid_users","name":"Paid Users","value":0,"description":"Trial users who convert to paid","conversionRate":0}]}',
+  timestamp: '2024-12-19T10:05:42.508Z'
+}
+10:05:42 AM [express] GET /api/admin/funnel 200 in 1315ms :: {"lastUpdated":"2024-12-19T10:05:42.507Z…

@@ -1,0 +1,69 @@
+## Feature: Personalized Wealth Affirmations
+
+### Core Concept
+Create personalized affirmations that are "scientifically calibrated" to each user's unique brain wave patterns, designed to accelerate their wealth frequency alignment.
+
+### User Flows
+
+#### Paid Users
+- Direct access to personalized affirmations
+- "Your Neural Wealth Pattern has been analyzed. These affirmations are precisely calibrated to your unique brain wave frequency for maximum impact."
+- Show affirmations with subtle animated background (neural pattern visualization)
+- Display session timer (5 minutes)
+- Progress tracker showing "Neural Alignment Score"
+
+#### Trial Users
+- Show locked interface with premium messaging
+- "Your Neural Wealth Pattern is currently calibrating. The system requires 7 days of voice data to generate affirmations that perfectly match your unique brain frequency."
+- Display calibration progress bar
+- Show preview of generic affirmation with "blurred/locked" styling
+
+### Affirmation Framework
+
+Each affirmation set should contain:
+- 3 Identity-based statements
+- 3 Abundance mindset statements  
+- 3 Action-oriented statements
+- 3 Gratitude statements
+
+For the MVP, implement the same one statement per category I will give you the other ones later
+
+Affirmation Variants Database:
+
+**Identity Statements:**
+- "I am naturally aligned with wealth and abundance"
+
+**Abundance Mindset:**
+- "Money flows to me easily and effortlessly"
+
+**Action-Oriented:**
+- "I take inspired actions that multiply my wealth"
+
+**Gratitude:**
+- "I am deeply grateful for my growing wealth"
+
+### Display Format
+- Each session randomly selects affirmations from each category
+- Text should be displayed in an elegant, premium font
+- Include subtle animation effects that suggest neural activity
+- Background should feature calming wealth-associated colors (deep blues, purple, gold accents)
+- Timer shows remaining time in elegant countdown format
+
+### Key Copy Elements
+
+**Paid User Welcome Message:**
+"Welcome to your Personalized Wealth Affirmations. These statements have been precisely calibrated to match your unique neural frequency pattern, based on our advanced voice analysis. Speaking these affirmations aloud for 5 minutes daily will strengthen your wealth attraction frequency and accelerate your financial transformation."
+
+**Trial User Message:**
+"Your Wealth DNA is currently being analyzed. Our system requires 7 days of voice data to precisely calibrate affirmations that match your unique neural frequency pattern. This ensures maximum effectiveness in reprogramming your wealth consciousness."
+
+**Post-Session Message:**
+"Excellent work! You've completed today's neural wealth alignment session. Your brain's wealth frequency has been strengthened, and your manifestation power has increased. Return tomorrow to further amplify your wealth attraction capacity."
+
+### Technical Requirements
+- Randomize affirmation selection while maintaining category balance
+- Track user session completion
+- Implement smooth transitions between affirmations
+- Ensure mobile responsiveness
+- Add progress tracking functionality
+- Include an audio player for 5 minutes for them to read the affirmations and mark them as complete only at the end of 5 minutes

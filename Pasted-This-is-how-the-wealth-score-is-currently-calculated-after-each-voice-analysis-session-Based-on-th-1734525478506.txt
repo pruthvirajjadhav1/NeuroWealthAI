@@ -1,0 +1,62 @@
+This is how the wealth score is currently calculated after each voice analysis session:
+
+Based on the codebase, the wealth score calculation happens in two places:
+
+For first recording (initial score): In client/src/lib/audioProcessor.ts, the initial wealth score is randomly generated between 10-25:
+TypeScript
+
+Copy
+if (isFirstRecording || !previousScore) {
+return Math.floor(Math.random() * 16) + 10; // Returns 10-25
+}
+
+For subsequent recordings: The code calculates scores based on:
+Previous score
+Current day
+Whether gamma session was completed
+Progress over time
+The calculation happens in the same file:
+TypeScript
+
+Copy
+calculateWealthScore(
+isFirstRecording: boolean = false,
+currentDay: number = 0,
+previousScore: number = 0,
+gammaSessionCompleted: boolean = false
+): Promise<number> {
+// First recording logic covered above
+if (isFirstRecording || !previousScore) {
+return Math.floor(Math.random() * 16) + 10;
+}
+
+// For subsequent recordings:
+// Base increase rate
+const baseIncrease = 0.5;
+
+// Bonus for completing gamma session
+const gammaBonus = gammaSessionCompleted ? 1.5 : 1.0;
+
+// Day progression bonus (small increase for consistency)
+const dayBonus = currentDay * 0.1;
+
+// Calculate new score with bonuses
+const increase = baseIncrease * gammaBonus + dayBonus;
+
+// Add randomization (-0.5 to +1.5 points)
+const randomFactor = Math.random() * 2 - 0.5;
+
+// Calculate final score
+const newScore = previousScore + increase + randomFactor;
+
+// Cap maximum score at 100
+return Math.min(100, Math.round(newScore));
+}
+The score increases based on:
+
+Base increase of 0.5 points per recording
+50% bonus if gamma session was completed
+Small bonus based on consecutive days
+Random factor between -0.5 to +1.5 points
+Maximum score capped at 100 - INSTRUCTIONS: Help me change how it’s calculated to remove any base increase, remove the gamma session bonus, remove the small bonus on consecutive days, remove the random factor. It should be conditional: if a gamma session was not completed, no increase at all. If a gamma session was completed, it would increase by the same amount planned in wealth dna prediction for that day. For example if wealth dna prediction says day 3 to day 4 is an increase of 4 points, it would increase by 4 points if the gamma session was completed. And the cap should stay at 100. Only extra parameter is that if a wealth affirmations session was done the next day, add a 30% bonus.
+Make sure to include a debug / logging for each step that will show in devtools->console so I can copy paste to you what I see in Devtools->console and that way you can know why it's not working if there’s an issue

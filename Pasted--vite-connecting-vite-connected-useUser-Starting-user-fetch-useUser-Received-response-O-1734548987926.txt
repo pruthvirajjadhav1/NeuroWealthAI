@@ -1,0 +1,27 @@
+[vite] connecting...
+[vite] connected.
+[useUser] Starting user fetch
+[useUser] Received response: 
+Object {status: 200, ok: true, headers: {…}, timestamp: "2024-12-18T19:09:20.120Z"}
+[useUser] User data retrieved: 
+Object {hasUser: true, userId: 1, timestamp: "2024-12-18T19:09:20.120Z"}
+[HomePage] Processing sessions data: 
+Object {totalSessions: 0, latestSession: null, canRecordToday: true}
+[HomePage] Processing sessions data: 
+Object {totalSessions: 0, latestSession: null, canRecordToday: true}
+React is not defined
+[HomePage] Processing sessions data: 
+Object {totalSessions: 0, latestSession: null, canRecordToday: true}
+[HomePage] Processing sessions data: 
+Object {totalSessions: 0, latestSession: null, canRecordToday: true}
+React is not defined
+at HomePage (https://1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev/src/pages/HomePage.tsx:122:3)
+at renderWithHooks (https://1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev/@fs/home/runner/NeuroWealthAI-VoiceAlignment-New-UI-Dec16-Part5/node_modules/.vite/deps/chunk-RPCDYKBN.js?v=d8a7ad00:11548:26)
+at mountIndeterminateComponent (https://1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev/@fs/home/runner/NeuroWealthAI-VoiceAlignment-New-UI-Dec16-Part5/node_modules/.vite/deps/chunk-RPCDYKBN.js?v=d8a7ad00:14926:21)
+at beginWork (https://1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev/@fs/home/runner/NeuroWealthAI-VoiceAlignment-New-UI-Dec16-Part5/node_modules/.vite/deps/chunk-RPCDYKBN.js?v=d8a7ad00:15914:22)
+at HTMLUnknownElement.callCallback2 (https://1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev/@fs/home/runner/NeuroWealthAI-VoiceAlignment-New-UI-Dec16-Part5/node_modules/.vite/deps/chunk-RPCDYKBN.js?v=d8a7ad00:3674:22)
+at Object.invokeGuardedCallbackDev (https://1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev/@fs/home/runner/NeuroWealthAI-VoiceAlignment-New-UI-Dec16-Part5/node_modules/.vite/deps/chunk-RPCDYKBN.js?v=d8a7ad00:3699:24)
+at invokeGuardedCallback (https://1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev/@fs/home/runner/NeuroWealthAI-VoiceAlignment-New-UI-Dec16-Part5/node_modules/.vite/deps/chunk-RPCDYKBN.js?v=d8a7ad00:3733:39)
+at beginWork$1 (https://1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev/@fs/home/runner/NeuroWealthAI-VoiceAlignment-New-UI-Dec16-Part5/node_modules/.vite/deps/chunk-RPCDYKBN.js?v=d8a7ad00:19765:15)
+at performUnitOfWork (https://1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev/@fs/home/runner/NeuroWealthAI-VoiceAlignment-New-UI-Dec16-Part5/node_modules/.vite/deps/chunk-RPCDYKBN.js?v=d8a7ad00:19198:20)
+at workLoopSync (https://1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev/@fs/home/runner/NeuroWealthAI-VoiceAlignment-New-UI-Dec16-Part5/node_modules/.vite/deps/chunk-RPCDYKBN.js?v=d8a7ad00:19137:13)

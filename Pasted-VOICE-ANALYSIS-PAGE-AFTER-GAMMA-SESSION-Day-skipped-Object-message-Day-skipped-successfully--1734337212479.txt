@@ -1,0 +1,50 @@
+VOICE ANALYSIS PAGE AFTER GAMMA SESSION
+
+Day skipped: 
+
+Object {message: "Day skipped successfully", user: {…}, debugState: {…}}
+Day calculation: 
+
+Object {lastAccessDate: Date, firstAccessDate: Date, totalSessions: 0, daysSinceStart: 2, estTime: "12/16/2024, 3:19:06 AM"}
+Day calculation: 
+
+Object {lastAccessDate: Date, firstAccessDate: Date, totalSessions: 0, daysSinceStart: 2, estTime: "12/16/2024, 3:19:06 AM"}
+Score calculation parameters: 
+
+Object {isFirstRecording: false, currentDay: 1, previousScore: 16, sessionsLength: 1, previousDayGammaStatus: false, …}
+Previous day gamma completion status: false
+calculateWealthScore input parameters: 
+
+Object {isFirstRecording: false, currentDay: 1, previousScore: 16, gammaSessionCompleted: false}
+Base progression calculated: 16.33900901070946
+Applying gamma multiplier: 
+
+Object {gammaSessionCompleted: false, gammaMultiplier: 1, baseProgression: 16.33900901070946, scoreAfterMultiplier: 16.33900901070946}
+Recording stopped. Starting processing...
+Day calculation: 
+
+Object {lastAccessDate: Date, firstAccessDate: Date, totalSessions: 0, daysSinceStart: 2, estTime: "12/16/2024, 3:19:08 AM"}
+Day calculation: 
+
+Object {lastAccessDate: Date, firstAccessDate: Date, totalSessions: 0, daysSinceStart: 2, estTime: "12/16/2024, 3:19:08 AM"}
+Processing complete. Audio blob and score received.
+Audio converted to base64.
+Session data sent to server. Response status: 200
+Day calculation: 
+
+Object {lastAccessDate: Date, firstAccessDate: Date, totalSessions: 0, daysSinceStart: 2, estTime: "12/16/2024, 3:19:30 AM"}
+Day calculation: 
+
+Object {lastAccessDate: Date, firstAccessDate: Date, totalSessions: 0, daysSinceStart: 2, estTime: "12/16/2024, 3:19:30 AM"}
+Day calculation: 
+
+Object {lastAccessDate: Date, firstAccessDate: Date, totalSessions: 0, daysSinceStart: 2, estTime: "12/16/2024, 3:19:35 AM"}
+Day calculation: 
+
+Object {lastAccessDate: Date, firstAccessDate: Date, totalSessions: 0, daysSinceStart: 2, estTime: "12/16/2024, 3:19:35 AM"}
+Day calculation: 
+
+Object {lastAccessDate: Date, firstAccessDate: Date, totalSessions: 0, daysSinceStart: 2, estTime: "12/16/2024, 3:19:39 AM"}
+Day calculation: 
+
+Object {lastAccessDate: Date, firstAccessDate: Date, totalSessions: 0, daysSinceStart: 2, estTime: "12/16/2024, 3:19:39 AM"}

@@ -1,0 +1,32 @@
+Generate a personalized wealth reading using the following structure. For each section, randomly select one option and customize it with the user's wealth alignment score.
+CURRENT SITUATION (Select one):
+
+"Your wealth alignment score of [X] shows you have untapped financial potential. Like many successful people, you have natural talents for building wealth that haven't been fully activated yet."
+"With a wealth alignment of [X], you're similar to many entrepreneurs right before their big breakthrough. You have strong wealth-building instincts waiting to be unleashed."
+"Your score of [X] reveals interesting patterns. Like many future millionaires, you have unique abilities to spot opportunities - you just need to trust these instincts more."
+
+HIDDEN STRENGTHS (Select one):
+
+"Your voice patterns show you're especially good at seeing value where others miss it. This rare talent helped similar people in our database grow their income by 312% within 90 days."
+"Your frequency markers match those of natural leaders. Others with your pattern typically saw their wealth grow 3-4x faster once they started trusting their gut instincts about money."
+"Your wealth DNA has markers we often see in successful investors. When activated, people with your pattern frequently doubled or tripled their income within 3 months."
+
+UPCOMING OPPORTUNITIES (Select one):
+
+"The next 90 days look promising for your wealth growth. Users with similar patterns reported finding unexpected money-making opportunities worth $31,000 to $147,000 on average."
+"Your next quarter shows strong potential for financial breakthroughs. Others with your pattern typically discovered 3-4 major opportunities worth $50,000+ within 90 days of activation."
+"The coming months appear highly favorable for wealth building. Users matching your pattern often experienced sudden financial windfalls between $25,000 and $180,000 after activation."
+
+PERSONALIZED ADVICE (Select one):
+
+"Trust your instincts about money more. Your natural wealth frequency is stronger than you realize. Focus on staying open to unexpected opportunities."
+"Pay attention to sudden ideas or hunches about money. Your wealth DNA is trying to guide you. Others with your pattern succeeded by following these natural impulses."
+"Watch for signs of financial opportunities others miss. Your unique wealth pattern helps you see value in unexpected places. Don't ignore these insights."
+
+IMPLEMENTATION INSTRUCTIONS:
+
+Randomly select one option from each section
+Insert the user's actual wealth alignment score where indicated by [X]
+Present as a continuous reading rather than separate sections
+Maintain a hopeful, encouraging tone throughout
+Keep the focus on naturally emerging opportunities rather than forced action

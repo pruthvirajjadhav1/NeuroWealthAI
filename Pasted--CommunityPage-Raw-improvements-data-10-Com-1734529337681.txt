@@ -1,0 +1,183 @@
+[CommunityPage] Raw improvements data: 
+(10) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
+[CommunityPage] Raw improvements data: 
+(10) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
+[CommunityPage] Processing username: 
+Object {originalId: "chen_patel", generatedUsername: "lisa42", usernameLength: 6, patternType: "FirstName+Numbers"}
+[CommunityPage] Processing improvement timestamp: 
+Object {id: "chen_patel", originalTimestamp: "2024-12-18T13:41:01.751Z", randomSeconds: 338, newTimestamp: "2024-12-18T13:35:23.704Z"}
+[CommunityPage] Processed improvement: 
+Object {originalId: "chen_patel", newUsername: "lisa42", timestamp: "2024-12-18T13:35:23.704Z", improvement: 6}
+[CommunityPage] Processing username: 
+Object {originalId: "nina_wilson", generatedUsername: "alex3", usernameLength: 5, patternType: "FirstName+Numbers"}
+[CommunityPage] Processing improvement timestamp: 
+Object {id: "nina_wilson", originalTimestamp: "2024-12-18T13:41:01.751Z", randomSeconds: 315, newTimestamp: "2024-12-18T13:35:46.704Z"}
+[CommunityPage] Processed improvement: 
+Object {originalId: "nina_wilson", newUsername: "alex3", timestamp: "2024-12-18T13:35:46.704Z", improvement: 7}
+[CommunityPage] Processing username: 
+Object {originalId: "priya.singh", generatedUsername: "lisa67", usernameLength: 6, patternType: "FirstName+Numbers"}
+[CommunityPage] Processing improvement timestamp: 
+Object {id: "priya.singh", originalTimestamp: "2024-12-18T13:41:01.752Z", randomSeconds: 201, newTimestamp: "2024-12-18T13:37:40.704Z"}
+[CommunityPage] Processed improvement: 
+Object {originalId: "priya.singh", newUsername: "lisa67", timestamp: "2024-12-18T13:37:40.704Z", improvement: 6}
+[CommunityPage] Processing username: 
+Object {originalId: "lucas.brown", generatedUsername: "alex44", usernameLength: 6, patternType: "FirstName+Numbers"}
+[CommunityPage] Processing improvement timestamp: 
+Object {id: "lucas.brown", originalTimestamp: "2024-12-18T13:41:01.752Z", randomSeconds: 320, newTimestamp: "2024-12-18T13:35:41.704Z"}
+[CommunityPage] Processed improvement: 
+Object {originalId: "lucas.brown", newUsername: "alex44", timestamp: "2024-12-18T13:35:41.704Z", improvement: 3}
+[CommunityPage] Processing username: 
+Object {originalId: "leea609", generatedUsername: "Bluestorm", usernameLength: 9, patternType: "Adjective+Noun"}
+[CommunityPage] Processing improvement timestamp: 
+Object {id: "leea609", originalTimestamp: "2024-12-18T13:41:01.752Z", randomSeconds: 235, newTimestamp: "2024-12-18T13:37:06.704Z"}
+[CommunityPage] Processed improvement: 
+Object {originalId: "leea609", newUsername: "Bluestorm", timestamp: "2024-12-18T13:37:06.704Z", improvement: 7}
+[CommunityPage] Processing username: 
+Object {originalId: "m-silva-97", generatedUsername: "swifthawk", usernameLength: 9, patternType: "Adjective+Noun"}
+[CommunityPage] Processing improvement timestamp: 
+Object {id: "m-silva-97", originalTimestamp: "2024-12-18T13:41:01.752Z", randomSeconds: 225, newTimestamp: "2024-12-18T13:37:16.704Z"}
+[CommunityPage] Processed improvement: 
+Object {originalId: "m-silva-97", newUsername: "swifthawk", timestamp: "2024-12-18T13:37:16.704Z", improvement: 3}
+[CommunityPage] Processing username: 
+Object {originalId: "omar_patel", generatedUsername: "emma78", usernameLength: 6, patternType: "FirstName+Numbers"}
+[CommunityPage] Processing improvement timestamp: 
+Object {id: "omar_patel", originalTimestamp: "2024-12-18T13:41:01.753Z", randomSeconds: 127, newTimestamp: "2024-12-18T13:38:54.704Z"}
+[CommunityPage] Processed improvement: 
+Object {originalId: "omar_patel", newUsername: "emma78", timestamp: "2024-12-18T13:38:54.704Z", improvement: 5}
+[CommunityPage] Processing username: 
+Object {originalId: "meis1998", generatedUsername: "Coolcat", usernameLength: 7, patternType: "Adjective+Noun"}
+[CommunityPage] Processing improvement timestamp: 
+Object {id: "meis1998", originalTimestamp: "2024-12-18T13:41:01.753Z", randomSeconds: 79, newTimestamp: "2024-12-18T13:39:42.704Z"}
+[CommunityPage] Processed improvement: 
+Object {originalId: "meis1998", newUsername: "Coolcat", timestamp: "2024-12-18T13:39:42.704Z", improvement: 4}
+[CommunityPage] Processing username: 
+Object {originalId: "l-brown-75", generatedUsername: "megacat", usernameLength: 7, patternType: "Adjective+Noun"}
+[CommunityPage] Processing improvement timestamp: 
+Object {id: "l-brown-75", originalTimestamp: "2024-12-18T13:41:01.753Z", randomSeconds: 199, newTimestamp: "2024-12-18T13:37:42.704Z"}
+[CommunityPage] Processed improvement: 
+Object {originalId: "l-brown-75", newUsername: "megacat", timestamp: "2024-12-18T13:37:42.704Z", improvement: 5}
+[CommunityPage] Processing username: 
+Object {originalId: "kima378", generatedUsername: "gamer23", usernameLength: 7, patternType: "Hobby+Numbers"}
+[CommunityPage] Processing improvement timestamp: 
+Object {id: "kima378", originalTimestamp: "2024-12-18T13:41:01.753Z", randomSeconds: 62, newTimestamp: "2024-12-18T13:39:59.704Z"}
+[CommunityPage] Processed improvement: 
+Object {originalId: "kima378", newUsername: "gamer23", timestamp: "2024-12-18T13:39:59.704Z", improvement: 2}
+[CommunityPage] Comparing timestamps: 
+Object {idA: "alex3", timeA: "2024-12-18T13:35:46.704Z", idB: "lisa42", timeB: "2024-12-18T13:35:23.704Z", comparison: -23000}
+[CommunityPage] Comparing timestamps: 
+Object {idA: "lisa67", timeA: "2024-12-18T13:37:40.704Z", idB: "alex3", timeB: "2024-12-18T13:35:46.704Z", comparison: -114000}
+[CommunityPage] Comparing timestamps: 
+Object {idA: "alex44", timeA: "2024-12-18T13:35:41.704Z", idB: "lisa67", timeB: "2024-12-18T13:37:40.704Z", comparison: 119000}
+[CommunityPage] Comparing timestamps: 
+Object {idA: "alex44", timeA: "2024-12-18T13:35:41.704Z", idB: "alex3", timeB: "2024-12-18T13:35:46.704Z", comparison: 5000}
+[CommunityPage] Comparing timestamps: 
+Object {idA: "alex44", timeA: "2024-12-18T13:35:41.704Z", idB: "lisa42", timeB: "2024-12-18T13:35:23.704Z", comparison: -18000}
+[CommunityPage] Comparing timestamps: 
+Object {idA: "Bluestorm", timeA: "2024-12-18T13:37:06.704Z", idB: "alex44", timeB: "2024-12-18T13:35:41.704Z", comparison: -85000}
+[CommunityPage] Comparing timestamps: 
+Object {idA: "Bluestorm", timeA: "2024-12-18T13:37:06.704Z", idB: "alex3", timeB: "2024-12-18T13:35:46.704Z", comparison: -80000}
+[CommunityPage] Comparing timestamps: 
+Object {idA: "Bluestorm", timeA: "2024-12-18T13:37:06.704Z", idB: "lisa67", timeB: "2024-12-18T13:37:40.704Z", comparison: 34000}
+[CommunityPage] Comparing timestamps: 
+Object {idA: "swifthawk", timeA: "2024-12-18T13:37:16.704Z", idB: "alex3", timeB: "2024-12-18T13:35:46.704Z", comparison: -90000}
+[CommunityPage] Comparing timestamps: 
+Object {idA: "swifthawk", timeA: "2024-12-18T13:37:16.704Z", idB: "Bluestorm", timeB: "2024-12-18T13:37:06.704Z", comparison: -10000}
+[CommunityPage] Comparing timestamps: 
+Object {idA: "swifthawk", timeA: "2024-12-18T13:37:16.704Z", idB: "lisa67", timeB: "2024-12-18T13:37:40.704Z", comparison: 24000}
+[CommunityPage] Comparing timestamps: 
+Object {idA: "emma78", timeA: "2024-12-18T13:38:54.704Z", idB: "alex3", timeB: "2024-12-18T13:35:46.704Z", comparison: -188000}
+[CommunityPage] Comparing timestamps: 
+Object {idA: "emma78", timeA: "2024-12-18T13:38:54.704Z", idB: "swifthawk", timeB: "2024-12-18T13:37:16.704Z", comparison: -98000}
+[CommunityPage] Comparing timestamps: 
+Object {idA: "emma78", timeA: "2024-12-18T13:38:54.704Z", idB: "lisa67", timeB: "2024-12-18T13:37:40.704Z", comparison: -74000}
+[CommunityPage] Comparing timestamps: 
+Object {idA: "Coolcat", timeA: "2024-12-18T13:39:42.704Z", idB: "Bluestorm", timeB: "2024-12-18T13:37:06.704Z", comparison: -156000}
+[CommunityPage] Comparing timestamps: 
+Object {idA: "Coolcat", timeA: "2024-12-18T13:39:42.704Z", idB: "lisa67", timeB: "2024-12-18T13:37:40.704Z", comparison: -122000}
+[CommunityPage] Comparing timestamps: 
+Object {idA: "Coolcat", timeA: "2024-12-18T13:39:42.704Z", idB: "emma78", timeB: "2024-12-18T13:38:54.704Z", comparison: -48000}
+[CommunityPage] Comparing timestamps: 
+Object {idA: "megacat", timeA: "2024-12-18T13:37:42.704Z", idB: "Bluestorm", timeB: "2024-12-18T13:37:06.704Z", comparison: -36000}
+[CommunityPage] Comparing timestamps: 
+Object {idA: "megacat", timeA: "2024-12-18T13:37:42.704Z", idB: "lisa67", timeB: "2024-12-18T13:37:40.704Z", comparison: -2000}
+[CommunityPage] Comparing timestamps: 
+Object {idA: "megacat", timeA: "2024-12-18T13:37:42.704Z", idB: "emma78", timeB: "2024-12-18T13:38:54.704Z", comparison: 72000}
+[CommunityPage] Comparing timestamps: 
+Object {idA: "gamer23", timeA: "2024-12-18T13:39:59.704Z", idB: "swifthawk", timeB: "2024-12-18T13:37:16.704Z", comparison: -163000}
+[CommunityPage] Comparing timestamps: 
+Object {idA: "gamer23", timeA: "2024-12-18T13:39:59.704Z", idB: "megacat", timeB: "2024-12-18T13:37:42.704Z", comparison: -137000}
+[CommunityPage] Comparing timestamps: 
+Object {idA: "gamer23", timeA: "2024-12-18T13:39:59.704Z", idB: "emma78", timeB: "2024-12-18T13:38:54.704Z", comparison: -65000}
+[CommunityPage] Comparing timestamps: 
+Object {idA: "gamer23", timeA: "2024-12-18T13:39:59.704Z", idB: "Coolcat", timeB: "2024-12-18T13:39:42.704Z", comparison: -17000}
+[CommunityPage] Final sorted improvements: 
+(10) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
+[CommunityPage] Rendering improvement: 
+Object {id: "gamer23", score: 2, timestamp: "2024-12-18T13:39:59.704Z", formattedTime: "17:39:59"}
+[CommunityPage] Rendering improvement: 
+Object {id: "Coolcat", score: 4, timestamp: "2024-12-18T13:39:42.704Z", formattedTime: "17:39:42"}
+[CommunityPage] Rendering improvement: 
+Object {id: "emma78", score: 5, timestamp: "2024-12-18T13:38:54.704Z", formattedTime: "17:38:54"}
+[CommunityPage] Rendering improvement: 
+Object {id: "megacat", score: 5, timestamp: "2024-12-18T13:37:42.704Z", formattedTime: "17:37:42"}
+[CommunityPage] Rendering improvement: 
+Object {id: "lisa67", score: 6, timestamp: "2024-12-18T13:37:40.704Z", formattedTime: "17:37:40"}
+[CommunityPage] Rendering improvement: 
+Object {id: "swifthawk", score: 3, timestamp: "2024-12-18T13:37:16.704Z", formattedTime: "17:37:16"}
+[CommunityPage] Rendering improvement: 
+Object {id: "Bluestorm", score: 7, timestamp: "2024-12-18T13:37:06.704Z", formattedTime: "17:37:06"}
+[CommunityPage] Rendering improvement: 
+Object {id: "alex3", score: 7, timestamp: "2024-12-18T13:35:46.704Z", formattedTime: "17:35:46"}
+[CommunityPage] Rendering improvement: 
+Object {id: "alex44", score: 3, timestamp: "2024-12-18T13:35:41.704Z", formattedTime: "17:35:41"}
+[CommunityPage] Rendering improvement: 
+Object {id: "lisa42", score: 6, timestamp: "2024-12-18T13:35:23.704Z", formattedTime: "17:35:23"}
+[CommunityPage] Rendering improvement: 
+Object {id: "gamer23", score: 2, timestamp: "2024-12-18T13:39:59.704Z", formattedTime: "17:39:59"}
+[CommunityPage] Rendering improvement: 
+Object {id: "Coolcat", score: 4, timestamp: "2024-12-18T13:39:42.704Z", formattedTime: "17:39:42"}
+[CommunityPage] Rendering improvement: 
+Object {id: "emma78", score: 5, timestamp: "2024-12-18T13:38:54.704Z", formattedTime: "17:38:54"}
+[CommunityPage] Rendering improvement: 
+Object {id: "megacat", score: 5, timestamp: "2024-12-18T13:37:42.704Z", formattedTime: "17:37:42"}
+[CommunityPage] Rendering improvement: 
+Object {id: "lisa67", score: 6, timestamp: "2024-12-18T13:37:40.704Z", formattedTime: "17:37:40"}
+[CommunityPage] Rendering improvement: 
+Object {id: "swifthawk", score: 3, timestamp: "2024-12-18T13:37:16.704Z", formattedTime: "17:37:16"}
+[CommunityPage] Rendering improvement: 
+Object {id: "Bluestorm", score: 7, timestamp: "2024-12-18T13:37:06.704Z", formattedTime: "17:37:06"}
+[CommunityPage] Rendering improvement: 
+Object {id: "alex3", score: 7, timestamp: "2024-12-18T13:35:46.704Z", formattedTime: "17:35:46"}
+[CommunityPage] Rendering improvement: 
+Object {id: "alex44", score: 3, timestamp: "2024-12-18T13:35:41.704Z", formattedTime: "17:35:41"}
+[CommunityPage] Rendering improvement: 
+Object {id: "lisa42", score: 6, timestamp: "2024-12-18T13:35:23.704Z", formattedTime: "17:35:23"}
+[CommunityPage] Fetching improvements...
+[CommunityPage] Raw improvements data: 
+(10) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
+[CommunityPage] Raw improvements data: 
+(10) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
+[CommunityPage] Processing username: 
+Object {originalId: "chenb1981", generatedUsername: "Emmab", usernameLength: 5, patternType: "First+LastInitial"}
+[CommunityPage] Processing improvement timestamp: 
+Object {id: "chenb1981", originalTimestamp: "2024-12-18T13:41:19.427Z", randomSeconds: 87, newTimestamp: "2024-12-18T13:39:52.386Z"}
+[CommunityPage] Processed improvement: 
+Object {originalId: "chenb1981", newUsername: "Emmab", timestamp: "2024-12-18T13:39:52.386Z", improvement: 7}
+[CommunityPage] Processing username: 
+Object {originalId: "nina_martinez", generatedUsername: "trade51", usernameLength: 7, patternType: "Hobby+Numbers"}
+[CommunityPage] Processing improvement timestamp: 
+Object {id: "nina_martinez", originalTimestamp: "2024-12-18T13:41:19.427Z", randomSeconds: 57, newTimestamp: "2024-12-18T13:40:22.386Z"}
+[CommunityPage] Processed improvement: 
+Object {originalId: "nina_martinez", newUsername: "trade51", timestamp: "2024-12-18T13:40:22.386Z", improvement: 4}
+[CommunityPage] Processing username: 
+Object {originalId: "aiden_wilson", generatedUsername: "Emmab", usernameLength: 5, patternType: "First+LastInitial"}
+[CommunityPage] Processing improvement timestamp: 
+Object {id: "aiden_wilson", originalTimestamp: "2024-12-18T13:41:19.427Z", randomSeconds: 378, newTimestamp: "2024-12-18T13:35:01.386Z"}
+[CommunityPage] Processed improvement: 
+Object {originalId: "aiden_wilson", newUsername: "Emmab", timestamp: "2024-12-18T13:35:01.386Z", improvement: 4}
+[CommunityPage] Processing username: 
+Object {originalId: "a-martinez-02", generatedUsername: "johnm", usernameLength: 5, patternType: "First+LastInitial"}
+[CommunityPage] Processing improvement timestamp: 
+Object {id: "a-martinez-02", originalTimestamp: "2024-12-18T13:41:19.427Z", randomSeconds: 100, newTimestamp: "2024-12-18T13:39:39.386Z"}
+[CommunityPage] Processed improvement: 
+Object {originalId: "a-martinez-02", newUsername: "johnm", timestamp: "2024-12-18T13:39:39.386Z", improvement: 6}

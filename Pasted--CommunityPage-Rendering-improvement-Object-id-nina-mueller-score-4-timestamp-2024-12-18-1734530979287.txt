@@ -1,0 +1,37 @@
+[CommunityPage] Rendering improvement: 
+Object {id: "nina.mueller", score: 4, timestamp: "2024-12-18T14:09:20.796Z", formattedTime: "18:09:20"}
+[CommunityPage] Rendering improvement: 
+Object {id: "andre_patel", score: 7, timestamp: "2024-12-18T14:09:20.796Z", formattedTime: "18:09:20"}
+[CommunityPage] Rendering improvement: 
+Object {id: "diego.jones", score: 7, timestamp: "2024-12-18T14:09:20.796Z", formattedTime: "18:09:20"}
+[CommunityPage] Rendering improvement: 
+Object {id: "ana.rodriguez", score: 5, timestamp: "2024-12-18T14:09:20.796Z", formattedTime: "18:09:20"}
+[CommunityPage] Rendering improvement: 
+Object {id: "rodriguezd481", score: 2, timestamp: "2024-12-18T14:09:20.796Z", formattedTime: "18:09:20"}
+[CommunityPage] Rendering improvement: 
+Object {id: "s-mueller-99", score: 3, timestamp: "2024-12-18T14:09:20.796Z", formattedTime: "18:09:20"}
+[CommunityPage] Rendering improvement: 
+Object {id: "muhammad_silva", score: 5, timestamp: "2024-12-18T14:09:20.796Z", formattedTime: "18:09:20"}
+[CommunityPage] Rendering improvement: 
+Object {id: "y-jones-03", score: 6, timestamp: "2024-12-18T14:09:20.796Z", formattedTime: "18:09:20"}
+`DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
+
+If you want to hide the `DialogTitle`, you can wrap it with our VisuallyHidden component.
+
+For more information, see https://radix-ui.com/primitives/docs/components/dialog
+Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+`DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users.
+
+If you want to hide the `DialogTitle`, you can wrap it with our VisuallyHidden component.
+
+For more information, see https://radix-ui.com/primitives/docs/components/dialog
+
+If you want to hide the &#x60;DialogTitle&#x60;, you can wrap it with our VisuallyHidden component.
+
+For more information, see https://radix-ui.com/primitives/docs/components/dialog
+at t.value (https://1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev/__replco/static/devtools/eruda/3.2.3/eruda.js:2:17465)
+at new t (https://1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev/__replco/static/devtools/eruda/3.2.3/eruda.js:2:12630)
+at t.value (https://1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev/__replco/static/devtools/eruda/3.2.3/eruda.js:2:32766)
+at https://1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev/__replco/static/devtools/eruda/3.2.3/eruda.js:2:34400
+Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+[CommunityPage] Fetching improvements...

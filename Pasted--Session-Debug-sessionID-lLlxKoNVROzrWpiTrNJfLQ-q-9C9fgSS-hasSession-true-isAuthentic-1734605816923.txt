@@ -1,0 +1,272 @@
+[Session Debug] {
+  sessionID: 'lLlxKoNVROzrWpiTrNJfLQ_q_9C9fgSS',
+  hasSession: true,
+  isAuthenticated: false,
+  user: null,
+  cookies: undefined
+}
+[Request Debug] {
+  method: 'POST',
+  path: '/api/admin/funnel/track',
+  headers: {
+    host: '1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev',
+    'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
+    'content-length': '118',
+    accept: '*/*',
+    'accept-encoding': 'gzip, deflate, br, zstd',
+    'accept-language': 'en-US,en;q=0.9,fr-FR;q=0.8,fr;q=0.7',
+    'content-type': 'application/json',
+    cookie: 'connect.sid=s%3AuooNcFvcOs4BOPKZfIutf8sF7R9qtzx1.r%2BhH15s7qY%2FDbwmGzN9Sn3WkNuSOzXJEbdM8c0JC1WQ',
+    origin: 'https://1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev',
+    referer: 'https://1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev/intro',
+    'sec-ch-ua': '"Google Chrome";v="131", "Chromium";v="131", "Not_A Brand";v="24"',
+    'sec-ch-ua-mobile': '?0',
+    'sec-ch-ua-platform': '"macOS"',
+    'sec-fetch-dest': 'empty',
+    'sec-fetch-mode': 'cors',
+    'sec-fetch-site': 'same-origin',
+    'x-event-id': 'mowtgo',
+    'x-forwarded-for': '94.207.103.154, 10.84.4.24',
+    'x-forwarded-proto': 'https',
+    'x-replit-user-bio': '',
+    'x-replit-user-id': '',
+    'x-replit-user-name': '',
+    'x-replit-user-profile-image': '',
+    'x-replit-user-roles': '',
+    'x-replit-user-teams': '',
+    'x-replit-user-url': ''
+  },
+  body: {
+    eventType: 'intro_complete',
+    clientTimestamp: '2024-12-19T10:56:22.325Z',
+    previousEvent: '2024-12-19T10:56:22.325Z'
+  },
+  timestamp: '2024-12-19T10:56:22.870Z'
+}
+[Funnel Event Request] {
+  requestId: 'mowtgo',
+  body: {
+    eventType: 'intro_complete',
+    clientTimestamp: '2024-12-19T10:56:22.325Z',
+    previousEvent: '2024-12-19T10:56:22.325Z'
+  },
+  headers: {
+    host: '1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev',
+    'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
+    'content-length': '118',
+    accept: '*/*',
+    'accept-encoding': 'gzip, deflate, br, zstd',
+    'accept-language': 'en-US,en;q=0.9,fr-FR;q=0.8,fr;q=0.7',
+    'content-type': 'application/json',
+    cookie: undefined,
+    origin: 'https://1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev',
+    referer: 'https://1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev/intro',
+    'sec-ch-ua': '"Google Chrome";v="131", "Chromium";v="131", "Not_A Brand";v="24"',
+    'sec-ch-ua-mobile': '?0',
+    'sec-ch-ua-platform': '"macOS"',
+    'sec-fetch-dest': 'empty',
+    'sec-fetch-mode': 'cors',
+    'sec-fetch-site': 'same-origin',
+    'x-event-id': 'mowtgo',
+    'x-forwarded-for': '94.207.103.154, 10.84.4.24',
+    'x-forwarded-proto': 'https',
+    'x-replit-user-bio': '',
+    'x-replit-user-id': '',
+    'x-replit-user-name': '',
+    'x-replit-user-profile-image': '',
+    'x-replit-user-roles': '',
+    'x-replit-user-teams': '',
+    'x-replit-user-url': ''
+  },
+  session: {
+    exists: true,
+    id: 'lLlxKoNVROzrWpiTrNJfLQ_q_9C9fgSS',
+    user: undefined,
+    isAuthenticated: false,
+    cookie: { maxAge: null, expires: null, secure: undefined, httpOnly: true }
+  },
+  env: { nodeEnv: 'development', hasDbUrl: true, dbUrlStart: 'postgresql' },
+  timestamp: '2024-12-19T10:56:22.870Z',
+  path: '/funnel/track',
+  method: 'POST',
+  query: {}
+}
+[Funnel Event Pre-Validation] {
+  requestId: 'mowtgo',
+  body: {
+    eventType: 'intro_complete',
+    clientTimestamp: '2024-12-19T10:56:22.325Z',
+    previousEvent: '2024-12-19T10:56:22.325Z'
+  },
+  contentType: 'application/json',
+  timestamp: '2024-12-19T10:56:22.870Z'
+}
+[Funnel Event Pre-Insert] {
+  requestId: 'mowtgo',
+  eventType: 'intro_complete',
+  eventData: undefined,
+  userId: null,
+  sessionId: 'lLlxKoNVROzrWpiTrNJfLQ_q_9C9fgSS',
+  timestamp: '2024-12-19T10:56:22.870Z'
+}
+[Funnel Event DB Check] {
+  requestId: 'mowtgo',
+  status: 'Database connection verified',
+  timestamp: '2024-12-19T10:56:23.134Z'
+}
+[Funnel Event DB Insert] {
+  requestId: 'mowtgo',
+  eventData: {
+    eventType: 'intro_complete',
+    eventData: null,
+    userId: null,
+    sessionId: 'lLlxKoNVROzrWpiTrNJfLQ_q_9C9fgSS',
+    createdAt: 2024-12-19T10:56:23.135Z
+  },
+  timestamp: '2024-12-19T10:56:23.135Z'
+}
+[Funnel Event Success] {
+  requestId: 'mowtgo',
+  event: {
+    eventType: 'intro_complete',
+    userId: null,
+    sessionId: 'lLlxKoNVROzrWpiTrNJfLQ_q_9C9fgSS',
+    eventId: 51
+  },
+  performance: { durationMs: 529 },
+  timestamp: '2024-12-19T10:56:23.399Z'
+}
+[Response Debug] {
+  path: '/funnel/track',
+  statusCode: 200,
+  responseData: '{"success":true,"eventId":51}',
+  timestamp: '2024-12-19T10:56:23.399Z'
+}
+[Response Debug] {
+  path: '/funnel/track',
+  statusCode: 200,
+  responseData: '{"success":true,"eventId":51}',
+  timestamp: '2024-12-19T10:56:23.399Z'
+}
+10:56:23 AM [express] POST /api/admin/funnel/track 200 in 531ms :: {"success":true,"eventId":51}
+[Request Start] {
+  requestId: 'wv8s11',
+  method: 'POST',
+  path: '/api/admin/free-registration-token',
+  query: {},
+  body: { parameters: { is_intro: true, source: 'intro_flow' } },
+  headers: {
+    host: '1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev',
+    'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
+    'content-length': '54',
+    accept: '*/*',
+    'accept-encoding': 'gzip, deflate, br, zstd',
+    'accept-language': 'en-US,en;q=0.9,fr-FR;q=0.8,fr;q=0.7',
+    'content-type': 'application/json',
+    cookie: undefined,
+    origin: 'https://1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev',
+    referer: 'https://1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev/intro',
+    'sec-ch-ua': '"Google Chrome";v="131", "Chromium";v="131", "Not_A Brand";v="24"',
+    'sec-ch-ua-mobile': '?0',
+    'sec-ch-ua-platform': '"macOS"',
+    'sec-fetch-dest': 'empty',
+    'sec-fetch-mode': 'cors',
+    'sec-fetch-site': 'same-origin',
+    'x-forwarded-for': '94.207.103.154, 10.84.4.24',
+    'x-forwarded-proto': 'https',
+    'x-replit-user-bio': '',
+    'x-replit-user-id': '',
+    'x-replit-user-name': '',
+    'x-replit-user-profile-image': '',
+    'x-replit-user-roles': '',
+    'x-replit-user-teams': '',
+    'x-replit-user-url': ''
+  },
+  timestamp: '2024-12-19T10:56:23.449Z'
+}
+[Request Debug] {
+  method: 'POST',
+  path: '/api/admin/free-registration-token',
+  headers: {
+    host: '1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev',
+    'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
+    'content-length': '54',
+    accept: '*/*',
+    'accept-encoding': 'gzip, deflate, br, zstd',
+    'accept-language': 'en-US,en;q=0.9,fr-FR;q=0.8,fr;q=0.7',
+    'content-type': 'application/json',
+    cookie: 'connect.sid=s%3AuooNcFvcOs4BOPKZfIutf8sF7R9qtzx1.r%2BhH15s7qY%2FDbwmGzN9Sn3WkNuSOzXJEbdM8c0JC1WQ',
+    origin: 'https://1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev',
+    referer: 'https://1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev/intro',
+    'sec-ch-ua': '"Google Chrome";v="131", "Chromium";v="131", "Not_A Brand";v="24"',
+    'sec-ch-ua-mobile': '?0',
+    'sec-ch-ua-platform': '"macOS"',
+    'sec-fetch-dest': 'empty',
+    'sec-fetch-mode': 'cors',
+    'sec-fetch-site': 'same-origin',
+    'x-forwarded-for': '94.207.103.154, 10.84.4.24',
+    'x-forwarded-proto': 'https',
+    'x-replit-user-bio': '',
+    'x-replit-user-id': '',
+    'x-replit-user-name': '',
+    'x-replit-user-profile-image': '',
+    'x-replit-user-roles': '',
+    'x-replit-user-teams': '',
+    'x-replit-user-url': ''
+  },
+  body: { parameters: { is_intro: true, source: 'intro_flow' } },
+  timestamp: '2024-12-19T10:56:23.450Z'
+}
+[Session Debug] {
+  sessionID: 'g_C0aw8LUH7breg3vheohY4OlpOjyJK2',
+  hasSession: true,
+  isAuthenticated: false,
+  user: null,
+  cookies: undefined
+}
+[Request Debug] {
+  method: 'POST',
+  path: '/api/admin/free-registration-token',
+  headers: {
+    host: '1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev',
+    'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
+    'content-length': '54',
+    accept: '*/*',
+    'accept-encoding': 'gzip, deflate, br, zstd',
+    'accept-language': 'en-US,en;q=0.9,fr-FR;q=0.8,fr;q=0.7',
+    'content-type': 'application/json',
+    cookie: 'connect.sid=s%3AuooNcFvcOs4BOPKZfIutf8sF7R9qtzx1.r%2BhH15s7qY%2FDbwmGzN9Sn3WkNuSOzXJEbdM8c0JC1WQ',
+    origin: 'https://1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev',
+    referer: 'https://1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev/intro',
+    'sec-ch-ua': '"Google Chrome";v="131", "Chromium";v="131", "Not_A Brand";v="24"',
+    'sec-ch-ua-mobile': '?0',
+    'sec-ch-ua-platform': '"macOS"',
+    'sec-fetch-dest': 'empty',
+    'sec-fetch-mode': 'cors',
+    'sec-fetch-site': 'same-origin',
+    'x-forwarded-for': '94.207.103.154, 10.84.4.24',
+    'x-forwarded-proto': 'https',
+    'x-replit-user-bio': '',
+    'x-replit-user-id': '',
+    'x-replit-user-name': '',
+    'x-replit-user-profile-image': '',
+    'x-replit-user-roles': '',
+    'x-replit-user-teams': '',
+    'x-replit-user-url': ''
+  },
+  body: { parameters: { is_intro: true, source: 'intro_flow' } },
+  timestamp: '2024-12-19T10:56:23.450Z'
+}
+[Response Debug] {
+  path: '/free-registration-token',
+  statusCode: 200,
+  responseData: '{"token":"cdc98db9-7f2c-4796-a69c-ed396487ac60"}',
+  timestamp: '2024-12-19T10:56:23.939Z'
+}
+[Response Debug] {
+  path: '/free-registration-token',
+  statusCode: 200,
+  responseData: '{"token":"cdc98db9-7f2c-4796-a69c-ed396487ac60"}',
+  timestamp: '2024-12-19T10:56:23.940Z'
+}
+10:56:23 AM [express] POST /api/admin/free-registration-token 200 in 490ms :: {"token":"cdc98db9-7f2c…

@@ -1,0 +1,54 @@
+GAMMA SESSION PAGE
+
+Day calculation: 
+
+Object {lastAccessDate: undefined, firstAccessDate: undefined, totalSessions: undefined, daysSinceStart: 1, estTime: "12/16/2024, 3:17:25 AM"}
+Day calculation: 
+
+Object {lastAccessDate: Date, firstAccessDate: Date, totalSessions: 0, daysSinceStart: 1, estTime: "12/16/2024, 3:17:25 AM"}
+Day calculation: 
+
+Object {lastAccessDate: Date, firstAccessDate: Date, totalSessions: 0, daysSinceStart: 1, estTime: "12/16/2024, 3:17:25 AM"}
+Day calculation: 
+
+Object {lastAccessDate: Date, firstAccessDate: Date, totalSessions: 0, daysSinceStart: 1, estTime: "12/16/2024, 3:17:26 AM"}
+Day calculation: 
+
+Object {lastAccessDate: Date, firstAccessDate: Date, totalSessions: 0, daysSinceStart: 1, estTime: "12/16/2024, 3:17:26 AM"}
+Day changed, refreshing session data: 
+
+Object {oldDay: undefined, newDay: 1}
+Day changed in neural session check: 
+
+Object {oldDay: 0, newDay: 1}
+Generate button clicked, selected frequency: abundance
+Selected audio track: 
+
+Object {frequencyType: "abundance", selectedTrack: "/api/audio/track?index=8", recentlyPlayed: Array(1)}
+Fetching audio file: /api/audio/track?index=8
+Received audio blob: 
+
+Object {size: 16799868, type: "audio/mpeg"}
+Created object URL for validation: blob:https://d5689183-ac46-41d4-9bc6-d5e31834b020-00-6ysctczc29ea.sisko.replit.dev/7bf5e038-634f-4b93-9348-a9adf131fa2b
+Audio validation successful - can play through
+Day changed in neural session check: 
+
+Object {oldDay: 0, newDay: 1}
+Day calculation: 
+
+Object {lastAccessDate: Date, firstAccessDate: Date, totalSessions: 0, daysSinceStart: 1, estTime: "12/16/2024, 3:17:56 AM"}
+Day calculation: 
+
+Object {lastAccessDate: Date, firstAccessDate: Date, totalSessions: 0, daysSinceStart: 1, estTime: "12/16/2024, 3:17:56 AM"}
+Day calculation: 
+
+Object {lastAccessDate: Date, firstAccessDate: Date, totalSessions: 0, daysSinceStart: 1, estTime: "12/16/2024, 3:17:58 AM"}
+Day calculation: 
+
+Object {lastAccessDate: Date, firstAccessDate: Date, totalSessions: 0, daysSinceStart: 1, estTime: "12/16/2024, 3:17:58 AM"}
+Day calculation: 
+
+Object {lastAccessDate: Date, firstAccessDate: Date, totalSessions: 0, daysSinceStart: 1, estTime: "12/16/2024, 3:17:58 AM"}
+Day calculation: 
+
+Object {lastAccessDate: Date, firstAccessDate: Date, totalSessions: 0, daysSinceStart: 1, estTime: "12/16/2024, 3:17:58 AM"}

@@ -1,0 +1,571 @@
+[Request Debug] {
+  method: 'GET',
+  path: '/api/admin/token-info',
+  headers: {
+    host: '1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev',
+    'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
+    accept: '*/*',
+    'accept-encoding': 'gzip, deflate, br, zstd',
+    'accept-language': 'en-US,en;q=0.9,fr-FR;q=0.8,fr;q=0.7',
+    cookie: 'connect.sid=s%3AINqN92asALT0Wsr3Q6tahQzppN9g7lM6.6FlRjhouTPuZ%2F30blj%2FShou8XyGeCKUr4TZSUgmZz3g',
+    referer: 'https://1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev/register?token=1a7acfed-c2cb-4938-9b90-62c6927e1863&utm_source=test&utm_adid=123&utm_angle=wealth&utm_funnel=social&utm_raw=%5Bobject+Object%5D',
+    'sec-ch-ua': '"Google Chrome";v="131", "Chromium";v="131", "Not_A Brand";v="24"',
+    'sec-ch-ua-mobile': '?0',
+    'sec-ch-ua-platform': '"macOS"',
+    'sec-fetch-dest': 'empty',
+    'sec-fetch-mode': 'cors',
+    'sec-fetch-site': 'same-origin',
+    'x-forwarded-for': '94.207.103.154, 10.84.5.20',
+    'x-forwarded-proto': 'https',
+    'x-replit-user-bio': '',
+    'x-replit-user-id': '',
+    'x-replit-user-name': '',
+    'x-replit-user-profile-image': '',
+    'x-replit-user-roles': '',
+    'x-replit-user-teams': '',
+    'x-replit-user-url': ''
+  },
+  body: {},
+  timestamp: '2024-12-19T14:18:26.448Z'
+}
+[Response Debug] {
+  path: '/token-info',
+  statusCode: 401,
+  responseData: '{"message":"Unauthorized"}',
+  timestamp: '2024-12-19T14:18:26.448Z'
+}
+[Response Debug] {
+  path: '/token-info',
+  statusCode: 401,
+  responseData: '{"message":"Unauthorized"}',
+  timestamp: '2024-12-19T14:18:26.449Z'
+}
+2:18:26 PM [express] GET /api/admin/token-info 401 in 1ms :: {"message":"Unauthorized"}
+[Request Start] {
+  requestId: '6hh5w5',
+  method: 'POST',
+  path: '/api/register',
+  query: {},
+  body: {
+    username: 'freeuser27',
+    password: 'freeuser76',
+    email: 'freeuser27@gmail.com',
+    token: '1a7acfed-c2cb-4938-9b90-62c6927e1863',
+    utm_data: {
+      source: 'test',
+      adid: '123',
+      angle: 'wealth',
+      funnel: 'social',
+      raw: [Object]
+    }
+  },
+  headers: {
+    host: '1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev',
+    'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
+    'content-length': '292',
+    accept: '*/*',
+    'accept-encoding': 'gzip, deflate, br, zstd',
+    'accept-language': 'en-US,en;q=0.9,fr-FR;q=0.8,fr;q=0.7',
+    'content-type': 'application/json',
+    cookie: undefined,
+    origin: 'https://1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev',
+    referer: 'https://1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev/register?token=1a7acfed-c2cb-4938-9b90-62c6927e1863&utm_source=test&utm_adid=123&utm_angle=wealth&utm_funnel=social&utm_raw=%5Bobject+Object%5D',
+    'sec-ch-ua': '"Google Chrome";v="131", "Chromium";v="131", "Not_A Brand";v="24"',
+    'sec-ch-ua-mobile': '?0',
+    'sec-ch-ua-platform': '"macOS"',
+    'sec-fetch-dest': 'empty',
+    'sec-fetch-mode': 'cors',
+    'sec-fetch-site': 'same-origin',
+    'x-forwarded-for': '94.207.103.154, 10.84.5.20',
+    'x-forwarded-proto': 'https',
+    'x-replit-user-bio': '',
+    'x-replit-user-id': '',
+    'x-replit-user-name': '',
+    'x-replit-user-profile-image': '',
+    'x-replit-user-roles': '',
+    'x-replit-user-teams': '',
+    'x-replit-user-url': ''
+  },
+  timestamp: '2024-12-19T14:18:26.498Z'
+}
+[Request Debug] {
+  method: 'POST',
+  path: '/api/register',
+  headers: {
+    host: '1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev',
+    'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
+    'content-length': '292',
+    accept: '*/*',
+    'accept-encoding': 'gzip, deflate, br, zstd',
+    'accept-language': 'en-US,en;q=0.9,fr-FR;q=0.8,fr;q=0.7',
+    'content-type': 'application/json',
+    cookie: 'connect.sid=s%3AINqN92asALT0Wsr3Q6tahQzppN9g7lM6.6FlRjhouTPuZ%2F30blj%2FShou8XyGeCKUr4TZSUgmZz3g',
+    origin: 'https://1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev',
+    referer: 'https://1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev/register?token=1a7acfed-c2cb-4938-9b90-62c6927e1863&utm_source=test&utm_adid=123&utm_angle=wealth&utm_funnel=social&utm_raw=%5Bobject+Object%5D',
+    'sec-ch-ua': '"Google Chrome";v="131", "Chromium";v="131", "Not_A Brand";v="24"',
+    'sec-ch-ua-mobile': '?0',
+    'sec-ch-ua-platform': '"macOS"',
+    'sec-fetch-dest': 'empty',
+    'sec-fetch-mode': 'cors',
+    'sec-fetch-site': 'same-origin',
+    'x-forwarded-for': '94.207.103.154, 10.84.5.20',
+    'x-forwarded-proto': 'https',
+    'x-replit-user-bio': '',
+    'x-replit-user-id': '',
+    'x-replit-user-name': '',
+    'x-replit-user-profile-image': '',
+    'x-replit-user-roles': '',
+    'x-replit-user-teams': '',
+    'x-replit-user-url': ''
+  },
+  body: {
+    username: 'freeuser27',
+    password: 'freeuser76',
+    email: 'freeuser27@gmail.com',
+    token: '1a7acfed-c2cb-4938-9b90-62c6927e1863',
+    utm_data: {
+      source: 'test',
+      adid: '123',
+      angle: 'wealth',
+      funnel: 'social',
+      raw: [Object]
+    }
+  },
+  timestamp: '2024-12-19T14:18:26.499Z'
+}
+[Session Debug] {
+  sessionID: 'wYkPg2RaTdLlg6fuE905ccCc33nn_LIF',
+  hasSession: true,
+  isAuthenticated: false,
+  user: null,
+  cookies: undefined
+}
+[Registration Debug] New registration attempt: {
+  body: {
+    username: 'freeuser27',
+    password: 'freeuser76',
+    email: 'freeuser27@gmail.com',
+    token: '1a7acfed-c2cb-4938-9b90-62c6927e1863',
+    utm_data: {
+      source: 'test',
+      adid: '123',
+      angle: 'wealth',
+      funnel: 'social',
+      raw: [Object]
+    }
+  },
+  headers: {
+    host: '1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev',
+    'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
+    'content-length': '292',
+    accept: '*/*',
+    'accept-encoding': 'gzip, deflate, br, zstd',
+    'accept-language': 'en-US,en;q=0.9,fr-FR;q=0.8,fr;q=0.7',
+    'content-type': 'application/json',
+    cookie: 'connect.sid=s%3AINqN92asALT0Wsr3Q6tahQzppN9g7lM6.6FlRjhouTPuZ%2F30blj%2FShou8XyGeCKUr4TZSUgmZz3g',
+    origin: 'https://1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev',
+    referer: 'https://1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev/register?token=1a7acfed-c2cb-4938-9b90-62c6927e1863&utm_source=test&utm_adid=123&utm_angle=wealth&utm_funnel=social&utm_raw=%5Bobject+Object%5D',
+    'sec-ch-ua': '"Google Chrome";v="131", "Chromium";v="131", "Not_A Brand";v="24"',
+    'sec-ch-ua-mobile': '?0',
+    'sec-ch-ua-platform': '"macOS"',
+    'sec-fetch-dest': 'empty',
+    'sec-fetch-mode': 'cors',
+    'sec-fetch-site': 'same-origin',
+    'x-forwarded-for': '94.207.103.154, 10.84.5.20',
+    'x-forwarded-proto': 'https',
+    'x-replit-user-bio': '',
+    'x-replit-user-id': '',
+    'x-replit-user-name': '',
+    'x-replit-user-profile-image': '',
+    'x-replit-user-roles': '',
+    'x-replit-user-teams': '',
+    'x-replit-user-url': ''
+  },
+  timestamp: '2024-12-19T14:18:26.500Z'
+}
+[Registration Debug] Parsed registration data: { hasUsername: true, hasPassword: true, hasToken: true }
+[Registration Debug] Token lookup result: {
+  tokenFound: true,
+  isActive: true,
+  subscriptionType: 'free',
+  tokenCreatedAt: '2024-12-19 14:17:33.149847'
+}
+[Registration Debug] Checking for existing user: freeuser27
+[Registration Debug] Starting user creation: { username: 'freeuser27', subscriptionType: 'free' }
+[Registration Debug] Password hashed successfully
+[Registration Debug] Processing registration token: {
+  token: '1a7acfed-c2cb-4938-9b90-62c6927e1863',
+  tokenId: 26,
+  parameters: {},
+  rawParameters: undefined,
+  isActive: true,
+  subscriptionType: 'free',
+  timestamp: '2024-12-19T14:18:28.433Z'
+}
+[Registration Debug] Intro flow status: {
+  isIntro: false,
+  parameterValue: undefined,
+  parameterType: 'undefined',
+  timestamp: '2024-12-19T14:18:28.433Z'
+}
+[UTM Debug] Processing UTM data during registration: {
+  hasUtmData: true,
+  utmDataContent: {
+    source: 'test',
+    adid: '123',
+    angle: 'wealth',
+    funnel: 'social',
+    raw: {
+      utm_source: 'test',
+      utm_adid: '123',
+      utm_angle: 'wealth',
+      utm_funnel: 'social'
+    }
+  },
+  requestBody: {
+    username: 'freeuser27',
+    password: 'freeuser76',
+    email: 'freeuser27@gmail.com',
+    token: '1a7acfed-c2cb-4938-9b90-62c6927e1863',
+    utm_data: {
+      source: 'test',
+      adid: '123',
+      angle: 'wealth',
+      funnel: 'social',
+      raw: [Object]
+    }
+  },
+  headers: {
+    host: '1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev',
+    'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
+    'content-length': '292',
+    accept: '*/*',
+    'accept-encoding': 'gzip, deflate, br, zstd',
+    'accept-language': 'en-US,en;q=0.9,fr-FR;q=0.8,fr;q=0.7',
+    'content-type': 'application/json',
+    cookie: 'connect.sid=s%3AINqN92asALT0Wsr3Q6tahQzppN9g7lM6.6FlRjhouTPuZ%2F30blj%2FShou8XyGeCKUr4TZSUgmZz3g',
+    origin: 'https://1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev',
+    referer: 'https://1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev/register?token=1a7acfed-c2cb-4938-9b90-62c6927e1863&utm_source=test&utm_adid=123&utm_angle=wealth&utm_funnel=social&utm_raw=%5Bobject+Object%5D',
+    'sec-ch-ua': '"Google Chrome";v="131", "Chromium";v="131", "Not_A Brand";v="24"',
+    'sec-ch-ua-mobile': '?0',
+    'sec-ch-ua-platform': '"macOS"',
+    'sec-fetch-dest': 'empty',
+    'sec-fetch-mode': 'cors',
+    'sec-fetch-site': 'same-origin',
+    'x-forwarded-for': '94.207.103.154, 10.84.5.20',
+    'x-forwarded-proto': 'https',
+    'x-replit-user-bio': '',
+    'x-replit-user-id': '',
+    'x-replit-user-name': '',
+    'x-replit-user-profile-image': '',
+    'x-replit-user-roles': '',
+    'x-replit-user-teams': '',
+    'x-replit-user-url': ''
+  },
+  timestamp: '2024-12-19T14:18:28.928Z'
+}
+[UTM Debug] Attempting to store UTM data: {
+  userId: 21,
+  utmFields: { source: 'test', adid: '123', angle: 'wealth', funnel: 'social' },
+  rawParams: {
+    utm_source: 'test',
+    utm_adid: '123',
+    utm_angle: 'wealth',
+    utm_funnel: 'social'
+  },
+  timestamp: '2024-12-19T14:18:28.929Z'
+}
+[Registration Debug] Failed to store UTM data: {
+  error: {
+    name: 'error',
+    message: 'relation "utm_tracking" does not exist',
+    stack: 'error: relation "utm_tracking" does not exist\n' +
+      '    at /home/runner/NeuroWealthAI-VoiceAlignment-New-UI-Dec16-Part5/node_modules/pg/lib/client.js:535:17\n' +
+      '    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n' +
+      '    at <anonymous> (/home/runner/NeuroWealthAI-VoiceAlignment-New-UI-Dec16-Part5/node_modules/src/node-postgres/session.ts:104:19)\n' +
+      '    at <anonymous> (/home/runner/NeuroWealthAI-VoiceAlignment-New-UI-Dec16-Part5/server/auth.ts:443:31)\n' +
+      '    at NodePgSession.transaction (/home/runner/NeuroWealthAI-VoiceAlignment-New-UI-Dec16-Part5/node_modules/src/node-postgres/session.ts:193:19)\n' +
+      '    at <anonymous> (/home/runner/NeuroWealthAI-VoiceAlignment-New-UI-Dec16-Part5/server/auth.ts:402:25)'
+  },
+  userId: 21,
+  utmData: {
+    source: 'test',
+    adid: '123',
+    angle: 'wealth',
+    funnel: 'social',
+    raw: {
+      utm_source: 'test',
+      utm_adid: '123',
+      utm_angle: 'wealth',
+      utm_funnel: 'social'
+    }
+  },
+  registrationToken: '1a7acfed-c2cb-4938-9b90-62c6927e1863',
+  tokenParameters: undefined,
+  timestamp: '2024-12-19T14:18:29.157Z'
+}
+[Registration Debug] User created successfully: { userId: 21, username: 'freeuser27', subscriptionStatus: 'free' }
+[Registration Debug] Failed to mark token as used: {
+  error: error: insert or update on table "registration_tokens" violates foreign key constraint "registration_tokens_used_by_fkey"
+      at /home/runner/NeuroWealthAI-VoiceAlignment-New-UI-Dec16-Part5/node_modules/pg-pool/index.js:45:11
+      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at <anonymous> (/home/runner/NeuroWealthAI-VoiceAlignment-New-UI-Dec16-Part5/server/auth.ts:490:9) {
+    length: 299,
+    severity: 'ERROR',
+    code: '23503',
+    detail: 'Key (used_by)=(21) is not present in table "users".',
+    hint: undefined,
+    position: undefined,
+    internalPosition: undefined,
+    internalQuery: undefined,
+    where: undefined,
+    schema: 'public',
+    table: 'registration_tokens',
+    column: undefined,
+    dataType: undefined,
+    constraint: 'registration_tokens_used_by_fkey',
+    file: 'ri_triggers.c',
+    line: '2608',
+    routine: 'ri_ReportViolation'
+  },
+  token: '1a7acfed-c2cb-4938-9b90-62c6927e1863',
+  userId: 21
+}
+[Registration Debug] Registration and login completed successfully: { userId: 21, username: 'freeuser27' }
+[Response Debug] {
+  path: '/api/register',
+  statusCode: 200,
+  responseData: '{"message":"Registration successful","user":{"id":21,"username":"freeuser27"}}',
+  timestamp: '2024-12-19T14:18:29.608Z'
+}
+2:18:29 PM [express] POST /api/register 200 in 3110ms :: {"message":"Registration successful","user"…
+[Request Start] {
+  requestId: '86tyxh',
+  method: 'GET',
+  path: '/',
+  query: {},
+  body: {},
+  headers: {
+    host: '1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev',
+    'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
+    accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+    'accept-encoding': 'identity, gzip, deflate, br, zstd',
+    'accept-language': 'en-US,en;q=0.9,fr-FR;q=0.8,fr;q=0.7',
+    cookie: undefined,
+    referer: 'https://1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev/register?token=1a7acfed-c2cb-4938-9b90-62c6927e1863&utm_source=test&utm_adid=123&utm_angle=wealth&utm_funnel=social&utm_raw=%5Bobject+Object%5D',
+    'sec-ch-ua': '"Google Chrome";v="131", "Chromium";v="131", "Not_A Brand";v="24"',
+    'sec-ch-ua-mobile': '?0',
+    'sec-ch-ua-platform': '"macOS"',
+    'sec-fetch-dest': 'iframe',
+    'sec-fetch-mode': 'navigate',
+    'sec-fetch-site': 'same-origin',
+    'sec-fetch-user': '?1',
+    'upgrade-insecure-requests': '1',
+    'x-forwarded-for': '94.207.103.154, 10.84.5.20',
+    'x-forwarded-proto': 'https',
+    'x-replit-user-bio': '',
+    'x-replit-user-id': '',
+    'x-replit-user-name': '',
+    'x-replit-user-profile-image': '',
+    'x-replit-user-roles': '',
+    'x-replit-user-teams': '',
+    'x-replit-user-url': ''
+  },
+  timestamp: '2024-12-19T14:18:29.659Z'
+}
+[Request Debug] {
+  method: 'GET',
+  path: '/',
+  headers: {
+    host: '1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev',
+    'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
+    accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+    'accept-encoding': 'identity, gzip, deflate, br, zstd',
+    'accept-language': 'en-US,en;q=0.9,fr-FR;q=0.8,fr;q=0.7',
+    cookie: 'connect.sid=s%3AJdcJ6s8bPF_3reoevfxRKTX09FsSE4vA.U90ijdhqQ04VFUbhka8vzYa2gTKradRs6c7eNVjKk2g',
+    referer: 'https://1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev/register?token=1a7acfed-c2cb-4938-9b90-62c6927e1863&utm_source=test&utm_adid=123&utm_angle=wealth&utm_funnel=social&utm_raw=%5Bobject+Object%5D',
+    'sec-ch-ua': '"Google Chrome";v="131", "Chromium";v="131", "Not_A Brand";v="24"',
+    'sec-ch-ua-mobile': '?0',
+    'sec-ch-ua-platform': '"macOS"',
+    'sec-fetch-dest': 'iframe',
+    'sec-fetch-mode': 'navigate',
+    'sec-fetch-site': 'same-origin',
+    'sec-fetch-user': '?1',
+    'upgrade-insecure-requests': '1',
+    'x-forwarded-for': '94.207.103.154, 10.84.5.20',
+    'x-forwarded-proto': 'https',
+    'x-replit-user-bio': '',
+    'x-replit-user-id': '',
+    'x-replit-user-name': '',
+    'x-replit-user-profile-image': '',
+    'x-replit-user-roles': '',
+    'x-replit-user-teams': '',
+    'x-replit-user-url': ''
+  },
+  body: {},
+  timestamp: '2024-12-19T14:18:29.659Z'
+}
+[Request Start] {
+  requestId: 'rea8b',
+  method: 'GET',
+  path: '/api/user',
+  query: {},
+  body: {},
+  headers: {
+    host: '1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev',
+    'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
+    accept: '*/*',
+    'accept-encoding': 'gzip, deflate, br, zstd',
+    'accept-language': 'en-US,en;q=0.9,fr-FR;q=0.8,fr;q=0.7',
+    cookie: undefined,
+    'if-none-match': 'W/"592-CBgnLnqq4Qdk+TBYuAQ73Iw78QM"',
+    referer: 'https://1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev/register?token=1a7acfed-c2cb-4938-9b90-62c6927e1863&utm_source=test&utm_adid=123&utm_angle=wealth&utm_funnel=social&utm_raw=%5Bobject+Object%5D',
+    'sec-ch-ua': '"Google Chrome";v="131", "Chromium";v="131", "Not_A Brand";v="24"',
+    'sec-ch-ua-mobile': '?0',
+    'sec-ch-ua-platform': '"macOS"',
+    'sec-fetch-dest': 'empty',
+    'sec-fetch-mode': 'cors',
+    'sec-fetch-site': 'same-origin',
+    'x-forwarded-for': '94.207.103.154, 10.84.1.6',
+    'x-forwarded-proto': 'https',
+    'x-replit-user-bio': '',
+    'x-replit-user-id': '',
+    'x-replit-user-name': '',
+    'x-replit-user-profile-image': '',
+    'x-replit-user-roles': '',
+    'x-replit-user-teams': '',
+    'x-replit-user-url': ''
+  },
+  timestamp: '2024-12-19T14:18:29.667Z'
+}
+[Request Debug] {
+  method: 'GET',
+  path: '/api/user',
+  headers: {
+    host: '1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev',
+    'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
+    accept: '*/*',
+    'accept-encoding': 'gzip, deflate, br, zstd',
+    'accept-language': 'en-US,en;q=0.9,fr-FR;q=0.8,fr;q=0.7',
+    cookie: 'connect.sid=s%3AJdcJ6s8bPF_3reoevfxRKTX09FsSE4vA.U90ijdhqQ04VFUbhka8vzYa2gTKradRs6c7eNVjKk2g',
+    'if-none-match': 'W/"592-CBgnLnqq4Qdk+TBYuAQ73Iw78QM"',
+    referer: 'https://1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev/register?token=1a7acfed-c2cb-4938-9b90-62c6927e1863&utm_source=test&utm_adid=123&utm_angle=wealth&utm_funnel=social&utm_raw=%5Bobject+Object%5D',
+    'sec-ch-ua': '"Google Chrome";v="131", "Chromium";v="131", "Not_A Brand";v="24"',
+    'sec-ch-ua-mobile': '?0',
+    'sec-ch-ua-platform': '"macOS"',
+    'sec-fetch-dest': 'empty',
+    'sec-fetch-mode': 'cors',
+    'sec-fetch-site': 'same-origin',
+    'x-forwarded-for': '94.207.103.154, 10.84.1.6',
+    'x-forwarded-proto': 'https',
+    'x-replit-user-bio': '',
+    'x-replit-user-id': '',
+    'x-replit-user-name': '',
+    'x-replit-user-profile-image': '',
+    'x-replit-user-roles': '',
+    'x-replit-user-teams': '',
+    'x-replit-user-url': ''
+  },
+  body: {},
+  timestamp: '2024-12-19T14:18:29.667Z'
+}
+[Server Error] {
+  message: 'Failed to deserialize user out of session',
+  stack: 'Error: Failed to deserialize user out of session\n' +
+    '    at pass (/home/runner/NeuroWealthAI-VoiceAlignment-New-UI-Dec16-Part5/node_modules/passport/lib/authenticator.js:359:19)\n' +
+    '    at deserialized (/home/runner/NeuroWealthAI-VoiceAlignment-New-UI-Dec16-Part5/node_modules/passport/lib/authenticator.js:364:7)\n' +
+    '    at <anonymous> (/home/runner/NeuroWealthAI-VoiceAlignment-New-UI-Dec16-Part5/server/auth.ts:295:7)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)',
+  name: 'Error',
+  code: undefined,
+  path: '/api/user',
+  method: 'GET',
+  body: {},
+  query: {},
+  params: {},
+  headers: {
+    host: '1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev',
+    'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
+    accept: '*/*',
+    'accept-encoding': 'gzip, deflate, br, zstd',
+    'accept-language': 'en-US,en;q=0.9,fr-FR;q=0.8,fr;q=0.7',
+    cookie: undefined,
+    'if-none-match': 'W/"592-CBgnLnqq4Qdk+TBYuAQ73Iw78QM"',
+    referer: 'https://1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev/register?token=1a7acfed-c2cb-4938-9b90-62c6927e1863&utm_source=test&utm_adid=123&utm_angle=wealth&utm_funnel=social&utm_raw=%5Bobject+Object%5D',
+    'sec-ch-ua': '"Google Chrome";v="131", "Chromium";v="131", "Not_A Brand";v="24"',
+    'sec-ch-ua-mobile': '?0',
+    'sec-ch-ua-platform': '"macOS"',
+    'sec-fetch-dest': 'empty',
+    'sec-fetch-mode': 'cors',
+    'sec-fetch-site': 'same-origin',
+    'x-forwarded-for': '94.207.103.154, 10.84.1.6',
+    'x-forwarded-proto': 'https',
+    'x-replit-user-bio': '',
+    'x-replit-user-id': '',
+    'x-replit-user-name': '',
+    'x-replit-user-profile-image': '',
+    'x-replit-user-roles': '',
+    'x-replit-user-teams': '',
+    'x-replit-user-url': ''
+  },
+  user: null,
+  sessionID: 'JdcJ6s8bPF_3reoevfxRKTX09FsSE4vA',
+  timestamp: '2024-12-19T14:18:31.229Z'
+}
+[Response Debug] {
+  path: '/api/user',
+  statusCode: 500,
+  responseData: '{"message":"Failed to deserialize user out of session","error":{"message":"Failed to deserialize user out of session","name":"Error"}}',
+  timestamp: '2024-12-19T14:18:31.229Z'
+}
+2:18:31 PM [express] GET /api/user 500 in 1563ms :: {"message":"Failed to deserialize user out of se…
+[Server Error] {
+  message: 'Failed to deserialize user out of session',
+  stack: 'Error: Failed to deserialize user out of session\n' +
+    '    at pass (/home/runner/NeuroWealthAI-VoiceAlignment-New-UI-Dec16-Part5/node_modules/passport/lib/authenticator.js:359:19)\n' +
+    '    at deserialized (/home/runner/NeuroWealthAI-VoiceAlignment-New-UI-Dec16-Part5/node_modules/passport/lib/authenticator.js:364:7)\n' +
+    '    at <anonymous> (/home/runner/NeuroWealthAI-VoiceAlignment-New-UI-Dec16-Part5/server/auth.ts:295:7)\n' +
+    '    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)',
+  name: 'Error',
+  code: undefined,
+  path: '/',
+  method: 'GET',
+  body: {},
+  query: {},
+  params: {},
+  headers: {
+    host: '1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev',
+    'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
+    accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+    'accept-encoding': 'identity, gzip, deflate, br, zstd',
+    'accept-language': 'en-US,en;q=0.9,fr-FR;q=0.8,fr;q=0.7',
+    cookie: undefined,
+    referer: 'https://1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev/register?token=1a7acfed-c2cb-4938-9b90-62c6927e1863&utm_source=test&utm_adid=123&utm_angle=wealth&utm_funnel=social&utm_raw=%5Bobject+Object%5D',
+    'sec-ch-ua': '"Google Chrome";v="131", "Chromium";v="131", "Not_A Brand";v="24"',
+    'sec-ch-ua-mobile': '?0',
+    'sec-ch-ua-platform': '"macOS"',
+    'sec-fetch-dest': 'iframe',
+    'sec-fetch-mode': 'navigate',
+    'sec-fetch-site': 'same-origin',
+    'sec-fetch-user': '?1',
+    'upgrade-insecure-requests': '1',
+    'x-forwarded-for': '94.207.103.154, 10.84.5.20',
+    'x-forwarded-proto': 'https',
+    'x-replit-user-bio': '',
+    'x-replit-user-id': '',
+    'x-replit-user-name': '',
+    'x-replit-user-profile-image': '',
+    'x-replit-user-roles': '',
+    'x-replit-user-teams': '',
+    'x-replit-user-url': ''
+  },
+  user: null,
+  sessionID: 'JdcJ6s8bPF_3reoevfxRKTX09FsSE4vA',
+  timestamp: '2024-12-19T14:18:31.280Z'
+}
+[Response Debug] {
+  path: '/',
+  statusCode: 500,
+  responseData: '{"message":"Failed to deserialize user out of session","error":{"message":"Failed to deserialize user out of session","name":"Error"}}',
+  timestamp: '2024-12-19T14:18:31.281Z'
+}

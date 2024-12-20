@@ -1,0 +1,28 @@
+[DailyWealthInsight] Using insight: 
+Object {type: "generated", displayedInsight: "Your wealth frequency is resonating at a higher level This reflects organic wealth evolution Follow…"}
+[AudioRecorder] Session saved with insights: 
+Object {wealthScore: 56, hasWealthReading: true, hasDailyInsight: true, timestamp: "2024-12-18T12:48:03.622Z"}
+[DailyWealthInsight] Rendering with props: 
+Object {hasWealthScore: true, hasDailyInsight: false, wealthScore: 50, dailyInsight: null}
+[DailyWealthInsight] Using insight: 
+Object {type: "generated", displayedInsight: "Your wealth consciousness is evolving This reveals beneficial mindset shifts Notice what naturally…"}
+[DailyWealthInsight] Rendering with props: 
+Object {hasWealthScore: true, hasDailyInsight: false, wealthScore: 50, dailyInsight: null}
+[DailyWealthInsight] Using insight: 
+Object {type: "generated", displayedInsight: "Your wealth consciousness is evolving This indicates positive neural adaptation Listen to your…"}
+[DailyWealthInsight] Rendering with props: 
+Object {hasWealthScore: true, hasDailyInsight: false, wealthScore: 50, dailyInsight: null}
+[DailyWealthInsight] Using insight: 
+Object {type: "generated", displayedInsight: "Your prosperity alignment is deepening This points to increasing receptivity Listen to your inner…"}
+[DailyWealthInsight] Rendering with props: 
+Object {hasWealthScore: true, hasDailyInsight: false, wealthScore: 50, dailyInsight: null}
+[DailyWealthInsight] Using insight: 
+Object {type: "generated", displayedInsight: "Your wealth frequency is resonating at a higher level This suggests natural prosperity flow Allow…"}
+[DailyWealthInsight] Rendering with props: 
+Object {hasWealthScore: true, hasDailyInsight: true, wealthScore: 56, dailyInsight: "Your wealth frequency is resonating at a higher level This indicates positive neural adaptation…"}
+[DailyWealthInsight] Using insight: 
+Object {type: "stored", displayedInsight: "Your wealth frequency is resonating at a higher level This indicates positive neural adaptation…"}
+[DailyWealthInsight] Rendering with props: 
+Object {hasWealthScore: true, hasDailyInsight: true, wealthScore: 56, dailyInsight: "Your wealth frequency is resonating at a higher level This indicates positive neural adaptation…"}
+[DailyWealthInsight] Using insight: 
+Object {type: "stored", displayedInsight: "Your wealth frequency is resonating at a higher level This indicates positive neural adaptation…"}

@@ -1,0 +1,47 @@
+### Affirmation Framework
+
+Each affirmation set should contain:
+- 3 Identity-based statements
+- 3 Abundance mindset statements  
+- 3 Action-oriented statements
+- 3 Gratitude statements
+
+For the MVP, implement the same one statement per category I will give you the other ones later
+
+Affirmation Variants Database:
+
+**Identity Statements:**
+- "I am naturally aligned with wealth and abundance"
+
+**Abundance Mindset:**
+- "Money flows to me easily and effortlessly"
+
+**Action-Oriented:**
+- "I take inspired actions that multiply my wealth"
+
+**Gratitude:**
+- "I am deeply grateful for my growing wealth"
+
+### Display Format
+- Each session randomly selects affirmations from each category
+- Text should be displayed in an elegant, premium font
+- Include subtle animation effects that suggest neural activity
+- Background should feature calming wealth-associated colors (deep blues, purple, gold accents)
+- Timer shows remaining time in elegant countdown format
+
+### Key Copy Elements
+
+**Paid User Welcome Message:**
+"Welcome to your Personalized Wealth Affirmations. These statements have been precisely calibrated to match your unique neural frequency pattern, based on our advanced voice analysis. Speaking these affirmations aloud for 5 minutes daily will strengthen your wealth attraction frequency and accelerate your financial transformation."
+
+**Trial User Message:**
+"Your Wealth DNA is currently being analyzed. Our system requires 7 days of voice data to precisely calibrate affirmations that match your unique neural frequency pattern. This ensures maximum effectiveness in reprogramming your wealth consciousness."
+
+**Post-Session Message:**
+"Excellent work! You've completed today's neural wealth alignment session. Your brain's wealth frequency has been strengthened.”
+
+### Technical Requirements
+- Randomize affirmation selection while maintaining category balance
+-Make sure to increase their wealth score by 1 to 3 points (random whole number) after the session
+- Ensure mobile responsiveness
+- Include an audio player for 5 minutes for them to read the affirmations and mark them as complete only at the end of 5 minutes

@@ -1,0 +1,92 @@
+# Systematic API Debug Checklist
+
+## 1. Frontend Authentication Check
+- [ ] Is the user properly logged in? Check session status
+- [ ] Is admin status correctly set in user session?
+- [ ] Are credentials included in the fetch requests?
+- [ ] Check browser dev tools Network tab for proper auth headers
+
+## 2. API Request Validation
+- [ ] Are the API endpoints correct? ("/api/admin/tokens" and "/api/admin/users")
+- [ ] Check Network tab - are requests being made?
+- [ ] Examine request headers
+- [ ] Verify request parameters match API expectations
+
+## 3. Server Middleware Analysis
+- [ ] Is requireAdmin middleware executing?
+- [ ] Are session checks passing?
+- [ ] Check server logs for middleware errors
+- [ ] Verify admin validation logic
+
+## 4. Database Queries
+- [ ] Can you directly query the database for tokens/users?
+- [ ] Are database connections stable?
+- [ ] Check query performance/timeout issues
+- [ ] Verify data exists in expected format
+
+## 5. Error Response Analysis
+- [ ] What specific error messages are returned?
+- [ ] Check server logs for detailed errors
+- [ ] Are errors being properly caught and handled?
+- [ ] Verify error response format matches frontend expectations
+
+## 6. Component State Management
+- [ ] Is state being updated correctly after fetch?
+- [ ] Check for race conditions in updates
+- [ ] Verify loading states work properly
+- [ ] Confirm error states are handled
+
+## 7. Network/Infrastructure 
+- [ ] Any CORS issues in console?
+- [ ] Check for firewall/security blocks
+- [ ] Verify API rate limits
+- [ ] Test network latency impact
+
+## Step-by-Step Debug Process
+
+1. Enable detailed logging on both frontend and backend
+2. Reproduce the issue while monitoring:
+   - Browser Network tab
+   - Server logs
+   - Database logs
+   - Component state changes
+3. Track the request/response cycle completely
+4. Document exact point of failure
+5. Test fix in isolation before full deployment
+
+## Common Root Causes
+
+1. Authentication issues:
+   - Expired sessions
+   - Missing credentials
+   - Incorrect admin validation
+
+2. Data access problems:
+   - Database connection issues
+   - Query timeouts
+   - Missing or corrupt data
+
+3. Network problems:
+   - CORS configuration
+   - Rate limiting
+   - Firewall blocks
+
+4. State management:
+   - Race conditions
+   - Incorrect error handling
+   - State update failures
+
+## Resolution Steps
+
+1. Identify exact failure point using checklist
+2. Isolate the specific component/system failing
+3. Test fix in development environment
+4. Verify fix doesn't impact other systems
+5. Deploy with appropriate logging
+6. Monitor for recurrence
+
+Remember to document:
+- Exact error messages
+- System state when error occurs
+- Steps to reproduce
+- Fix attempted and results

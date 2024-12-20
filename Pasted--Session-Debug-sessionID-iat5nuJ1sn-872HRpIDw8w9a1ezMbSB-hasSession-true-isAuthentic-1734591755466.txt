@@ -1,0 +1,99 @@
+[Session Debug] {
+  sessionID: '-iat5nuJ1sn-872HRpIDw8w9a1ezMbSB',
+  hasSession: true,
+  isAuthenticated: true,
+  user: { id: 9, username: 'freeuser1' },
+  cookies: undefined
+}
+Error creating checkout session: StripeInvalidRequestError: Received unknown parameter: line_items[0][price_data][recurring][trial_period_days]
+    at generateV1Error (file:///home/runner/NeuroWealthAI-VoiceAlignment-New-UI-Dec16-Part5/node_modules/stripe/esm/Error.js:8:20)
+    at res.toJSON.then.StripeAPIError.message (file:///home/runner/NeuroWealthAI-VoiceAlignment-New-UI-Dec16-Part5/node_modules/stripe/esm/RequestSender.js:105:31)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  type: 'StripeInvalidRequestError',
+  raw: {
+    code: 'parameter_unknown',
+    doc_url: 'https://stripe.com/docs/error-codes/parameter-unknown',
+    message: 'Received unknown parameter: line_items[0][price_data][recurring][trial_period_days]',
+    param: 'line_items[0][price_data][recurring][trial_period_days]',
+    request_log_url: 'https://dashboard.stripe.com/logs/req_nhThaHu7y4ubfl?t=1734591714',
+    type: 'invalid_request_error',
+    headers: {
+      server: 'nginx',
+      date: 'Thu, 19 Dec 2024 07:01:54 GMT',
+      'content-type': 'application/json',
+      'content-length': '428',
+      connection: 'keep-alive',
+      'access-control-allow-credentials': 'true',
+      'access-control-allow-methods': 'GET, HEAD, PUT, PATCH, POST, DELETE',
+      'access-control-allow-origin': '*',
+      'access-control-expose-headers': 'Request-Id, Stripe-Manage-Version, Stripe-Should-Retry, X-Stripe-External-Auth-Required, X-Stripe-Privileged-Session-Required',
+      'access-control-max-age': '300',
+      'cache-control': 'no-cache, no-store',
+      'content-security-policy': "base-uri 'none'; default-src 'none'; form-action 'none'; frame-ancestors 'none'; img-src 'self'; script-src 'self' 'report-sample'; style-src 'self'; upgrade-insecure-requests; report-uri /csp-violation https://q.stripe.com/csp-violation?q=uCNsKoV9q_EPtfVSGRBSTXQLzyoij4P6FIBVH239QJPlAp-HFY0erVf7iQoGHFEMu-9z96JDJA%3D%3D",
+      'cross-origin-opener-policy-report-only': 'same-origin; report-to="coop"',
+      'idempotency-key': 'stripe-node-retry-6a37a473-9660-465a-90ba-af3f4c4817fb',
+      'original-request': 'req_nhThaHu7y4ubfl',
+      'report-to': '{"group":"coop","max_age":8640,"endpoints":[{"url":"https://q.stripe.com/coop-report"}],"include_subdomains":true}',
+      'reporting-endpoints': 'coop="https://q.stripe.com/coop-report"',
+      'request-id': 'req_nhThaHu7y4ubfl',
+      'stripe-version': '2023-10-16',
+      vary: 'Origin',
+      'x-content-type-options': 'nosniff',
+      'x-stripe-priority-routing-enabled': 'true',
+      'x-stripe-routing-context-priority-tier': 'livemode-critical',
+      'x-wc': 'AB',
+      'strict-transport-security': 'max-age=63072000; includeSubDomains; preload'
+    },
+    statusCode: 400,
+    requestId: 'req_nhThaHu7y4ubfl'
+  },
+  rawType: 'invalid_request_error',
+  code: 'parameter_unknown',
+  doc_url: 'https://stripe.com/docs/error-codes/parameter-unknown',
+  param: 'line_items[0][price_data][recurring][trial_period_days]',
+  detail: undefined,
+  headers: {
+    server: 'nginx',
+    date: 'Thu, 19 Dec 2024 07:01:54 GMT',
+    'content-type': 'application/json',
+    'content-length': '428',
+    connection: 'keep-alive',
+    'access-control-allow-credentials': 'true',
+    'access-control-allow-methods': 'GET, HEAD, PUT, PATCH, POST, DELETE',
+    'access-control-allow-origin': '*',
+    'access-control-expose-headers': 'Request-Id, Stripe-Manage-Version, Stripe-Should-Retry, X-Stripe-External-Auth-Required, X-Stripe-Privileged-Session-Required',
+    'access-control-max-age': '300',
+    'cache-control': 'no-cache, no-store',
+    'content-security-policy': "base-uri 'none'; default-src 'none'; form-action 'none'; frame-ancestors 'none'; img-src 'self'; script-src 'self' 'report-sample'; style-src 'self'; upgrade-insecure-requests; report-uri /csp-violation https://q.stripe.com/csp-violation?q=uCNsKoV9q_EPtfVSGRBSTXQLzyoij4P6FIBVH239QJPlAp-HFY0erVf7iQoGHFEMu-9z96JDJA%3D%3D",
+    'cross-origin-opener-policy-report-only': 'same-origin; report-to="coop"',
+    'idempotency-key': 'stripe-node-retry-6a37a473-9660-465a-90ba-af3f4c4817fb',
+    'original-request': 'req_nhThaHu7y4ubfl',
+    'report-to': '{"group":"coop","max_age":8640,"endpoints":[{"url":"https://q.stripe.com/coop-report"}],"include_subdomains":true}',
+    'reporting-endpoints': 'coop="https://q.stripe.com/coop-report"',
+    'request-id': 'req_nhThaHu7y4ubfl',
+    'stripe-version': '2023-10-16',
+    vary: 'Origin',
+    'x-content-type-options': 'nosniff',
+    'x-stripe-priority-routing-enabled': 'true',
+    'x-stripe-routing-context-priority-tier': 'livemode-critical',
+    'x-wc': 'AB',
+    'strict-transport-security': 'max-age=63072000; includeSubDomains; preload'
+  },
+  requestId: 'req_nhThaHu7y4ubfl',
+  statusCode: 400,
+  userMessage: undefined,
+  charge: undefined,
+  decline_code: undefined,
+  payment_intent: undefined,
+  payment_method: undefined,
+  payment_method_type: undefined,
+  setup_intent: undefined,
+  source: undefined
+}
+[Response Debug] {
+  path: '/create-checkout-session',
+  statusCode: 500,
+  responseData: '{"message":"Failed to create checkout session","error":"Received unknown parameter: line_items[0][price_data][recurring][trial_period_days]"}',
+  timestamp: '2024-12-19T07:01:54.594Z'
+}
+7:01:54 AM [express] POST /api/stripe/create-checkout-session 500 in 2380ms :: {"message":"Failed to…

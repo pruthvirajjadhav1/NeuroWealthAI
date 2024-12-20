@@ -1,0 +1,33 @@
+I need to create a simple web component that shows a user's "Wealth DNA Evolution Stage" based on their wealth score (0-100). Here are the key requirements:
+
+Display the current stage name, description, and score range prominently
+Show a visual progress indicator
+Include brief text about what to expect at the next stage
+
+Here's the complete content for each stage:
+Stage 1 (0-20): "Wealth DNA Awakening"
+
+Current stage text: "You're starting to break free from old wealth-blocking patterns. Your brain is beginning to recognize new opportunities."
+Next stage preview: "As your score increases, you'll enter the Abundance Pattern Formation stage where your neural pathways begin rewiring to spot hidden opportunities."
+
+Stage 2 (20-40): "Abundance Pattern Formation"
+
+Current stage text: "Your neural pathways are rewiring to spot hidden opportunities. You'll notice yourself making more confident financial decisions."
+Next stage preview: "Next, you'll reach the Wealth Frequency Activation stage where your wealth frequency aligns with natural abundance patterns."
+
+Stage 3 (40-60): "Wealth Frequency Activation"
+
+Current stage text: "Your wealth frequency is now aligned with natural abundance patterns. You'll start attracting unexpected money-making opportunities."
+Next stage preview: "Soon you'll enter the Success Circuit Integration stage where your new wealth DNA becomes your natural state."
+
+Stage 4 (60-80): "Success Circuit Integration"
+
+Current stage text: "Your new wealth DNA is becoming your natural state. Others will notice a shift in how you carry yourself."
+Next stage preview: "You're approaching Peak Wealth Resonance where your brain will naturally operate at optimal wealth frequencies."
+
+Stage 5 (80-100): "Peak Wealth Resonance"
+
+Current stage text: "Your brain now naturally operates at optimal wealth frequencies. You've developed the same neural patterns as self-made millionaires."
+Next stage preview: "You've reached the highest stage of Wealth DNA Evolution. Keep maintaining these optimal patterns!"
+
+The component should accept a score prop/parameter that determines which stage to display. Please create a clean, modern design that emphasizes achievement and progress.

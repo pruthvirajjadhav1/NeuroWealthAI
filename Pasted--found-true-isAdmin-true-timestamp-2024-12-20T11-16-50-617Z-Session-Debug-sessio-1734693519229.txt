@@ -1,0 +1,777 @@
+  found: true,
+  isAdmin: true,
+  timestamp: '2024-12-20T11:16:50.617Z'
+}
+[Session Debug] {
+  sessionID: '32qYLptdyQtHFR1JyrxgVk4l2LU86j61',
+  hasSession: true,
+  isAuthenticated: true,
+  path: '/src/components/ui/progress.tsx',
+  method: 'GET',
+  user: { id: 1, username: 'admin', isAdmin: true },
+  timestamp: '2024-12-20T11:16:50.617Z'
+}
+[User Deserialization Start] { userId: 1, timestamp: '2024-12-20T11:16:50.617Z' }
+[User Deserialization Result] {
+  userId: 1,
+  found: true,
+  isAdmin: true,
+  timestamp: '2024-12-20T11:16:50.623Z'
+}
+[User Deserialization Start] { userId: 1, timestamp: '2024-12-20T11:16:50.672Z' }
+[User Deserialization Result] {
+  userId: 1,
+  found: true,
+  isAdmin: true,
+  timestamp: '2024-12-20T11:16:50.695Z'
+}
+[Session Debug] {
+  sessionID: '32qYLptdyQtHFR1JyrxgVk4l2LU86j61',
+  hasSession: true,
+  isAuthenticated: true,
+  path: '/src/components/FrequencySelector.tsx',
+  method: 'GET',
+  user: { id: 1, username: 'admin', isAdmin: true },
+  timestamp: '2024-12-20T11:16:50.695Z'
+}
+[User Deserialization Start] { userId: 1, timestamp: '2024-12-20T11:16:50.695Z' }
+[User Deserialization Result] {
+  userId: 1,
+  found: true,
+  isAdmin: true,
+  timestamp: '2024-12-20T11:16:50.707Z'
+}
+[Session Debug] {
+  sessionID: '32qYLptdyQtHFR1JyrxgVk4l2LU86j61',
+  hasSession: true,
+  isAuthenticated: true,
+  path: '/src/components/PremiumFeature.tsx',
+  method: 'GET',
+  user: { id: 1, username: 'admin', isAdmin: true },
+  timestamp: '2024-12-20T11:16:50.707Z'
+}
+[User Deserialization Start] { userId: 1, timestamp: '2024-12-20T11:16:50.707Z' }
+[User Deserialization Result] {
+  userId: 1,
+  found: true,
+  isAdmin: true,
+  timestamp: '2024-12-20T11:16:50.798Z'
+}
+[User Deserialization Result] {
+  userId: 1,
+  found: true,
+  isAdmin: true,
+  timestamp: '2024-12-20T11:16:50.827Z'
+}
+[User Deserialization Start] { userId: 1, timestamp: '2024-12-20T11:16:50.850Z' }
+[User Deserialization Result] {
+  userId: 1,
+  found: true,
+  isAdmin: true,
+  timestamp: '2024-12-20T11:16:50.874Z'
+}
+[User Deserialization Start] { userId: 1, timestamp: '2024-12-20T11:16:50.875Z' }
+[User Deserialization Start] { userId: 1, timestamp: '2024-12-20T11:16:50.920Z' }
+[User Deserialization Result] {
+  userId: 1,
+  found: true,
+  isAdmin: true,
+  timestamp: '2024-12-20T11:16:50.934Z'
+}
+[Session Debug] {
+  sessionID: '32qYLptdyQtHFR1JyrxgVk4l2LU86j61',
+  hasSession: true,
+  isAuthenticated: true,
+  path: '/src/components/FrequencyAdvisor.tsx',
+  method: 'GET',
+  user: { id: 1, username: 'admin', isAdmin: true },
+  timestamp: '2024-12-20T11:16:50.934Z'
+}
+[User Deserialization Start] { userId: 1, timestamp: '2024-12-20T11:16:50.934Z' }
+[User Deserialization Result] {
+  userId: 1,
+  found: true,
+  isAdmin: true,
+  timestamp: '2024-12-20T11:16:50.959Z'
+}
+[User Deserialization Result] {
+  userId: 1,
+  found: true,
+  isAdmin: true,
+  timestamp: '2024-12-20T11:16:50.967Z'
+}
+[User Deserialization Start] { userId: 1, timestamp: '2024-12-20T11:16:51.000Z' }
+[User Deserialization Start] { userId: 1, timestamp: '2024-12-20T11:16:51.016Z' }
+[User Deserialization Result] {
+  userId: 1,
+  found: true,
+  isAdmin: true,
+  timestamp: '2024-12-20T11:16:51.101Z'
+}
+[Session Debug] {
+  sessionID: '32qYLptdyQtHFR1JyrxgVk4l2LU86j61',
+  hasSession: true,
+  isAuthenticated: true,
+  path: '/src/components/ui/table.tsx',
+  method: 'GET',
+  user: { id: 1, username: 'admin', isAdmin: true },
+  timestamp: '2024-12-20T11:16:51.102Z'
+}
+[User Deserialization Start] { userId: 1, timestamp: '2024-12-20T11:16:51.102Z' }
+[User Deserialization Result] {
+  userId: 1,
+  found: true,
+  isAdmin: true,
+  timestamp: '2024-12-20T11:16:51.142Z'
+}
+[Session Debug] {
+  sessionID: '32qYLptdyQtHFR1JyrxgVk4l2LU86j61',
+  hasSession: true,
+  isAuthenticated: true,
+  path: '/src/components/ui/select.tsx',
+  method: 'GET',
+  user: { id: 1, username: 'admin', isAdmin: true },
+  timestamp: '2024-12-20T11:16:51.143Z'
+}
+[User Deserialization Start] { userId: 1, timestamp: '2024-12-20T11:16:51.143Z' }
+[User Deserialization Result] {
+  userId: 1,
+  found: true,
+  isAdmin: true,
+  timestamp: '2024-12-20T11:16:51.182Z'
+}
+[Session Debug] {
+  sessionID: '32qYLptdyQtHFR1JyrxgVk4l2LU86j61',
+  hasSession: true,
+  isAuthenticated: true,
+  path: '/src/components/ui/dialog.tsx',
+  method: 'GET',
+  user: { id: 1, username: 'admin', isAdmin: true },
+  timestamp: '2024-12-20T11:16:51.183Z'
+}
+[User Deserialization Start] { userId: 1, timestamp: '2024-12-20T11:16:51.183Z' }
+[User Deserialization Result] {
+  userId: 1,
+  found: true,
+  isAdmin: true,
+  timestamp: '2024-12-20T11:16:51.198Z'
+}
+[User Deserialization Start] { userId: 1, timestamp: '2024-12-20T11:16:51.246Z' }
+[User Deserialization Result] {
+  userId: 1,
+  found: true,
+  isAdmin: true,
+  timestamp: '2024-12-20T11:16:51.259Z'
+}
+[Session Debug] {
+  sessionID: '32qYLptdyQtHFR1JyrxgVk4l2LU86j61',
+  hasSession: true,
+  isAuthenticated: true,
+  path: '/src/components/WaveformVisualizer.tsx',
+  method: 'GET',
+  user: { id: 1, username: 'admin', isAdmin: true },
+  timestamp: '2024-12-20T11:16:51.259Z'
+}
+[User Deserialization Start] { userId: 1, timestamp: '2024-12-20T11:16:51.259Z' }
+[User Deserialization Result] {
+  userId: 1,
+  found: true,
+  isAdmin: true,
+  timestamp: '2024-12-20T11:16:51.283Z'
+}
+[Session Debug] {
+  sessionID: '32qYLptdyQtHFR1JyrxgVk4l2LU86j61',
+  hasSession: true,
+  isAuthenticated: true,
+  path: '/src/hooks/use-audio.ts',
+  method: 'GET',
+  user: { id: 1, username: 'admin', isAdmin: true },
+  timestamp: '2024-12-20T11:16:51.283Z'
+}
+[User Deserialization Start] { userId: 1, timestamp: '2024-12-20T11:16:51.283Z' }
+[User Deserialization Result] {
+  userId: 1,
+  found: true,
+  isAdmin: true,
+  timestamp: '2024-12-20T11:16:51.354Z'
+}
+[User Deserialization Start] { userId: 1, timestamp: '2024-12-20T11:16:51.404Z' }
+[User Deserialization Result] {
+  userId: 1,
+  found: true,
+  isAdmin: true,
+  timestamp: '2024-12-20T11:16:51.406Z'
+}
+[User Deserialization Result] {
+  userId: 1,
+  found: true,
+  isAdmin: true,
+  timestamp: '2024-12-20T11:16:51.446Z'
+}
+[User Deserialization Start] { userId: 1, timestamp: '2024-12-20T11:16:51.454Z' }
+[User Deserialization Start] { userId: 1, timestamp: '2024-12-20T11:16:51.494Z' }
+[User Deserialization Result] {
+  userId: 1,
+  found: true,
+  isAdmin: true,
+  timestamp: '2024-12-20T11:16:51.510Z'
+}
+[Session Debug] {
+  sessionID: '32qYLptdyQtHFR1JyrxgVk4l2LU86j61',
+  hasSession: true,
+  isAuthenticated: true,
+  path: '/src/components/ui/textarea.tsx',
+  method: 'GET',
+  user: { id: 1, username: 'admin', isAdmin: true },
+  timestamp: '2024-12-20T11:16:51.510Z'
+}
+[User Deserialization Start] { userId: 1, timestamp: '2024-12-20T11:16:51.510Z' }
+[User Deserialization Result] {
+  userId: 1,
+  found: true,
+  isAdmin: true,
+  timestamp: '2024-12-20T11:16:51.519Z'
+}
+[User Deserialization Result] {
+  userId: 1,
+  found: true,
+  isAdmin: true,
+  timestamp: '2024-12-20T11:16:51.547Z'
+}
+[User Deserialization Start] { userId: 1, timestamp: '2024-12-20T11:16:51.561Z' }
+[User Deserialization Start] { userId: 1, timestamp: '2024-12-20T11:16:51.595Z' }
+[User Deserialization Result] {
+  userId: 1,
+  found: true,
+  isAdmin: true,
+  timestamp: '2024-12-20T11:16:51.615Z'
+}
+[Session Debug] {
+  sessionID: '32qYLptdyQtHFR1JyrxgVk4l2LU86j61',
+  hasSession: true,
+  isAuthenticated: true,
+  path: '/src/utils/wealthInsights.ts',
+  method: 'GET',
+  user: { id: 1, username: 'admin', isAdmin: true },
+  timestamp: '2024-12-20T11:16:51.616Z'
+}
+[User Deserialization Start] { userId: 1, timestamp: '2024-12-20T11:16:51.616Z' }
+[User Deserialization Result] {
+  userId: 1,
+  found: true,
+  isAdmin: true,
+  timestamp: '2024-12-20T11:16:51.718Z'
+}
+[Session Debug] {
+  sessionID: '32qYLptdyQtHFR1JyrxgVk4l2LU86j61',
+  hasSession: true,
+  isAuthenticated: true,
+  path: '/src/components/WealthDNAStage.tsx',
+  method: 'GET',
+  user: { id: 1, username: 'admin', isAdmin: true },
+  timestamp: '2024-12-20T11:16:51.719Z'
+}
+[User Deserialization Start] { userId: 1, timestamp: '2024-12-20T11:16:51.719Z' }
+[User Deserialization Result] {
+  userId: 1,
+  found: true,
+  isAdmin: true,
+  timestamp: '2024-12-20T11:16:51.758Z'
+}
+[Session Debug] {
+  sessionID: '32qYLptdyQtHFR1JyrxgVk4l2LU86j61',
+  hasSession: true,
+  isAuthenticated: true,
+  path: '/src/components/WealthProjectionChart.tsx',
+  method: 'GET',
+  user: { id: 1, username: 'admin', isAdmin: true },
+  timestamp: '2024-12-20T11:16:51.759Z'
+}
+[User Deserialization Start] { userId: 1, timestamp: '2024-12-20T11:16:51.759Z' }
+[User Deserialization Result] {
+  userId: 1,
+  found: true,
+  isAdmin: true,
+  timestamp: '2024-12-20T11:16:51.774Z'
+}
+[User Deserialization Start] { userId: 1, timestamp: '2024-12-20T11:16:51.823Z' }
+[User Deserialization Result] {
+  userId: 1,
+  found: true,
+  isAdmin: true,
+  timestamp: '2024-12-20T11:16:51.827Z'
+}
+[Session Debug] {
+  sessionID: '32qYLptdyQtHFR1JyrxgVk4l2LU86j61',
+  hasSession: true,
+  isAuthenticated: true,
+  path: '/src/components/ui/collapsible.tsx',
+  method: 'GET',
+  user: { id: 1, username: 'admin', isAdmin: true },
+  timestamp: '2024-12-20T11:16:51.827Z'
+}
+[User Deserialization Start] { userId: 1, timestamp: '2024-12-20T11:16:51.827Z' }
+[User Deserialization Result] {
+  userId: 1,
+  found: true,
+  isAdmin: true,
+  timestamp: '2024-12-20T11:16:51.855Z'
+}
+[Session Debug] {
+  sessionID: '32qYLptdyQtHFR1JyrxgVk4l2LU86j61',
+  hasSession: true,
+  isAuthenticated: true,
+  path: '/src/components/ui/label.tsx',
+  method: 'GET',
+  user: { id: 1, username: 'admin', isAdmin: true },
+  timestamp: '2024-12-20T11:16:51.855Z'
+}
+[User Deserialization Start] { userId: 1, timestamp: '2024-12-20T11:16:51.855Z' }
+[User Deserialization Result] {
+  userId: 1,
+  found: true,
+  isAdmin: true,
+  timestamp: '2024-12-20T11:16:51.869Z'
+}
+[User Deserialization Start] { userId: 1, timestamp: '2024-12-20T11:16:51.929Z' }
+[User Deserialization Result] {
+  userId: 1,
+  found: true,
+  isAdmin: true,
+  timestamp: '2024-12-20T11:16:51.982Z'
+}
+[User Deserialization Result] {
+  userId: 1,
+  found: true,
+  isAdmin: true,
+  timestamp: '2024-12-20T11:16:52.022Z'
+}
+[User Deserialization Start] { userId: 1, timestamp: '2024-12-20T11:16:52.032Z' }
+[User Deserialization Start] { userId: 1, timestamp: '2024-12-20T11:16:52.068Z' }
+[User Deserialization Result] {
+  userId: 1,
+  found: true,
+  isAdmin: true,
+  timestamp: '2024-12-20T11:16:52.086Z'
+}
+[Session Debug] {
+  sessionID: '32qYLptdyQtHFR1JyrxgVk4l2LU86j61',
+  hasSession: true,
+  isAuthenticated: true,
+  path: '/src/components/ui/slider.tsx',
+  method: 'GET',
+  user: { id: 1, username: 'admin', isAdmin: true },
+  timestamp: '2024-12-20T11:16:52.086Z'
+}
+[User Deserialization Start] { userId: 1, timestamp: '2024-12-20T11:16:52.086Z' }
+[User Deserialization Result] {
+  userId: 1,
+  found: true,
+  isAdmin: true,
+  timestamp: '2024-12-20T11:16:52.090Z'
+}
+[User Deserialization Result] {
+  userId: 1,
+  found: true,
+  isAdmin: true,
+  timestamp: '2024-12-20T11:16:52.115Z'
+}
+[User Deserialization Result] {
+  userId: 1,
+  found: true,
+  isAdmin: true,
+  timestamp: '2024-12-20T11:16:52.140Z'
+}
+[Session Debug] {
+  sessionID: '32qYLptdyQtHFR1JyrxgVk4l2LU86j61',
+  hasSession: true,
+  isAuthenticated: true,
+  path: '/src/components/ui/radio-group.tsx',
+  method: 'GET',
+  user: { id: 1, username: 'admin', isAdmin: true },
+  timestamp: '2024-12-20T11:16:52.140Z'
+}
+[User Deserialization Start] { userId: 1, timestamp: '2024-12-20T11:16:52.140Z' }
+[User Deserialization Result] {
+  userId: 1,
+  found: true,
+  isAdmin: true,
+  timestamp: '2024-12-20T11:16:52.298Z'
+}
+[Session Debug] {
+  sessionID: '32qYLptdyQtHFR1JyrxgVk4l2LU86j61',
+  hasSession: true,
+  isAuthenticated: true,
+  path: '/src/lib/audioProcessor.ts',
+  method: 'GET',
+  user: { id: 1, username: 'admin', isAdmin: true },
+  timestamp: '2024-12-20T11:16:52.298Z'
+}
+[User Deserialization Start] { userId: 1, timestamp: '2024-12-20T11:16:52.299Z' }
+[User Deserialization Result] {
+  userId: 1,
+  found: true,
+  isAdmin: true,
+  timestamp: '2024-12-20T11:16:52.307Z'
+}
+[User Deserialization Result] {
+  userId: 1,
+  found: true,
+  isAdmin: true,
+  timestamp: '2024-12-20T11:16:52.330Z'
+}
+[Session Debug] {
+  sessionID: '32qYLptdyQtHFR1JyrxgVk4l2LU86j61',
+  hasSession: true,
+  isAuthenticated: true,
+  path: '/src/lib/constants.ts',
+  method: 'GET',
+  user: { id: 1, username: 'admin', isAdmin: true },
+  timestamp: '2024-12-20T11:16:52.331Z'
+}
+[User Deserialization Start] { userId: 1, timestamp: '2024-12-20T11:16:52.331Z' }
+[User Deserialization Result] {
+  userId: 1,
+  found: true,
+  isAdmin: true,
+  timestamp: '2024-12-20T11:16:52.393Z'
+}
+[User Deserialization Result] {
+  userId: 1,
+  found: true,
+  isAdmin: true,
+  timestamp: '2024-12-20T11:16:52.562Z'
+}
+[User Deserialization Result] {
+  userId: 1,
+  found: true,
+  isAdmin: true,
+  timestamp: '2024-12-20T11:16:52.595Z'
+}
+[User Deserialization Start] { userId: 1, timestamp: '2024-12-20T11:16:52.675Z' }
+[User Deserialization Result] {
+  userId: 1,
+  found: true,
+  isAdmin: true,
+  timestamp: '2024-12-20T11:16:52.938Z'
+}
+[Session Debug] {
+  sessionID: '32qYLptdyQtHFR1JyrxgVk4l2LU86j61',
+  hasSession: true,
+  isAuthenticated: true,
+  path: '/api/user',
+  method: 'GET',
+  user: { id: 1, username: 'admin', isAdmin: true },
+  timestamp: '2024-12-20T11:16:52.939Z'
+}
+[User Deserialization Start] { userId: 1, timestamp: '2024-12-20T11:16:52.987Z' }
+[User Deserialization Start] { userId: 1, timestamp: '2024-12-20T11:16:53.020Z' }
+[User Deserialization Start] { userId: 1, timestamp: '2024-12-20T11:16:53.023Z' }
+[User Deserialization Start] { userId: 1, timestamp: '2024-12-20T11:16:53.024Z' }
+[User Deserialization Result] {
+  userId: 1,
+  found: true,
+  isAdmin: true,
+  timestamp: '2024-12-20T11:16:53.250Z'
+}
+[Session Debug] {
+  sessionID: '32qYLptdyQtHFR1JyrxgVk4l2LU86j61',
+  hasSession: true,
+  isAuthenticated: true,
+  path: '/api/user',
+  method: 'GET',
+  user: { id: 1, username: 'admin', isAdmin: true },
+  timestamp: '2024-12-20T11:16:53.251Z'
+}
+[User Deserialization Result] {
+  userId: 1,
+  found: true,
+  isAdmin: true,
+  timestamp: '2024-12-20T11:16:53.277Z'
+}
+[Session Debug] {
+  sessionID: '32qYLptdyQtHFR1JyrxgVk4l2LU86j61',
+  hasSession: true,
+  isAuthenticated: true,
+  path: '/api/user/day-info',
+  method: 'GET',
+  user: { id: 1, username: 'admin', isAdmin: true },
+  timestamp: '2024-12-20T11:16:53.277Z'
+}
+[User Deserialization Start] { userId: 1, timestamp: '2024-12-20T11:16:53.277Z' }
+[User Deserialization Result] {
+  userId: 1,
+  found: true,
+  isAdmin: true,
+  timestamp: '2024-12-20T11:16:53.286Z'
+}
+[Session Debug] {
+  sessionID: '32qYLptdyQtHFR1JyrxgVk4l2LU86j61',
+  hasSession: true,
+  isAuthenticated: true,
+  path: '/api/sessions',
+  method: 'GET',
+  user: { id: 1, username: 'admin', isAdmin: true },
+  timestamp: '2024-12-20T11:16:53.286Z'
+}
+[User Deserialization Start] { userId: 1, timestamp: '2024-12-20T11:16:53.286Z' }
+[User Deserialization Result] {
+  userId: 1,
+  found: true,
+  isAdmin: true,
+  timestamp: '2024-12-20T11:16:53.287Z'
+}
+[Session Debug] {
+  sessionID: '32qYLptdyQtHFR1JyrxgVk4l2LU86j61',
+  hasSession: true,
+  isAuthenticated: true,
+  path: '/api/community/stats',
+  method: 'GET',
+  user: { id: 1, username: 'admin', isAdmin: true },
+  timestamp: '2024-12-20T11:16:53.287Z'
+}
+[User Deserialization Start] { userId: 1, timestamp: '2024-12-20T11:16:53.287Z' }
+[User Deserialization Start] { userId: 1, timestamp: '2024-12-20T11:16:53.301Z' }
+[User Deserialization Result] {
+  userId: 1,
+  found: true,
+  isAdmin: true,
+  timestamp: '2024-12-20T11:16:53.507Z'
+}
+[User Deserialization Result] {
+  userId: 1,
+  found: true,
+  isAdmin: true,
+  timestamp: '2024-12-20T11:16:53.529Z'
+}
+[User Deserialization Result] {
+  userId: 1,
+  found: true,
+  isAdmin: true,
+  timestamp: '2024-12-20T11:16:53.550Z'
+}
+[User Deserialization Result] {
+  userId: 1,
+  found: true,
+  isAdmin: true,
+  timestamp: '2024-12-20T11:16:53.566Z'
+}
+[Session Debug] {
+  sessionID: '32qYLptdyQtHFR1JyrxgVk4l2LU86j61',
+  hasSession: true,
+  isAuthenticated: true,
+  path: '/api/user',
+  method: 'GET',
+  user: { id: 1, username: 'admin', isAdmin: true },
+  timestamp: '2024-12-20T11:16:53.567Z'
+}
+[User Deserialization Start] { userId: 1, timestamp: '2024-12-20T11:16:53.614Z' }
+[User Deserialization Result] {
+  userId: 1,
+  found: true,
+  isAdmin: true,
+  timestamp: '2024-12-20T11:16:53.879Z'
+}
+[Session Debug] {
+  sessionID: '32qYLptdyQtHFR1JyrxgVk4l2LU86j61',
+  hasSession: true,
+  isAuthenticated: true,
+  path: '/api/user',
+  method: 'GET',
+  user: { id: 1, username: 'admin', isAdmin: true },
+  timestamp: '2024-12-20T11:16:53.879Z'
+}
+[User Deserialization Start] { userId: 1, timestamp: '2024-12-20T11:16:53.928Z' }
+[User Deserialization Result] {
+  userId: 1,
+  found: true,
+  isAdmin: true,
+  timestamp: '2024-12-20T11:16:54.195Z'
+}
+[Session Debug] {
+  sessionID: '32qYLptdyQtHFR1JyrxgVk4l2LU86j61',
+  hasSession: true,
+  isAuthenticated: true,
+  path: '/api/user',
+  method: 'GET',
+  user: { id: 1, username: 'admin', isAdmin: true },
+  timestamp: '2024-12-20T11:16:54.195Z'
+}
+[User Deserialization Start] { userId: 1, timestamp: '2024-12-20T11:16:54.244Z' }
+[User Deserialization Result] {
+  userId: 1,
+  found: true,
+  isAdmin: true,
+  timestamp: '2024-12-20T11:16:54.507Z'
+}
+[Session Debug] {
+  sessionID: '32qYLptdyQtHFR1JyrxgVk4l2LU86j61',
+  hasSession: true,
+  isAuthenticated: true,
+  path: '/api/user',
+  method: 'GET',
+  user: { id: 1, username: 'admin', isAdmin: true },
+  timestamp: '2024-12-20T11:16:54.507Z'
+}
+[User Deserialization Start] { userId: 1, timestamp: '2024-12-20T11:16:54.559Z' }
+[User Deserialization Result] {
+  userId: 1,
+  found: true,
+  isAdmin: true,
+  timestamp: '2024-12-20T11:16:54.822Z'
+}
+[Session Debug] {
+  sessionID: '32qYLptdyQtHFR1JyrxgVk4l2LU86j61',
+  hasSession: true,
+  isAuthenticated: true,
+  path: '/api/user',
+  method: 'GET',
+  user: { id: 1, username: 'admin', isAdmin: true },
+  timestamp: '2024-12-20T11:16:54.823Z'
+}
+[User Deserialization Start] { userId: 1, timestamp: '2024-12-20T11:16:54.872Z' }
+[User Deserialization Result] {
+  userId: 1,
+  found: true,
+  isAdmin: true,
+  timestamp: '2024-12-20T11:16:55.134Z'
+}
+[Session Debug] {
+  sessionID: '32qYLptdyQtHFR1JyrxgVk4l2LU86j61',
+  hasSession: true,
+  isAuthenticated: true,
+  path: '/api/user',
+  method: 'GET',
+  user: { id: 1, username: 'admin', isAdmin: true },
+  timestamp: '2024-12-20T11:16:55.135Z'
+}
+[User Deserialization Start] { userId: 1, timestamp: '2024-12-20T11:16:57.905Z' }
+[User Deserialization Result] {
+  userId: 1,
+  found: true,
+  isAdmin: true,
+  timestamp: '2024-12-20T11:16:58.170Z'
+}
+[Session Debug] {
+  sessionID: '32qYLptdyQtHFR1JyrxgVk4l2LU86j61',
+  hasSession: true,
+  isAuthenticated: true,
+  path: '/images/neural-pattern.png',
+  method: 'GET',
+  user: { id: 1, username: 'admin', isAdmin: true },
+  timestamp: '2024-12-20T11:16:58.171Z'
+}
+[User Deserialization Start] { userId: 1, timestamp: '2024-12-20T11:16:58.171Z' }
+[User Deserialization Result] {
+  userId: 1,
+  found: true,
+  isAdmin: true,
+  timestamp: '2024-12-20T11:16:58.434Z'
+}
+[User Deserialization Start] { userId: 1, timestamp: '2024-12-20T11:17:24.149Z' }
+[User Deserialization Result] {
+  userId: 1,
+  found: true,
+  isAdmin: true,
+  timestamp: '2024-12-20T11:17:25.763Z'
+}
+[Session Debug] {
+  sessionID: '32qYLptdyQtHFR1JyrxgVk4l2LU86j61',
+  hasSession: true,
+  isAuthenticated: true,
+  path: '/api/community/stats',
+  method: 'GET',
+  user: { id: 1, username: 'admin', isAdmin: true },
+  timestamp: '2024-12-20T11:17:25.763Z'
+}
+[User Deserialization Start] { userId: 1, timestamp: '2024-12-20T11:17:25.763Z' }
+[User Deserialization Result] {
+  userId: 1,
+  found: true,
+  isAdmin: true,
+  timestamp: '2024-12-20T11:17:26.031Z'
+}
+[User Deserialization Start] { userId: 1, timestamp: '2024-12-20T11:17:53.812Z' }
+[User Deserialization Start] { userId: 1, timestamp: '2024-12-20T11:17:55.253Z' }
+[User Deserialization Result] {
+  userId: 1,
+  found: true,
+  isAdmin: true,
+  timestamp: '2024-12-20T11:17:55.415Z'
+}
+[Session Debug] {
+  sessionID: '32qYLptdyQtHFR1JyrxgVk4l2LU86j61',
+  hasSession: true,
+  isAuthenticated: true,
+  path: '/api/user/day-info',
+  method: 'GET',
+  user: { id: 1, username: 'admin', isAdmin: true },
+  timestamp: '2024-12-20T11:17:55.415Z'
+}
+[User Deserialization Start] { userId: 1, timestamp: '2024-12-20T11:17:55.415Z' }
+[User Deserialization Result] {
+  userId: 1,
+  found: true,
+  isAdmin: true,
+  timestamp: '2024-12-20T11:17:55.678Z'
+}
+[User Deserialization Start] { userId: 1, timestamp: '2024-12-20T11:17:56.616Z' }
+[User Deserialization Result] {
+  userId: 1,
+  found: true,
+  isAdmin: true,
+  timestamp: '2024-12-20T11:17:56.811Z'
+}
+[Session Debug] {
+  sessionID: '32qYLptdyQtHFR1JyrxgVk4l2LU86j61',
+  hasSession: true,
+  isAuthenticated: true,
+  path: '/api/user',
+  method: 'GET',
+  user: { id: 1, username: 'admin', isAdmin: true },
+  timestamp: '2024-12-20T11:17:56.811Z'
+}
+[User Deserialization Result] {
+  userId: 1,
+  found: true,
+  isAdmin: true,
+  timestamp: '2024-12-20T11:17:56.878Z'
+}
+[Session Debug] {
+  sessionID: '32qYLptdyQtHFR1JyrxgVk4l2LU86j61',
+  hasSession: true,
+  isAuthenticated: true,
+  path: '/api/community/stats',
+  method: 'GET',
+  user: { id: 1, username: 'admin', isAdmin: true },
+  timestamp: '2024-12-20T11:17:56.878Z'
+}
+[User Deserialization Start] { userId: 1, timestamp: '2024-12-20T11:17:56.878Z' }
+[User Deserialization Result] {
+  userId: 1,
+  found: true,
+  isAdmin: true,
+  timestamp: '2024-12-20T11:17:57.142Z'
+}
+[User Deserialization Start] { userId: 1, timestamp: '2024-12-20T11:18:27.738Z' }
+[User Deserialization Result] {
+  userId: 1,
+  found: true,
+  isAdmin: true,
+  timestamp: '2024-12-20T11:18:29.338Z'
+}
+[Session Debug] {
+  sessionID: '32qYLptdyQtHFR1JyrxgVk4l2LU86j61',
+  hasSession: true,
+  isAuthenticated: true,
+  path: '/api/community/stats',
+  method: 'GET',
+  user: { id: 1, username: 'admin', isAdmin: true },
+  timestamp: '2024-12-20T11:18:29.338Z'
+}
+[User Deserialization Start] { userId: 1, timestamp: '2024-12-20T11:18:29.338Z' }
+[User Deserialization Result] {
+  userId: 1,
+  found: true,
+  isAdmin: true,
+  timestamp: '2024-12-20T11:18:29.601Z'

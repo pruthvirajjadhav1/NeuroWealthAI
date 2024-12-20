@@ -1,0 +1,26 @@
+I need to create a simple web component that shows a user's "Wealth DNA Evolution Stage" based on their current wealth score (0-100). This component will be only visible after the first voice analysis is done similar to the wealth score progress prediction. It will be placed under the whole “wealth score progress prediction” block. Here are the key requirements:
+1. Display the current stage name, description, and score range prominently
+2. Show a visual progress indicator
+3. Include brief text about what to expect at the next stage
+Here's the complete content for each stage:
+Stage 1 (0-20): "Wealth DNA Awakening"
+* Current stage text: "You're starting to break free from old wealth-blocking patterns. Your brain is beginning to recognize new opportunities."
+* What you might notice: "You'll catch yourself pausing before impulse purchases, naturally questioning fees and costs you used to accept, starting to browse investment articles that previously seemed boring, feeling more curious about successful people's habits instead of resentful."
+* Next stage preview: "As your score increases, you'll enter the Abundance Pattern Formation stage where your neural pathways begin rewiring to spot hidden opportunities."
+Stage 2 (20-40): "Abundance Pattern Formation"
+* Current stage text: "Your neural pathways are rewiring to spot hidden opportunities. You'll notice yourself making more confident financial decisions."
+* What you might notice: "You'll start coming up with revenue-generating ideas, notice inefficiencies others miss, begin seeing ways to save money that excite rather than deprive you, feel more comfortable negotiating prices and rates."
+* Next stage preview: "Next, you'll reach the Wealth Frequency Activation stage where your wealth frequency aligns with natural abundance patterns."
+Stage 3 (40-60): "Wealth Frequency Activation"
+* Current stage text: "Your wealth frequency is now aligned with natural abundance patterns. You'll start attracting unexpected money-making opportunities."
+* What you might notice: "You'll begin spotting trends before others do, recognize undervalued assets or opportunities in your daily life, naturally network with more successful people, find yourself having ideas for improvements everywhere you look."
+* Next stage preview: "Soon you'll enter the Success Circuit Integration stage where your new wealth DNA becomes your natural state."
+Stage 4 (60-80): "Success Circuit Integration"
+* Current stage text: "Your new wealth DNA is becoming your natural state. Others will notice a shift in how you carry yourself."
+* What you might notice: "Colleagues will start coming to you for business advice, you'll instinctively know which opportunities to pursue or avoid, find yourself automatically thinking in terms of ROI and value creation, naturally attract mentors and successful partners."
+* Next stage preview: "You're approaching Peak Wealth Resonance where your brain will naturally operate at optimal wealth frequencies."
+Stage 5 (80-100): "Peak Wealth Resonance"
+* Current stage text: "Your brain now naturally operates at optimal wealth frequencies. You've developed the same neural patterns as self-made millionaires."
+* What you might notice: "You'll see profitable connections others miss entirely, turn casual conversations into business opportunities, instinctively know when to scale projects up or down, find yourself regularly being offered partnership opportunities, naturally think in terms of systems and leverage."
+* Next stage preview: "You've reached the highest stage of Wealth DNA Evolution. Keep maintaining these optimal patterns!"
+The component should accept a score prop/parameter that determines which stage to display. Please create a clean, modern design that emphasizes achievement and progress.

@@ -1,0 +1,173 @@
+[Session Debug] {
+  sessionID: 'e18wBsBL--wVhA3tRtfo7APCjksr1SoA',
+  hasSession: true,
+  isAuthenticated: false,
+  user: null,
+  cookies: undefined
+}
+[Request Debug] {
+  method: 'GET',
+  path: '/api/user',
+  headers: {
+    host: '1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev',
+    'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
+    accept: '*/*',
+    'accept-encoding': 'gzip, deflate, br, zstd',
+    'accept-language': 'en-US,en;q=0.9,fr-FR;q=0.8,fr;q=0.7',
+    cookie: 'connect.sid=s%3AsDDz14cv3OSsGV5doYNTwhuqT5kyxkJb.LMhdFgjh4TfO9cMvolPbJRqnQJy4O0lRRuKeJl9ZiDE',
+    'if-none-match': 'W/"547-Hm7EhBiOqtpqEmklnhyBDYzC6ZI"',
+    referer: 'https://1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev/register?token=f1d86606-1134-4613-a963-ce64b6f5d987',
+    'sec-ch-ua': '"Google Chrome";v="131", "Chromium";v="131", "Not_A Brand";v="24"',
+    'sec-ch-ua-mobile': '?0',
+    'sec-ch-ua-platform': '"macOS"',
+    'sec-fetch-dest': 'empty',
+    'sec-fetch-mode': 'cors',
+    'sec-fetch-site': 'same-origin',
+    'x-forwarded-for': '94.207.103.154, 10.84.7.27',
+    'x-forwarded-proto': 'https',
+    'x-replit-user-bio': '',
+    'x-replit-user-id': '',
+    'x-replit-user-name': '',
+    'x-replit-user-profile-image': '',
+    'x-replit-user-roles': '',
+    'x-replit-user-teams': '',
+    'x-replit-user-url': ''
+  },
+  body: {},
+  timestamp: '2024-12-19T06:13:59.525Z'
+}
+[Session Debug] {
+  sessionID: 'm-CUsnVKPfrVaBlOEKDFNuwKUlmVCLRe',
+  hasSession: true,
+  isAuthenticated: false,
+  user: null,
+  cookies: undefined
+}
+[Response Debug] {
+  path: '/api/user',
+  statusCode: 401,
+  responseData: 'Not logged in',
+  timestamp: '2024-12-19T06:13:59.525Z'
+}
+6:13:59 AM [express] GET /api/user 401 in 1ms
+[Request Debug] {
+  method: 'POST',
+  path: '/api/register',
+  headers: {
+    host: '1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev',
+    'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
+    'content-length': '123',
+    accept: '*/*',
+    'accept-encoding': 'gzip, deflate, br, zstd',
+    'accept-language': 'en-US,en;q=0.9,fr-FR;q=0.8,fr;q=0.7',
+    'content-type': 'application/json',
+    cookie: 'connect.sid=s%3AsDDz14cv3OSsGV5doYNTwhuqT5kyxkJb.LMhdFgjh4TfO9cMvolPbJRqnQJy4O0lRRuKeJl9ZiDE',
+    origin: 'https://1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev',
+    referer: 'https://1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev/register?token=f1d86606-1134-4613-a963-ce64b6f5d987',
+    'sec-ch-ua': '"Google Chrome";v="131", "Chromium";v="131", "Not_A Brand";v="24"',
+    'sec-ch-ua-mobile': '?0',
+    'sec-ch-ua-platform': '"macOS"',
+    'sec-fetch-dest': 'empty',
+    'sec-fetch-mode': 'cors',
+    'sec-fetch-site': 'same-origin',
+    'x-forwarded-for': '94.207.103.154, 10.84.7.27',
+    'x-forwarded-proto': 'https',
+    'x-replit-user-bio': '',
+    'x-replit-user-id': '',
+    'x-replit-user-name': '',
+    'x-replit-user-profile-image': '',
+    'x-replit-user-roles': '',
+    'x-replit-user-teams': '',
+    'x-replit-user-url': ''
+  },
+  body: {
+    username: 'testuser103',
+    password: 'testuser103',
+    email: 'test@gmail.com',
+    token: 'f1d86606-1134-4613-a963-ce64b6f5d987'
+  },
+  timestamp: '2024-12-19T06:14:10.001Z'
+}
+[Session Debug] {
+  sessionID: 'Ymnk5l7RSsssCQraHgQPGuggzMY1piKc',
+  hasSession: true,
+  isAuthenticated: false,
+  user: null,
+  cookies: undefined
+}
+[Registration Debug] New registration attempt: {
+  body: {
+    username: 'testuser103',
+    password: 'testuser103',
+    email: 'test@gmail.com',
+    token: 'f1d86606-1134-4613-a963-ce64b6f5d987'
+  },
+  headers: {
+    host: '1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev',
+    'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
+    'content-length': '123',
+    accept: '*/*',
+    'accept-encoding': 'gzip, deflate, br, zstd',
+    'accept-language': 'en-US,en;q=0.9,fr-FR;q=0.8,fr;q=0.7',
+    'content-type': 'application/json',
+    cookie: 'connect.sid=s%3AsDDz14cv3OSsGV5doYNTwhuqT5kyxkJb.LMhdFgjh4TfO9cMvolPbJRqnQJy4O0lRRuKeJl9ZiDE',
+    origin: 'https://1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev',
+    referer: 'https://1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev/register?token=f1d86606-1134-4613-a963-ce64b6f5d987',
+    'sec-ch-ua': '"Google Chrome";v="131", "Chromium";v="131", "Not_A Brand";v="24"',
+    'sec-ch-ua-mobile': '?0',
+    'sec-ch-ua-platform': '"macOS"',
+    'sec-fetch-dest': 'empty',
+    'sec-fetch-mode': 'cors',
+    'sec-fetch-site': 'same-origin',
+    'x-forwarded-for': '94.207.103.154, 10.84.7.27',
+    'x-forwarded-proto': 'https',
+    'x-replit-user-bio': '',
+    'x-replit-user-id': '',
+    'x-replit-user-name': '',
+    'x-replit-user-profile-image': '',
+    'x-replit-user-roles': '',
+    'x-replit-user-teams': '',
+    'x-replit-user-url': ''
+  },
+  timestamp: '2024-12-19T06:14:10.007Z'
+}
+[Registration Debug] Parsed registration data: { hasUsername: true, hasPassword: true, hasToken: true }
+[Registration Debug] Token lookup result: {
+  tokenFound: true,
+  isActive: true,
+  subscriptionType: 'paid',
+  tokenCreatedAt: '2024-12-19 06:03:57.542382'
+}
+[Registration Debug] Checking for existing user: testuser103
+[Registration Debug] Starting user creation: { username: 'testuser103', subscriptionType: 'paid' }
+[Registration Debug] Password hashed successfully
+Error during registration: error: null value in column "email" of relation "users" violates not-null constraint
+    at /home/runner/NeuroWealthAI-VoiceAlignment-New-UI-Dec16-Part5/node_modules/pg-pool/index.js:45:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at <anonymous> (/home/runner/NeuroWealthAI-VoiceAlignment-New-UI-Dec16-Part5/node_modules/src/node-postgres/session.ts:104:19)
+    at <anonymous> (/home/runner/NeuroWealthAI-VoiceAlignment-New-UI-Dec16-Part5/server/auth.ts:379:25) {
+  length: 415,
+  severity: 'ERROR',
+  code: '23502',
+  detail: 'Failing row contains (6, testuser103, 19b55e87c428d45254ab52b590b0c976dad67e528d7dd4eb56ab9dd94c4302cc..., 2024-12-19 06:14:12.014823+00, 2024-12-19 06:14:12.014823+00, 2024-12-19 06:14:12.014823+00, 0, null, 0, 0, null, null, null, f, null, f, paid).',
+  hint: undefined,
+  position: undefined,
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: undefined,
+  schema: 'public',
+  table: 'users',
+  column: 'email',
+  dataType: undefined,
+  constraint: undefined,
+  file: 'execMain.c',
+  line: '2011',
+  routine: 'ExecConstraints'
+}
+[Response Debug] {
+  path: '/api/register',
+  statusCode: 500,
+  responseData: '{"message":"Registration failed","error":"null value in column \\"email\\" of relation \\"users\\" violates not-null constraint"}',
+  timestamp: '2024-12-19T06:14:12.179Z'
+}
+6:14:12 AM [express] POST /api/register 500 in 2179ms :: {"message":"Registration failed","error":"n…

@@ -1,0 +1,69 @@
+CONSOLE LOG INTRO PAGE
+
+[Funnel Event Success] 
+
+Object {eventId: "497w6j", eventType: "page_view", eventData: "/intro", result: {…}, performance: {…}, …}
+[Funnel Event Response] 
+
+Object {eventId: "jdif6b", status: 200, statusText: "OK", headers: {…}, performance: {…}}
+[Funnel Event Success] 
+
+Object {eventId: "jdif6b", eventType: "page_view", eventData: "/intro", result: {…}, performance: {…}, …}
+[Funnel Event Starting] 
+
+Object {eventId: "ymirm", eventType: "quiz_start", eventData: undefined, timestamp: "2024-12-19T13:54:14.099Z", url: "/intro", …}
+[Funnel Event Response] 
+
+Object {eventId: "ymirm", status: 200, statusText: "OK", headers: {…}, performance: {…}}
+[Funnel Event Success] 
+
+Object {eventId: "ymirm", eventType: "quiz_start", eventData: undefined, result: {…}, performance: {…}, …}
+[Funnel Event Starting] 
+
+Object {eventId: "fo77p3", eventType: "quiz_step", eventData: "1", timestamp: "2024-12-19T13:54:16.213Z", url: "/intro", …}
+[Funnel Event Response] 
+
+Object {eventId: "fo77p3", status: 200, statusText: "OK", headers: {…}, performance: {…}}
+[Funnel Event Success] 
+
+Object {eventId: "fo77p3", eventType: "quiz_step", eventData: "1", result: {…}, performance: {…}, …}
+[Funnel Event Starting] 
+
+Object {eventId: "vzhdfl", eventType: "quiz_step", eventData: "2", timestamp: "2024-12-19T13:54:17.739Z", url: "/intro", …}
+[Funnel Event Response] 
+
+Object {eventId: "vzhdfl", status: 200, statusText: "OK", headers: {…}, performance: {…}}
+[Funnel Event Success] 
+
+Object {eventId: "vzhdfl", eventType: "quiz_step", eventData: "2", result: {…}, performance: {…}, …}
+* 		eventData: "2"
+* 		eventId: "vzhdfl"
+* 		eventType: "quiz_step"
+* 		 performance: Object
+* 		 result: Object
+* 		timestamp: "2024-12-19T13:54:18.328Z"
+* 		 [[Prototype]]: Object
+[Funnel Event Starting] 
+
+Object {eventId: "ludg5n", eventType: "quiz_step", eventData: "3", timestamp: "2024-12-19T13:54:19.379Z", url: "/intro", …}
+[Funnel Event Response] 
+
+Object {eventId: "ludg5n", status: 200, statusText: "OK", headers: {…}, performance: {…}}
+[Funnel Event Success] 
+
+Object {eventId: "ludg5n", eventType: "quiz_step", eventData: "3", result: {…}, performance: {…}, …}
+
+CONSOLE LOG UNIQUE REGISTRATION LINK
+
+[vite] connecting...
+[vite] connected.
+[useUser] Starting user fetch
+[useUser] Received response: 
+
+Object {status: 401, ok: false, headers: {…}, timestamp: "2024-12-19T13:54:41.257Z"}
+* 		 headers: Object
+* 		ok: false
+* 		status: 401
+* 		timestamp: "2024-12-19T13:54:41.257Z"
+* 		 [[Prototype]]: Object
+[useUser] User not authenticated

@@ -1,0 +1,886 @@
+   'sec-fetch-site': 'same-origin',
+    'x-forwarded-for': '94.207.103.154, 10.84.7.27',
+    'x-forwarded-proto': 'https',
+    'x-replit-user-bio': '',
+    'x-replit-user-id': '',
+    'x-replit-user-name': '',
+    'x-replit-user-profile-image': '',
+    'x-replit-user-roles': '',
+    'x-replit-user-teams': '',
+    'x-replit-user-url': ''
+  },
+  body: {},
+  timestamp: '2024-12-18T19:01:33.463Z'
+}
+[Request Debug] {
+  method: 'GET',
+  path: '/src/components/PremiumFeature.tsx',
+  headers: {
+    host: '1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev',
+    'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
+    accept: '*/*',
+    'accept-encoding': 'gzip, deflate, br, zstd',
+    'accept-language': 'en-US,en;q=0.9,fr-FR;q=0.8,fr;q=0.7',
+    cookie: 'connect.sid=s%3AQaK-6N6KWeAXtuvXYlV0VvwouP6Mm5LE.T2axY%2F%2FmXp%2FNaynkcuJlDAKpKksnO%2BebMNPSFzR6y7U',
+    'if-none-match': 'W/"1edb-h4neioI8vlvTCdD80+2/FFkCSbY"',
+    origin: 'https://1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev',
+    referer: 'https://1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev/src/pages/AdvisorPage.tsx',
+    'sec-ch-ua': '"Google Chrome";v="131", "Chromium";v="131", "Not_A Brand";v="24"',
+    'sec-ch-ua-mobile': '?0',
+    'sec-ch-ua-platform': '"macOS"',
+    'sec-fetch-dest': 'script',
+    'sec-fetch-mode': 'cors',
+    'sec-fetch-site': 'same-origin',
+    'x-forwarded-for': '94.207.103.154, 10.84.6.10',
+    'x-forwarded-proto': 'https',
+    'x-replit-user-bio': '',
+    'x-replit-user-id': '',
+    'x-replit-user-name': '',
+    'x-replit-user-profile-image': '',
+    'x-replit-user-roles': '',
+    'x-replit-user-teams': '',
+    'x-replit-user-url': ''
+  },
+  body: {},
+  timestamp: '2024-12-18T19:01:33.495Z'
+}
+[Request Debug] {
+  method: 'GET',
+  path: '/src/components/AudioPlayer.tsx',
+  headers: {
+    host: '1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev',
+    'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
+    accept: '*/*',
+    'accept-encoding': 'gzip, deflate, br, zstd',
+    'accept-language': 'en-US,en;q=0.9,fr-FR;q=0.8,fr;q=0.7',
+    cookie: 'connect.sid=s%3AQaK-6N6KWeAXtuvXYlV0VvwouP6Mm5LE.T2axY%2F%2FmXp%2FNaynkcuJlDAKpKksnO%2BebMNPSFzR6y7U',
+    'if-none-match': 'W/"3107-1p6SbwNvWpni2mFJCT1J1T5LF90"',
+    origin: 'https://1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev',
+    referer: 'https://1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev/src/pages/GammaSessionPage.tsx',
+    'sec-ch-ua': '"Google Chrome";v="131", "Chromium";v="131", "Not_A Brand";v="24"',
+    'sec-ch-ua-mobile': '?0',
+    'sec-ch-ua-platform': '"macOS"',
+    'sec-fetch-dest': 'script',
+    'sec-fetch-mode': 'cors',
+    'sec-fetch-site': 'same-origin',
+    'x-forwarded-for': '94.207.103.154, 10.84.3.6',
+    'x-forwarded-proto': 'https',
+    'x-replit-user-bio': '',
+    'x-replit-user-id': '',
+    'x-replit-user-name': '',
+    'x-replit-user-profile-image': '',
+    'x-replit-user-roles': '',
+    'x-replit-user-teams': '',
+    'x-replit-user-url': ''
+  },
+  body: {},
+  timestamp: '2024-12-18T19:01:33.500Z'
+}
+[Request Debug] {
+  method: 'GET',
+  path: '/src/components/FrequencySelector.tsx',
+  headers: {
+    host: '1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev',
+    'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
+    accept: '*/*',
+    'accept-encoding': 'gzip, deflate, br, zstd',
+    'accept-language': 'en-US,en;q=0.9,fr-FR;q=0.8,fr;q=0.7',
+    cookie: 'connect.sid=s%3AQaK-6N6KWeAXtuvXYlV0VvwouP6Mm5LE.T2axY%2F%2FmXp%2FNaynkcuJlDAKpKksnO%2BebMNPSFzR6y7U',
+    'if-none-match': 'W/"1a87-8ur3v7N6w+jmqsx7kZefIe1WvBU"',
+    origin: 'https://1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev',
+    referer: 'https://1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev/src/pages/GammaSessionPage.tsx',
+    'sec-ch-ua': '"Google Chrome";v="131", "Chromium";v="131", "Not_A Brand";v="24"',
+    'sec-ch-ua-mobile': '?0',
+    'sec-ch-ua-platform': '"macOS"',
+    'sec-fetch-dest': 'script',
+    'sec-fetch-mode': 'cors',
+    'sec-fetch-site': 'same-origin',
+    'x-forwarded-for': '94.207.103.154, 10.84.1.6',
+    'x-forwarded-proto': 'https',
+    'x-replit-user-bio': '',
+    'x-replit-user-id': '',
+    'x-replit-user-name': '',
+    'x-replit-user-profile-image': '',
+    'x-replit-user-roles': '',
+    'x-replit-user-teams': '',
+    'x-replit-user-url': ''
+  },
+  body: {},
+  timestamp: '2024-12-18T19:01:33.526Z'
+}
+[Request Debug] {
+  method: 'GET',
+  path: '/src/components/ui/progress.tsx',
+  headers: {
+    host: '1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev',
+    'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
+    accept: '*/*',
+    'accept-encoding': 'gzip, deflate, br, zstd',
+    'accept-language': 'en-US,en;q=0.9,fr-FR;q=0.8,fr;q=0.7',
+    cookie: 'connect.sid=s%3AQaK-6N6KWeAXtuvXYlV0VvwouP6Mm5LE.T2axY%2F%2FmXp%2FNaynkcuJlDAKpKksnO%2BebMNPSFzR6y7U',
+    'if-none-match': 'W/"e6f-IMJUgKKWA/R3jp7nY+g9UYVTrq8"',
+    origin: 'https://1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev',
+    referer: 'https://1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev/src/pages/GammaSessionPage.tsx',
+    'sec-ch-ua': '"Google Chrome";v="131", "Chromium";v="131", "Not_A Brand";v="24"',
+    'sec-ch-ua-mobile': '?0',
+    'sec-ch-ua-platform': '"macOS"',
+    'sec-fetch-dest': 'script',
+    'sec-fetch-mode': 'cors',
+    'sec-fetch-site': 'same-origin',
+    'x-forwarded-for': '94.207.103.154, 10.84.3.6',
+    'x-forwarded-proto': 'https',
+    'x-replit-user-bio': '',
+    'x-replit-user-id': '',
+    'x-replit-user-name': '',
+    'x-replit-user-profile-image': '',
+    'x-replit-user-roles': '',
+    'x-replit-user-teams': '',
+    'x-replit-user-url': ''
+  },
+  body: {},
+  timestamp: '2024-12-18T19:01:33.564Z'
+}
+[Request Debug] {
+  method: 'GET',
+  path: '/src/components/ui/select.tsx',
+  headers: {
+    host: '1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev',
+    'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
+    accept: '*/*',
+    'accept-encoding': 'gzip, deflate, br, zstd',
+    'accept-language': 'en-US,en;q=0.9,fr-FR;q=0.8,fr;q=0.7',
+    cookie: 'connect.sid=s%3AQaK-6N6KWeAXtuvXYlV0VvwouP6Mm5LE.T2axY%2F%2FmXp%2FNaynkcuJlDAKpKksnO%2BebMNPSFzR6y7U',
+    'if-none-match': 'W/"30f3-e5ArMlWhJ8HENT62FYv0LvAvnEk"',
+    origin: 'https://1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev',
+    referer: 'https://1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev/src/pages/UserManagementPage.tsx',
+    'sec-ch-ua': '"Google Chrome";v="131", "Chromium";v="131", "Not_A Brand";v="24"',
+    'sec-ch-ua-mobile': '?0',
+    'sec-ch-ua-platform': '"macOS"',
+    'sec-fetch-dest': 'script',
+    'sec-fetch-mode': 'cors',
+    'sec-fetch-site': 'same-origin',
+    'x-forwarded-for': '94.207.103.154, 10.84.1.6',
+    'x-forwarded-proto': 'https',
+    'x-replit-user-bio': '',
+    'x-replit-user-id': '',
+    'x-replit-user-name': '',
+    'x-replit-user-profile-image': '',
+    'x-replit-user-roles': '',
+    'x-replit-user-teams': '',
+    'x-replit-user-url': ''
+  },
+  body: {},
+  timestamp: '2024-12-18T19:01:33.596Z'
+}
+[Session Debug] {
+  sessionID: 'QaK-6N6KWeAXtuvXYlV0VvwouP6Mm5LE',
+  hasSession: true,
+  isAuthenticated: true,
+  user: { id: 1, username: 'admin' },
+  cookies: undefined
+}
+[Session Debug] {
+  sessionID: 'QaK-6N6KWeAXtuvXYlV0VvwouP6Mm5LE',
+  hasSession: true,
+  isAuthenticated: true,
+  user: { id: 1, username: 'admin' },
+  cookies: undefined
+}
+[Session Debug] {
+  sessionID: 'QaK-6N6KWeAXtuvXYlV0VvwouP6Mm5LE',
+  hasSession: true,
+  isAuthenticated: true,
+  user: { id: 1, username: 'admin' },
+  cookies: undefined
+}
+[Session Debug] {
+  sessionID: 'QaK-6N6KWeAXtuvXYlV0VvwouP6Mm5LE',
+  hasSession: true,
+  isAuthenticated: true,
+  user: { id: 1, username: 'admin' },
+  cookies: undefined
+}
+[Session Debug] {
+  sessionID: 'QaK-6N6KWeAXtuvXYlV0VvwouP6Mm5LE',
+  hasSession: true,
+  isAuthenticated: true,
+  user: { id: 1, username: 'admin' },
+  cookies: undefined
+}
+[Session Debug] {
+  sessionID: 'QaK-6N6KWeAXtuvXYlV0VvwouP6Mm5LE',
+  hasSession: true,
+  isAuthenticated: true,
+  user: { id: 1, username: 'admin' },
+  cookies: undefined
+}
+[Request Debug] {
+  method: 'GET',
+  path: '/src/components/ui/table.tsx',
+  headers: {
+    host: '1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev',
+    'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
+    accept: '*/*',
+    'accept-encoding': 'gzip, deflate, br, zstd',
+    'accept-language': 'en-US,en;q=0.9,fr-FR;q=0.8,fr;q=0.7',
+    cookie: 'connect.sid=s%3AQaK-6N6KWeAXtuvXYlV0VvwouP6Mm5LE.T2axY%2F%2FmXp%2FNaynkcuJlDAKpKksnO%2BebMNPSFzR6y7U',
+    'if-none-match': 'W/"1d52-BPSZoYcn3BynnA7IiCW/o0hco0U"',
+    origin: 'https://1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev',
+    referer: 'https://1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev/src/pages/UserManagementPage.tsx',
+    'sec-ch-ua': '"Google Chrome";v="131", "Chromium";v="131", "Not_A Brand";v="24"',
+    'sec-ch-ua-mobile': '?0',
+    'sec-ch-ua-platform': '"macOS"',
+    'sec-fetch-dest': 'script',
+    'sec-fetch-mode': 'cors',
+    'sec-fetch-site': 'same-origin',
+    'x-forwarded-for': '94.207.103.154, 10.84.6.10',
+    'x-forwarded-proto': 'https',
+    'x-replit-user-bio': '',
+    'x-replit-user-id': '',
+    'x-replit-user-name': '',
+    'x-replit-user-profile-image': '',
+    'x-replit-user-roles': '',
+    'x-replit-user-teams': '',
+    'x-replit-user-url': ''
+  },
+  body: {},
+  timestamp: '2024-12-18T19:01:33.982Z'
+}
+[Request Debug] {
+  method: 'GET',
+  path: '/src/components/WaveformVisualizer.tsx',
+  headers: {
+    host: '1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev',
+    'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
+    accept: '*/*',
+    'accept-encoding': 'gzip, deflate, br, zstd',
+    'accept-language': 'en-US,en;q=0.9,fr-FR;q=0.8,fr;q=0.7',
+    cookie: 'connect.sid=s%3AQaK-6N6KWeAXtuvXYlV0VvwouP6Mm5LE.T2axY%2F%2FmXp%2FNaynkcuJlDAKpKksnO%2BebMNPSFzR6y7U',
+    'if-none-match': 'W/"145c-G70pYbLXhISFEri+BzQERn3JIy4"',
+    origin: 'https://1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev',
+    referer: 'https://1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev/src/pages/AffirmationsPage.tsx',
+    'sec-ch-ua': '"Google Chrome";v="131", "Chromium";v="131", "Not_A Brand";v="24"',
+    'sec-ch-ua-mobile': '?0',
+    'sec-ch-ua-platform': '"macOS"',
+    'sec-fetch-dest': 'script',
+    'sec-fetch-mode': 'cors',
+    'sec-fetch-site': 'same-origin',
+    'x-forwarded-for': '94.207.103.154, 10.84.7.27',
+    'x-forwarded-proto': 'https',
+    'x-replit-user-bio': '',
+    'x-replit-user-id': '',
+    'x-replit-user-name': '',
+    'x-replit-user-profile-image': '',
+    'x-replit-user-roles': '',
+    'x-replit-user-teams': '',
+    'x-replit-user-url': ''
+  },
+  body: {},
+  timestamp: '2024-12-18T19:01:33.998Z'
+}
+[Request Debug] {
+  method: 'GET',
+  path: '/src/hooks/use-audio.ts',
+  headers: {
+    host: '1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev',
+    'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
+    accept: '*/*',
+    'accept-encoding': 'gzip, deflate, br, zstd',
+    'accept-language': 'en-US,en;q=0.9,fr-FR;q=0.8,fr;q=0.7',
+    cookie: 'connect.sid=s%3AQaK-6N6KWeAXtuvXYlV0VvwouP6Mm5LE.T2axY%2F%2FmXp%2FNaynkcuJlDAKpKksnO%2BebMNPSFzR6y7U',
+    'if-none-match': 'W/"9dc-BqXjG6K1FTQ7vwSzhW8ZjtVhR8s"',
+    origin: 'https://1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev',
+    referer: 'https://1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev/src/pages/AffirmationsPage.tsx',
+    'sec-ch-ua': '"Google Chrome";v="131", "Chromium";v="131", "Not_A Brand";v="24"',
+    'sec-ch-ua-mobile': '?0',
+    'sec-ch-ua-platform': '"macOS"',
+    'sec-fetch-dest': 'script',
+    'sec-fetch-mode': 'cors',
+    'sec-fetch-site': 'same-origin',
+    'x-forwarded-for': '94.207.103.154, 10.84.3.6',
+    'x-forwarded-proto': 'https',
+    'x-replit-user-bio': '',
+    'x-replit-user-id': '',
+    'x-replit-user-name': '',
+    'x-replit-user-profile-image': '',
+    'x-replit-user-roles': '',
+    'x-replit-user-teams': '',
+    'x-replit-user-url': ''
+  },
+  body: {},
+  timestamp: '2024-12-18T19:01:34.036Z'
+}
+[Request Debug] {
+  method: 'GET',
+  path: '/src/components/ui/label.tsx',
+  headers: {
+    host: '1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev',
+    'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
+    accept: '*/*',
+    'accept-encoding': 'gzip, deflate, br, zstd',
+    'accept-language': 'en-US,en;q=0.9,fr-FR;q=0.8,fr;q=0.7',
+    cookie: 'connect.sid=s%3AQaK-6N6KWeAXtuvXYlV0VvwouP6Mm5LE.T2axY%2F%2FmXp%2FNaynkcuJlDAKpKksnO%2BebMNPSFzR6y7U',
+    'if-none-match': 'W/"d20-7KC/0dUFL+QiiwIv4JMkfl6vkRY"',
+    origin: 'https://1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev',
+    referer: 'https://1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev/src/components/ui/form.tsx',
+    'sec-ch-ua': '"Google Chrome";v="131", "Chromium";v="131", "Not_A Brand";v="24"',
+    'sec-ch-ua-mobile': '?0',
+    'sec-ch-ua-platform': '"macOS"',
+    'sec-fetch-dest': 'script',
+    'sec-fetch-mode': 'cors',
+    'sec-fetch-site': 'same-origin',
+    'x-forwarded-for': '94.207.103.154, 10.84.1.6',
+    'x-forwarded-proto': 'https',
+    'x-replit-user-bio': '',
+    'x-replit-user-id': '',
+    'x-replit-user-name': '',
+    'x-replit-user-profile-image': '',
+    'x-replit-user-roles': '',
+    'x-replit-user-teams': '',
+    'x-replit-user-url': ''
+  },
+  body: {},
+  timestamp: '2024-12-18T19:01:34.104Z'
+}
+[Request Debug] {
+  method: 'GET',
+  path: '/src/components/WealthDNAStage.tsx',
+  headers: {
+    host: '1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev',
+    'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
+    accept: '*/*',
+    'accept-encoding': 'gzip, deflate, br, zstd',
+    'accept-language': 'en-US,en;q=0.9,fr-FR;q=0.8,fr;q=0.7',
+    cookie: 'connect.sid=s%3AQaK-6N6KWeAXtuvXYlV0VvwouP6Mm5LE.T2axY%2F%2FmXp%2FNaynkcuJlDAKpKksnO%2BebMNPSFzR6y7U',
+    'if-none-match': 'W/"337a-uu9RUkJWkcb3/On5oT8eGStoOLg"',
+    origin: 'https://1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev',
+    referer: 'https://1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev/src/components/Dashboard.tsx',
+    'sec-ch-ua': '"Google Chrome";v="131", "Chromium";v="131", "Not_A Brand";v="24"',
+    'sec-ch-ua-mobile': '?0',
+    'sec-ch-ua-platform': '"macOS"',
+    'sec-fetch-dest': 'script',
+    'sec-fetch-mode': 'cors',
+    'sec-fetch-site': 'same-origin',
+    'x-forwarded-for': '94.207.103.154, 10.84.3.6',
+    'x-forwarded-proto': 'https',
+    'x-replit-user-bio': '',
+    'x-replit-user-id': '',
+    'x-replit-user-name': '',
+    'x-replit-user-profile-image': '',
+    'x-replit-user-roles': '',
+    'x-replit-user-teams': '',
+    'x-replit-user-url': ''
+  },
+  body: {},
+  timestamp: '2024-12-18T19:01:34.116Z'
+}
+[Request Debug] {
+  method: 'GET',
+  path: '/src/utils/wealthInsights.ts',
+  headers: {
+    host: '1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev',
+    'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
+    accept: '*/*',
+    'accept-encoding': 'gzip, deflate, br, zstd',
+    'accept-language': 'en-US,en;q=0.9,fr-FR;q=0.8,fr;q=0.7',
+    cookie: 'connect.sid=s%3AQaK-6N6KWeAXtuvXYlV0VvwouP6Mm5LE.T2axY%2F%2FmXp%2FNaynkcuJlDAKpKksnO%2BebMNPSFzR6y7U',
+    'if-none-match': 'W/"16f-VsnACHvXEAqBLwpC5S9YTxazMzE"',
+    origin: 'https://1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev',
+    referer: 'https://1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev/src/components/AudioRecorder.tsx',
+    'sec-ch-ua': '"Google Chrome";v="131", "Chromium";v="131", "Not_A Brand";v="24"',
+    'sec-ch-ua-mobile': '?0',
+    'sec-ch-ua-platform': '"macOS"',
+    'sec-fetch-dest': 'script',
+    'sec-fetch-mode': 'cors',
+    'sec-fetch-site': 'same-origin',
+    'x-forwarded-for': '94.207.103.154, 10.84.1.6',
+    'x-forwarded-proto': 'https',
+    'x-replit-user-bio': '',
+    'x-replit-user-id': '',
+    'x-replit-user-name': '',
+    'x-replit-user-profile-image': '',
+    'x-replit-user-roles': '',
+    'x-replit-user-teams': '',
+    'x-replit-user-url': ''
+  },
+  body: {},
+  timestamp: '2024-12-18T19:01:34.176Z'
+}
+[Session Debug] {
+  sessionID: 'QaK-6N6KWeAXtuvXYlV0VvwouP6Mm5LE',
+  hasSession: true,
+  isAuthenticated: true,
+  user: { id: 1, username: 'admin' },
+  cookies: undefined
+}
+[Session Debug] {
+  sessionID: 'QaK-6N6KWeAXtuvXYlV0VvwouP6Mm5LE',
+  hasSession: true,
+  isAuthenticated: true,
+  user: { id: 1, username: 'admin' },
+  cookies: undefined
+}
+[Session Debug] {
+  sessionID: 'QaK-6N6KWeAXtuvXYlV0VvwouP6Mm5LE',
+  hasSession: true,
+  isAuthenticated: true,
+  user: { id: 1, username: 'admin' },
+  cookies: undefined
+}
+[Session Debug] {
+  sessionID: 'QaK-6N6KWeAXtuvXYlV0VvwouP6Mm5LE',
+  hasSession: true,
+  isAuthenticated: true,
+  user: { id: 1, username: 'admin' },
+  cookies: undefined
+}
+[Session Debug] {
+  sessionID: 'QaK-6N6KWeAXtuvXYlV0VvwouP6Mm5LE',
+  hasSession: true,
+  isAuthenticated: true,
+  user: { id: 1, username: 'admin' },
+  cookies: undefined
+}
+[Session Debug] {
+  sessionID: 'QaK-6N6KWeAXtuvXYlV0VvwouP6Mm5LE',
+  hasSession: true,
+  isAuthenticated: true,
+  user: { id: 1, username: 'admin' },
+  cookies: undefined
+}
+[Request Debug] {
+  method: 'GET',
+  path: '/src/components/WealthProjectionChart.tsx',
+  headers: {
+    host: '1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev',
+    'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
+    accept: '*/*',
+    'accept-encoding': 'gzip, deflate, br, zstd',
+    'accept-language': 'en-US,en;q=0.9,fr-FR;q=0.8,fr;q=0.7',
+    cookie: 'connect.sid=s%3AQaK-6N6KWeAXtuvXYlV0VvwouP6Mm5LE.T2axY%2F%2FmXp%2FNaynkcuJlDAKpKksnO%2BebMNPSFzR6y7U',
+    'if-none-match': 'W/"3bfb-rhBjpwQgUdMBpGHkX1rHgswtw+g"',
+    origin: 'https://1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev',
+    referer: 'https://1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev/src/components/WealthReading.tsx',
+    'sec-ch-ua': '"Google Chrome";v="131", "Chromium";v="131", "Not_A Brand";v="24"',
+    'sec-ch-ua-mobile': '?0',
+    'sec-ch-ua-platform': '"macOS"',
+    'sec-fetch-dest': 'script',
+    'sec-fetch-mode': 'cors',
+    'sec-fetch-site': 'same-origin',
+    'x-forwarded-for': '94.207.103.154, 10.84.6.10',
+    'x-forwarded-proto': 'https',
+    'x-replit-user-bio': '',
+    'x-replit-user-id': '',
+    'x-replit-user-name': '',
+    'x-replit-user-profile-image': '',
+    'x-replit-user-roles': '',
+    'x-replit-user-teams': '',
+    'x-replit-user-url': ''
+  },
+  body: {},
+  timestamp: '2024-12-18T19:01:34.553Z'
+}
+[Request Debug] {
+  method: 'GET',
+  path: '/src/components/ui/collapsible.tsx',
+  headers: {
+    host: '1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev',
+    'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
+    accept: '*/*',
+    'accept-encoding': 'gzip, deflate, br, zstd',
+    'accept-language': 'en-US,en;q=0.9,fr-FR;q=0.8,fr;q=0.7',
+    cookie: 'connect.sid=s%3AQaK-6N6KWeAXtuvXYlV0VvwouP6Mm5LE.T2axY%2F%2FmXp%2FNaynkcuJlDAKpKksnO%2BebMNPSFzR6y7U',
+    'if-none-match': 'W/"1a3-kLHbs7QeiE7eBaDSwLnekSf7OXo"',
+    origin: 'https://1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev',
+    referer: 'https://1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev/src/components/ScriptOfTheDay.tsx',
+    'sec-ch-ua': '"Google Chrome";v="131", "Chromium";v="131", "Not_A Brand";v="24"',
+    'sec-ch-ua-mobile': '?0',
+    'sec-ch-ua-platform': '"macOS"',
+    'sec-fetch-dest': 'script',
+    'sec-fetch-mode': 'cors',
+    'sec-fetch-site': 'same-origin',
+    'x-forwarded-for': '94.207.103.154, 10.84.7.27',
+    'x-forwarded-proto': 'https',
+    'x-replit-user-bio': '',
+    'x-replit-user-id': '',
+    'x-replit-user-name': '',
+    'x-replit-user-profile-image': '',
+    'x-replit-user-roles': '',
+    'x-replit-user-teams': '',
+    'x-replit-user-url': ''
+  },
+  body: {},
+  timestamp: '2024-12-18T19:01:34.575Z'
+}
+[Request Debug] {
+  method: 'GET',
+  path: '/src/components/ui/slider.tsx',
+  headers: {
+    host: '1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev',
+    'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
+    accept: '*/*',
+    'accept-encoding': 'gzip, deflate, br, zstd',
+    'accept-language': 'en-US,en;q=0.9,fr-FR;q=0.8,fr;q=0.7',
+    cookie: 'connect.sid=s%3AQaK-6N6KWeAXtuvXYlV0VvwouP6Mm5LE.T2axY%2F%2FmXp%2FNaynkcuJlDAKpKksnO%2BebMNPSFzR6y7U',
+    'if-none-match': 'W/"111b-91Ba3MIj6SQj476s3PCPQLcUrTI"',
+    origin: 'https://1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev',
+    referer: 'https://1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev/src/components/AudioPlayer.tsx',
+    'sec-ch-ua': '"Google Chrome";v="131", "Chromium";v="131", "Not_A Brand";v="24"',
+    'sec-ch-ua-mobile': '?0',
+    'sec-ch-ua-platform': '"macOS"',
+    'sec-fetch-dest': 'script',
+    'sec-fetch-mode': 'cors',
+    'sec-fetch-site': 'same-origin',
+    'x-forwarded-for': '94.207.103.154, 10.84.3.6',
+    'x-forwarded-proto': 'https',
+    'x-replit-user-bio': '',
+    'x-replit-user-id': '',
+    'x-replit-user-name': '',
+    'x-replit-user-profile-image': '',
+    'x-replit-user-roles': '',
+    'x-replit-user-teams': '',
+    'x-replit-user-url': ''
+  },
+  body: {},
+  timestamp: '2024-12-18T19:01:34.611Z'
+}
+[Request Debug] {
+  method: 'GET',
+  path: '/src/components/ui/radio-group.tsx',
+  headers: {
+    host: '1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev',
+    'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
+    accept: '*/*',
+    'accept-encoding': 'gzip, deflate, br, zstd',
+    'accept-language': 'en-US,en;q=0.9,fr-FR;q=0.8,fr;q=0.7',
+    cookie: 'connect.sid=s%3AQaK-6N6KWeAXtuvXYlV0VvwouP6Mm5LE.T2axY%2F%2FmXp%2FNaynkcuJlDAKpKksnO%2BebMNPSFzR6y7U',
+    'if-none-match': 'W/"12e9-n3yS8mv0ABB1iHyzftXCcfuoDw8"',
+    origin: 'https://1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev',
+    referer: 'https://1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev/src/components/FrequencySelector.tsx',
+    'sec-ch-ua': '"Google Chrome";v="131", "Chromium";v="131", "Not_A Brand";v="24"',
+    'sec-ch-ua-mobile': '?0',
+    'sec-ch-ua-platform': '"macOS"',
+    'sec-fetch-dest': 'script',
+    'sec-fetch-mode': 'cors',
+    'sec-fetch-site': 'same-origin',
+    'x-forwarded-for': '94.207.103.154, 10.84.1.6',
+    'x-forwarded-proto': 'https',
+    'x-replit-user-bio': '',
+    'x-replit-user-id': '',
+    'x-replit-user-name': '',
+    'x-replit-user-profile-image': '',
+    'x-replit-user-roles': '',
+    'x-replit-user-teams': '',
+    'x-replit-user-url': ''
+  },
+  body: {},
+  timestamp: '2024-12-18T19:01:34.624Z'
+}
+[Request Debug] {
+  method: 'GET',
+  path: '/src/lib/audioProcessor.ts',
+  headers: {
+    host: '1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev',
+    'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
+    accept: '*/*',
+    'accept-encoding': 'gzip, deflate, br, zstd',
+    'accept-language': 'en-US,en;q=0.9,fr-FR;q=0.8,fr;q=0.7',
+    cookie: 'connect.sid=s%3AQaK-6N6KWeAXtuvXYlV0VvwouP6Mm5LE.T2axY%2F%2FmXp%2FNaynkcuJlDAKpKksnO%2BebMNPSFzR6y7U',
+    'if-none-match': 'W/"141f-T9LY6/viR/EyT1nsi82Jne4WbNs"',
+    origin: 'https://1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev',
+    referer: 'https://1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev/src/hooks/use-audio.ts',
+    'sec-ch-ua': '"Google Chrome";v="131", "Chromium";v="131", "Not_A Brand";v="24"',
+    'sec-ch-ua-mobile': '?0',
+    'sec-ch-ua-platform': '"macOS"',
+    'sec-fetch-dest': 'script',
+    'sec-fetch-mode': 'cors',
+    'sec-fetch-site': 'same-origin',
+    'x-forwarded-for': '94.207.103.154, 10.84.3.6',
+    'x-forwarded-proto': 'https',
+    'x-replit-user-bio': '',
+    'x-replit-user-id': '',
+    'x-replit-user-name': '',
+    'x-replit-user-profile-image': '',
+    'x-replit-user-roles': '',
+    'x-replit-user-teams': '',
+    'x-replit-user-url': ''
+  },
+  body: {},
+  timestamp: '2024-12-18T19:01:34.696Z'
+}
+[Request Debug] {
+  method: 'GET',
+  path: '/src/lib/constants.ts',
+  headers: {
+    host: '1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev',
+    'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
+    accept: '*/*',
+    'accept-encoding': 'gzip, deflate, br, zstd',
+    'accept-language': 'en-US,en;q=0.9,fr-FR;q=0.8,fr;q=0.7',
+    cookie: 'connect.sid=s%3AQaK-6N6KWeAXtuvXYlV0VvwouP6Mm5LE.T2axY%2F%2FmXp%2FNaynkcuJlDAKpKksnO%2BebMNPSFzR6y7U',
+    'if-none-match': 'W/"5b0-OJtYxEFWK82rq+yhy4kkKUrhv/k"',
+    origin: 'https://1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev',
+    referer: 'https://1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev/src/utils/wealthInsights.ts',
+    'sec-ch-ua': '"Google Chrome";v="131", "Chromium";v="131", "Not_A Brand";v="24"',
+    'sec-ch-ua-mobile': '?0',
+    'sec-ch-ua-platform': '"macOS"',
+    'sec-fetch-dest': 'script',
+    'sec-fetch-mode': 'cors',
+    'sec-fetch-site': 'same-origin',
+    'x-forwarded-for': '94.207.103.154, 10.84.1.6',
+    'x-forwarded-proto': 'https',
+    'x-replit-user-bio': '',
+    'x-replit-user-id': '',
+    'x-replit-user-name': '',
+    'x-replit-user-profile-image': '',
+    'x-replit-user-roles': '',
+    'x-replit-user-teams': '',
+    'x-replit-user-url': ''
+  },
+  body: {},
+  timestamp: '2024-12-18T19:01:34.759Z'
+}
+[Session Debug] {
+  sessionID: 'QaK-6N6KWeAXtuvXYlV0VvwouP6Mm5LE',
+  hasSession: true,
+  isAuthenticated: true,
+  user: { id: 1, username: 'admin' },
+  cookies: undefined
+}
+[Session Debug] {
+  sessionID: 'QaK-6N6KWeAXtuvXYlV0VvwouP6Mm5LE',
+  hasSession: true,
+  isAuthenticated: true,
+  user: { id: 1, username: 'admin' },
+  cookies: undefined
+}
+[Session Debug] {
+  sessionID: 'QaK-6N6KWeAXtuvXYlV0VvwouP6Mm5LE',
+  hasSession: true,
+  isAuthenticated: true,
+  user: { id: 1, username: 'admin' },
+  cookies: undefined
+}
+[Session Debug] {
+  sessionID: 'QaK-6N6KWeAXtuvXYlV0VvwouP6Mm5LE',
+  hasSession: true,
+  isAuthenticated: true,
+  user: { id: 1, username: 'admin' },
+  cookies: undefined
+}
+[Session Debug] {
+  sessionID: 'QaK-6N6KWeAXtuvXYlV0VvwouP6Mm5LE',
+  hasSession: true,
+  isAuthenticated: true,
+  user: { id: 1, username: 'admin' },
+  cookies: undefined
+}
+[Session Debug] {
+  sessionID: 'QaK-6N6KWeAXtuvXYlV0VvwouP6Mm5LE',
+  hasSession: true,
+  isAuthenticated: true,
+  user: { id: 1, username: 'admin' },
+  cookies: undefined
+}
+[Request Debug] {
+  method: 'GET',
+  path: '/api/user',
+  headers: {
+    host: '1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev',
+    'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
+    accept: '*/*',
+    'accept-encoding': 'gzip, deflate, br, zstd',
+    'accept-language': 'en-US,en;q=0.9,fr-FR;q=0.8,fr;q=0.7',
+    cookie: 'connect.sid=s%3AQaK-6N6KWeAXtuvXYlV0VvwouP6Mm5LE.T2axY%2F%2FmXp%2FNaynkcuJlDAKpKksnO%2BebMNPSFzR6y7U',
+    'if-none-match': 'W/"22c-UxCaDg3Qvtxlp+4Mj/ruqz6QgHA"',
+    referer: 'https://1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev/admin/users',
+    'sec-ch-ua': '"Google Chrome";v="131", "Chromium";v="131", "Not_A Brand";v="24"',
+    'sec-ch-ua-mobile': '?0',
+    'sec-ch-ua-platform': '"macOS"',
+    'sec-fetch-dest': 'empty',
+    'sec-fetch-mode': 'cors',
+    'sec-fetch-site': 'same-origin',
+    'x-forwarded-for': '94.207.103.154, 10.84.1.6',
+    'x-forwarded-proto': 'https',
+    'x-replit-user-bio': '',
+    'x-replit-user-id': '',
+    'x-replit-user-name': '',
+    'x-replit-user-profile-image': '',
+    'x-replit-user-roles': '',
+    'x-replit-user-teams': '',
+    'x-replit-user-url': ''
+  },
+  body: {},
+  timestamp: '2024-12-18T19:01:35.386Z'
+}
+[Session Debug] {
+  sessionID: 'QaK-6N6KWeAXtuvXYlV0VvwouP6Mm5LE',
+  hasSession: true,
+  isAuthenticated: true,
+  user: { id: 1, username: 'admin' },
+  cookies: undefined
+}
+7:01:35 PM [express] GET /api/user 304 in 536ms :: {"id":1,"username":"admin","password":"5dca0889c2…
+[Request Debug] {
+  method: 'GET',
+  path: '/api/community/stats',
+  headers: {
+    host: '1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev',
+    'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
+    accept: '*/*',
+    'accept-encoding': 'gzip, deflate, br, zstd',
+    'accept-language': 'en-US,en;q=0.9,fr-FR;q=0.8,fr;q=0.7',
+    cookie: 'connect.sid=s%3AQaK-6N6KWeAXtuvXYlV0VvwouP6Mm5LE.T2axY%2F%2FmXp%2FNaynkcuJlDAKpKksnO%2BebMNPSFzR6y7U',
+    'if-none-match': 'W/"6c-PwmjKfaB6vFbVt/uvFxfc6OnfPI"',
+    referer: 'https://1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev/admin/users',
+    'sec-ch-ua': '"Google Chrome";v="131", "Chromium";v="131", "Not_A Brand";v="24"',
+    'sec-ch-ua-mobile': '?0',
+    'sec-ch-ua-platform': '"macOS"',
+    'sec-fetch-dest': 'empty',
+    'sec-fetch-mode': 'cors',
+    'sec-fetch-site': 'same-origin',
+    'x-forwarded-for': '94.207.103.154, 10.84.1.6',
+    'x-forwarded-proto': 'https',
+    'x-replit-user-bio': '',
+    'x-replit-user-id': '',
+    'x-replit-user-name': '',
+    'x-replit-user-profile-image': '',
+    'x-replit-user-roles': '',
+    'x-replit-user-teams': '',
+    'x-replit-user-url': ''
+  },
+  body: {},
+  timestamp: '2024-12-18T19:01:35.984Z'
+}
+[Request Debug] {
+  method: 'GET',
+  path: '/api/user/day-info',
+  headers: {
+    host: '1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev',
+    'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
+    accept: '*/*',
+    'accept-encoding': 'gzip, deflate, br, zstd',
+    'accept-language': 'en-US,en;q=0.9,fr-FR;q=0.8,fr;q=0.7',
+    cookie: 'connect.sid=s%3AQaK-6N6KWeAXtuvXYlV0VvwouP6Mm5LE.T2axY%2F%2FmXp%2FNaynkcuJlDAKpKksnO%2BebMNPSFzR6y7U',
+    'if-none-match': 'W/"61-d6FBPV+LUVaaK0N0sCon9lpDQb0"',
+    referer: 'https://1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev/admin/users',
+    'sec-ch-ua': '"Google Chrome";v="131", "Chromium";v="131", "Not_A Brand";v="24"',
+    'sec-ch-ua-mobile': '?0',
+    'sec-ch-ua-platform': '"macOS"',
+    'sec-fetch-dest': 'empty',
+    'sec-fetch-mode': 'cors',
+    'sec-fetch-site': 'same-origin',
+    'x-forwarded-for': '94.207.103.154, 10.84.3.6',
+    'x-forwarded-proto': 'https',
+    'x-replit-user-bio': '',
+    'x-replit-user-id': '',
+    'x-replit-user-name': '',
+    'x-replit-user-profile-image': '',
+    'x-replit-user-roles': '',
+    'x-replit-user-teams': '',
+    'x-replit-user-url': ''
+  },
+  body: {},
+  timestamp: '2024-12-18T19:01:35.986Z'
+}
+[Request Debug] {
+  method: 'GET',
+  path: '/api/admin/users',
+  headers: {
+    host: '1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev',
+    'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
+    accept: '*/*',
+    'accept-encoding': 'gzip, deflate, br, zstd',
+    'accept-language': 'en-US,en;q=0.9,fr-FR;q=0.8,fr;q=0.7',
+    cookie: 'connect.sid=s%3AQaK-6N6KWeAXtuvXYlV0VvwouP6Mm5LE.T2axY%2F%2FmXp%2FNaynkcuJlDAKpKksnO%2BebMNPSFzR6y7U',
+    'if-none-match': 'W/"d4-LGK0mOjjMDy5xGgKMo+3xpUbT8s"',
+    referer: 'https://1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev/admin/users',
+    'sec-ch-ua': '"Google Chrome";v="131", "Chromium";v="131", "Not_A Brand";v="24"',
+    'sec-ch-ua-mobile': '?0',
+    'sec-ch-ua-platform': '"macOS"',
+    'sec-fetch-dest': 'empty',
+    'sec-fetch-mode': 'cors',
+    'sec-fetch-site': 'same-origin',
+    'x-forwarded-for': '94.207.103.154, 10.84.1.6',
+    'x-forwarded-proto': 'https',
+    'x-replit-user-bio': '',
+    'x-replit-user-id': '',
+    'x-replit-user-name': '',
+    'x-replit-user-profile-image': '',
+    'x-replit-user-roles': '',
+    'x-replit-user-teams': '',
+    'x-replit-user-url': ''
+  },
+  body: {},
+  timestamp: '2024-12-18T19:01:35.989Z'
+}
+[Session Debug] {
+  sessionID: 'QaK-6N6KWeAXtuvXYlV0VvwouP6Mm5LE',
+  hasSession: true,
+  isAuthenticated: true,
+  user: { id: 1, username: 'admin' },
+  cookies: undefined
+}
+[Session Debug] {
+  sessionID: 'QaK-6N6KWeAXtuvXYlV0VvwouP6Mm5LE',
+  hasSession: true,
+  isAuthenticated: true,
+  user: { id: 1, username: 'admin' },
+  cookies: undefined
+}
+[Session Debug] {
+  sessionID: 'QaK-6N6KWeAXtuvXYlV0VvwouP6Mm5LE',
+  hasSession: true,
+  isAuthenticated: true,
+  user: { id: 1, username: 'admin' },
+  cookies: undefined
+}
+7:01:36 PM [express] GET /api/admin/users 200 in 754ms :: [{"id":2,"username":"testuser76","subscrip…
+User day calculation: {
+  userId: 1,
+  firstAccessDate: '2024-12-18 17:49:34.202279+00',
+  currentEST: 2024-12-18T14:01:36.000Z,
+  calculatedDay: 1,
+  nextSession: 2024-12-19T00:00:00.000Z
+}
+7:01:36 PM [express] GET /api/user/day-info 304 in 800ms :: {"currentDay":1,"currentStreak":0,"longe…
+[Request Debug] {
+  method: 'GET',
+  path: '/api/admin/users',
+  headers: {
+    host: '1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev',
+    'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
+    accept: '*/*',
+    'accept-encoding': 'gzip, deflate, br, zstd',
+    'accept-language': 'en-US,en;q=0.9,fr-FR;q=0.8,fr;q=0.7',
+    cookie: 'connect.sid=s%3AQaK-6N6KWeAXtuvXYlV0VvwouP6Mm5LE.T2axY%2F%2FmXp%2FNaynkcuJlDAKpKksnO%2BebMNPSFzR6y7U',
+    'if-none-match': 'W/"154-r2AkURsT0z9LW0v0HuTB4BWZIew"',
+    referer: 'https://1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev/admin/users',
+    'sec-ch-ua': '"Google Chrome";v="131", "Chromium";v="131", "Not_A Brand";v="24"',
+    'sec-ch-ua-mobile': '?0',
+    'sec-ch-ua-platform': '"macOS"',
+    'sec-fetch-dest': 'empty',
+    'sec-fetch-mode': 'cors',
+    'sec-fetch-site': 'same-origin',
+    'x-forwarded-for': '94.207.103.154, 10.84.3.6',
+    'x-forwarded-proto': 'https',
+    'x-replit-user-bio': '',
+    'x-replit-user-id': '',
+    'x-replit-user-name': '',
+    'x-replit-user-profile-image': '',
+    'x-replit-user-roles': '',
+    'x-replit-user-teams': '',
+    'x-replit-user-url': ''
+  },
+  body: {},
+  timestamp: '2024-12-18T19:01:36.855Z'
+}
+7:01:37 PM [express] GET /api/community/stats 200 in 1075ms :: {"id":12,"onlineUsers":4653,"totalUse…
+[Session Debug] {
+  sessionID: 'QaK-6N6KWeAXtuvXYlV0VvwouP6Mm5LE',
+  hasSession: true,
+  isAuthenticated: true,
+  user: { id: 1, username: 'admin' },
+  cookies: undefined
+}
+7:01:37 PM [express] GET /api/admin/users 304 in 716ms :: [{"id":2,"username":"testuser76","subscrip…

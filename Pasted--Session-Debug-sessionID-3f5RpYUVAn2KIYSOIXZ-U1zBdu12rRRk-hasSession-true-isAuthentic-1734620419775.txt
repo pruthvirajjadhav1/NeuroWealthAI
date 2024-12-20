@@ -1,0 +1,51 @@
+[Session Debug] {
+  sessionID: '3f5RpYUVAn2KIYSOIXZ-U1zBdu12rRRk',
+  hasSession: true,
+  isAuthenticated: true,
+  user: { id: 23, username: 'freeuser30' },
+  cookies: undefined
+}
+[Request Debug] {
+  method: 'GET',
+  path: '/api/community/stats',
+  headers: {
+    host: '1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev',
+    'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
+    accept: '*/*',
+    'accept-encoding': 'gzip, deflate, br, zstd',
+    'accept-language': 'en-US,en;q=0.9,fr-FR;q=0.8,fr;q=0.7',
+    cookie: 'connect.sid=s%3A3f5RpYUVAn2KIYSOIXZ-U1zBdu12rRRk.B1xSF3x%2BRb8ZvrAO4gNxVu9fWobqmZcA15d%2FnnSn6r0',
+    'if-none-match': 'W/"6d-a4TJ7nZfPI9Y9QlGQDxxnPjtn1E"',
+    referer: 'https://1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev/trial',
+    'sec-ch-ua': '"Google Chrome";v="131", "Chromium";v="131", "Not_A Brand";v="24"',
+    'sec-ch-ua-mobile': '?0',
+    'sec-ch-ua-platform': '"macOS"',
+    'sec-fetch-dest': 'empty',
+    'sec-fetch-mode': 'cors',
+    'sec-fetch-site': 'same-origin',
+    'x-forwarded-for': '94.207.103.154, 10.84.5.20',
+    'x-forwarded-proto': 'https',
+    'x-replit-user-bio': '',
+    'x-replit-user-id': '',
+    'x-replit-user-name': '',
+    'x-replit-user-profile-image': '',
+    'x-replit-user-roles': '',
+    'x-replit-user-teams': '',
+    'x-replit-user-url': ''
+  },
+  body: {},
+  timestamp: '2024-12-19T15:00:06.436Z'
+}
+[Response Debug] {
+  path: '/api/community/stats',
+  statusCode: 200,
+  responseData: '{"id":321,"onlineUsers":4900,"totalUsers":47058,"avgImprovement":78,"lastUpdated":"2024-12-19T15:00:06.701Z"}',
+  timestamp: '2024-12-19T15:00:06.965Z'
+}
+[Response Debug] {
+  path: '/api/community/stats',
+  statusCode: 200,
+  responseData: '{"id":321,"onlineUsers":4900,"totalUsers":47058,"avgImprovement":78,"lastUpdated":"2024-12-19T15:00:06.701Z"}',
+  timestamp: '2024-12-19T15:00:06.965Z'
+}
+3:00:06 PM [express] GET /api/community/stats 200 in 2417ms :: {"id":321,"onlineUsers":4900,"totalUs…

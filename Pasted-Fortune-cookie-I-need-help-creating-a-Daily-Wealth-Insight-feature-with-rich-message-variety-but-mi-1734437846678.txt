@@ -1,0 +1,45 @@
+Fortune cookie: I need help creating a Daily Wealth Insight feature with rich message variety but minimal technical complexity. A new insight will be shown every day immediately under the voice analysis section after a new voice analysis is done. Here's the MVP specification:
+1. Core Function:
+* Generate one message by combining three parts
+* Display in simple text format
+* Store only today's message
+2. Three-Part Message System: Format: "[Frequency Observation] [Pattern Insight] [Guidance]"
+Frequency Observations (randomly select one):
+* "Your wealth frequency is resonating at a higher level."
+* "Your neural patterns show interesting shifts."
+* "Your abundance frequency is noticeably active."
+* "Your voice patterns reveal subtle changes."
+* "Your wealth DNA is expressing new potential."
+* "Your success frequency is becoming more refined."
+* "Your prosperity alignment is deepening."
+* "Your opportunity recognition is expanding."
+* "Your wealth consciousness is evolving."
+* "Your abundance receptors are awakening."
+Pattern Insights (randomly select one):
+* "This suggests a phase of natural growth."
+* "This indicates positive neural adaptation."
+* "This reflects deeper pattern integration."
+* "This shows promising energetic alignment."
+* "This reveals beneficial mindset shifts."
+* "This signals natural wealth expansion."
+* "This points to increasing receptivity."
+* "This suggests natural prosperity flow."
+* "This indicates deeper success coding."
+* "This reflects organic wealth evolution."
+Guidance (randomly select one):
+* "Stay present to the subtle signs today."
+* "Notice what naturally draws your attention."
+* "Allow your awareness to expand gently."
+* "Trust your intuitive nudges today."
+* "Remain open to unexpected connections."
+* "Let your natural wisdom guide you."
+* "Flow with what feels energetically aligned."
+* "Watch for resonant opportunities."
+* "Follow your enhanced awareness."
+* "Listen to your inner guidance system."
+3. Technical Requirements:
+* Simple random selection from each list
+* Basic text display
+* Store only current message
+* No tracking or history needed
+* Single display container

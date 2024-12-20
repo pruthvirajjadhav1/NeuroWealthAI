@@ -1,0 +1,54 @@
+[vite] connecting...
+[vite] connected.
+[useUser] Starting user fetch
+[useUser] Received response: 
+Object {status: 200, ok: true, headers: {…}, timestamp: "2024-12-18T19:09:20.120Z"}
+[useUser] User data retrieved: 
+Object {hasUser: true, userId: 1, timestamp: "2024-12-18T19:09:20.120Z"}
+[HomePage] Processing sessions data: 
+Object {totalSessions: 0, latestSession: null, canRecordToday: true}
+[HomePage] Processing sessions data: 
+Object {totalSessions: 0, latestSession: null, canRecordToday: true}
+React is not defined
+[HomePage] Processing sessions data: 
+Object {totalSessions: 0, latestSession: null, canRecordToday: true}
+[HomePage] Processing sessions data: 
+Object {totalSessions: 0, latestSession: null, canRecordToday: true}
+React is not defined
+The above error occurred in the <HomePage> component:
+
+    at HomePage (https://1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev/src/pages/HomePage.tsx:29:28)
+    at Route (https://1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev/@fs/home/runner/NeuroWealthAI-VoiceAlignment-New-UI-Dec16-Part5/node_modules/.vite/deps/wouter.js?v=d8a7ad00:323:16)
+    at Switch (https://1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev/@fs/home/runner/NeuroWealthAI-VoiceAlignment-New-UI-Dec16-Part5/node_modules/.vite/deps/wouter.js?v=d8a7ad00:379:17)
+    at div
+    at div
+    at div
+    at Provider (https://1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev/@fs/home/runner/NeuroWealthAI-VoiceAlignment-New-UI-Dec16-Part5/node_modules/.vite/deps/chunk-6J5IXUBZ.js?v=d8a7ad00:48:15)
+    at TooltipProvider (https://1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev/@fs/home/runner/NeuroWealthAI-VoiceAlignment-New-UI-Dec16-Part5/node_modules/.vite/deps/@radix-ui_react-tooltip.js?v=d8a7ad00:59:5)
+    at https://1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev/src/components/ui/sidebar.tsx:54:7
+    at QueryClientProvider (https://1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev/@fs/home/runner/NeuroWealthAI-VoiceAlignment-New-UI-Dec16-Part5/node_modules/.vite/deps/@tanstack_react-query.js?v=d8a7ad00:2796:3)
+    at App (https://1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev/src/App.tsx:49:31)
+    at QueryClientProvider (https://1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev/@fs/home/runner/NeuroWealthAI-VoiceAlignment-New-UI-Dec16-Part5/node_modules/.vite/deps/@tanstack_react-query.js?v=d8a7ad00:2796:3)
+
+Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://reactjs.org/link/error-boundaries to learn more about error boundaries.
+
+at HomePage (https://1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev/src/pages/HomePage.tsx:29:28)
+at Route (https://1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev/@fs/home/runner/NeuroWealthAI-VoiceAlignment-New-UI-Dec16-Part5/node_modules/.vite/deps/wouter.js?v=d8a7ad00:323:16)
+at Switch (https://1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev/@fs/home/runner/NeuroWealthAI-VoiceAlignment-New-UI-Dec16-Part5/node_modules/.vite/deps/wouter.js?v=d8a7ad00:379:17)
+at div
+at div
+at div
+at Provider (https://1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev/@fs/home/runner/NeuroWealthAI-VoiceAlignment-New-UI-Dec16-Part5/node_modules/.vite/deps/chunk-6J5IXUBZ.js?v=d8a7ad00:48:15)
+at TooltipProvider (https://1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev/@fs/home/runner/NeuroWealthAI-VoiceAlignment-New-UI-Dec16-Part5/node_modules/.vite/deps/@radix-ui_react-tooltip.js?v=d8a7ad00:59:5)
+at https://1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev/src/components/ui/sidebar.tsx:54:7
+at QueryClientProvider (https://1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev/@fs/home/runner/NeuroWealthAI-VoiceAlignment-New-UI-Dec16-Part5/node_modules/.vite/deps/@tanstack_react-query.js?v=d8a7ad00:2796:3)
+at App (https://1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev/src/App.tsx:49:31)
+at QueryClientProvider (https://1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev/@fs/home/runner/NeuroWealthAI-VoiceAlignment-New-UI-Dec16-Part5/node_modules/.vite/deps/@tanstack_react-query.js?v=d8a7ad00:2796:3)
+
+Consider adding an error boundary to your tree to customize error handling behavior.
+Visit https://reactjs.org/link/error-boundaries to learn more about error boundaries.
+at t.value (https://1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev/__replco/static/devtools/eruda/3.2.3/eruda.js:2:17465)
+at new t (https://1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev/__replco/static/devtools/eruda/3.2.3/eruda.js:2:12630)
+at t.value (https://1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev/__replco/static/devtools/eruda/3.2.3/eruda.js:2:32766)
+at https://1e224581-a4f8-4686-97d6-93a31b8214a6-00-bsedhmza2tbf.sisko.replit.dev/__replco/static/devtools/eruda/3.2.3/eruda.js:2:34400
