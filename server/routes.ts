@@ -13,6 +13,7 @@ import { generateDailyInsight } from './utils/wealthInsights';
 import path from "path";
 import fs from "fs";
 import passport from "passport";
+import { LucideAlignHorizontalDistributeCenter } from "lucide-react";
 
 
 export function registerRoutes(app: Express) {
@@ -448,6 +449,7 @@ export function registerRoutes(app: Express) {
 
     try {
       const now = TimeManager.getCurrentEST();
+      console.log(`now is ${now}`)
       const [user] = await db
         .select()
         .from(users)
@@ -460,17 +462,29 @@ export function registerRoutes(app: Express) {
 
       // Get current day's session
       const currentDay = TimeManager.getDayNumber(user.firstAccessDate, now);
+      console.log(`current Day is ${currentDay}`)
       const userSessions = await db.query.sessions.findMany({
         where: eq(sessions.userId, req.user!.id),
         orderBy: (sessions, { desc }) => [desc(sessions.createdAt)]
       });
 
-      // Find if there's a completed session for today
-      const todaySession = userSessions.find(session =>
-        TimeManager.getDayNumber(user.firstAccessDate, session.createdAt) === currentDay
-      );
+      
+     userSessions.forEach((session, index) => {
+  console.log(`Session ${index + 1}: Created at ${session.createdAt}`);
+     });
+      
 
+      // Find if there's a completed session for today
+    const todaySession = userSessions.find(session => {
+  const sessionDay = TimeManager.getDayNumber(user.firstAccessDate, session.createdAt);
+  console.log(`Comparing currentDay (${currentDay}) with sessionDay (${sessionDay}) for session created at ${session.createdAt}`);
+  return sessionDay === currentDay; // Add return statement
+});
+
+
+      console.log(`todaySession is ${todaySession}`)
       const completed = todaySession?.affirmationCompleted || false;
+      console.log(`completed ius ${completed}`)
 
       res.json({ completed });
     } catch (error) {
