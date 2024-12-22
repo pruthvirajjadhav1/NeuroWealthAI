@@ -45,7 +45,7 @@ async function startServer() {
     });
   }
 
-  server.listen(SERVER_CONFIG.port, SERVER_CONFIG.host, () => {
+  server.listen(3000, SERVER_CONFIG.host, () => {
     console.log(`Server running on http://${SERVER_CONFIG.host}:${SERVER_CONFIG.port}`);
   });
 

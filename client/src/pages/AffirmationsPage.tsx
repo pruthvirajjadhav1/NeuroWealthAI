@@ -355,7 +355,7 @@ export default function AffirmationsPage() {
   }
 
   // Show locked interface for non-paid users
-  if (!hasAccess) {
+  if (hasAccess) {
     return (
       <div className="container mx-auto px-4 py-8">
         <Card className="p-6 space-y-6">

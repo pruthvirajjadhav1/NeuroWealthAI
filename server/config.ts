@@ -6,7 +6,7 @@ export const SERVER_CONFIG = {
   host: '0.0.0.0', 
   port: process.env.PORT ? parseInt(process.env.PORT, 10) : 5000,
   gracefulShutdownTimeout: 10000,
-  staticPath: process.env.NODE_ENV === 'production' ? './dist/public' : './public'
+  staticPath: process.env.NODE_ENV === 'production' ? './dist/public' : './dist/public'
 };
 
 export const DB_CONFIG = {
