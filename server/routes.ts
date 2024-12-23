@@ -7,14 +7,13 @@ import {
   sessions,
   communityStats,
   userImprovements,
-  successStories
+  successStories,
 } from "@db/schema";
-import { generateDailyInsight } from './utils/wealthInsights';
+import { generateDailyInsight } from "./utils/wealthInsights";
 import path from "path";
 import fs from "fs";
 import passport from "passport";
 import { LucideAlignHorizontalDistributeCenter } from "lucide-react";
-
 
 export function registerRoutes(app: Express) {
   // User routes
@@ -28,7 +27,6 @@ export function registerRoutes(app: Express) {
   // Initialize passport and restore authentication state from session
   app.use(passport.initialize());
   app.use(passport.session());
-
 
   // API Routes
   // Check neural session availability
@@ -51,39 +49,44 @@ export function registerRoutes(app: Express) {
       const now = TimeManager.getCurrentEST();
       const today = TimeManager.getESTMidnight(now);
       const tomorrow = TimeManager.getNextMidnight(now);
-      const currentDayNumber = TimeManager.getDayNumber(user.firstAccessDate, now);
+      const currentDayNumber = TimeManager.getDayNumber(
+        user.firstAccessDate,
+        now
+      );
 
       // Get all user's sessions
       const userSessions = await db.query.sessions.findMany({
         where: eq(sessions.userId, user.id),
-        orderBy: (sessions, { desc }) => [desc(sessions.createdAt)]
+        orderBy: (sessions, { desc }) => [desc(sessions.createdAt)],
       });
 
       // Find session for current user's day
-      const todaySession = userSessions.find(session =>
-        TimeManager.getDayNumber(user.firstAccessDate, session.createdAt) === currentDayNumber &&
-        session.completed
+      const todaySession = userSessions.find(
+        (session) =>
+          TimeManager.getDayNumber(user.firstAccessDate, session.createdAt) ===
+            currentDayNumber && session.completed
       );
 
-
       // Check neural session status
-      const neuralSessionGenerated = todaySession?.hasGeneratedGammaSession || false;
-      const neuralSessionCompleted = todaySession?.gammaSessionCompleted || false;
+      const neuralSessionGenerated =
+        todaySession?.hasGeneratedGammaSession || false;
+      const neuralSessionCompleted =
+        todaySession?.gammaSessionCompleted || false;
 
       res.json({
         canGenerate: todaySession && !neuralSessionGenerated,
         reason: !todaySession
           ? "Complete today's voice analysis session first"
           : neuralSessionGenerated
-            ? neuralSessionCompleted
-              ? "Neural session completed for today"
-              : "Session generated - listen to complete it"
-            : null,
+          ? neuralSessionCompleted
+            ? "Neural session completed for today"
+            : "Session generated - listen to complete it"
+          : null,
         currentDay: currentDayNumber,
-        nextSession: tomorrow.toISOString()
+        nextSession: tomorrow.toISOString(),
       });
     } catch (error) {
-      console.error('Error checking neural session availability:', error);
+      console.error("Error checking neural session availability:", error);
       res.status(500).send("Failed to check neural session availability");
     }
   });
@@ -99,53 +102,55 @@ export function registerRoutes(app: Express) {
       const now = TimeManager.getCurrentEST();
       const currentDayNumber = TimeManager.getDayNumber(now);
 
-
       // Validate request data
       if (!req.body.audioData) {
         return res.status(400).json({
-          message: "Audio data is required"
+          message: "Audio data is required",
         });
       }
 
       if (!req.body.frequencyType) {
         return res.status(400).json({
-          message: "Frequency type is required"
+          message: "Frequency type is required",
         });
       }
 
       // Get all user's sessions
       const userSessions = await db.query.sessions.findMany({
         where: eq(sessions.userId, req.user!.id),
-        orderBy: (sessions, { desc }) => [desc(sessions.createdAt)]
+        orderBy: (sessions, { desc }) => [desc(sessions.createdAt)],
       });
 
       // Find session for current debug day
-      const todaySession = userSessions.find(session =>
-        TimeManager.getDayNumber(session.createdAt) === currentDayNumber &&
-        session.completed
+      const todaySession = userSessions.find(
+        (session) =>
+          TimeManager.getDayNumber(session.createdAt) === currentDayNumber &&
+          session.completed
       );
 
       if (!todaySession) {
         return res.status(400).json({
-          message: "Complete today's voice analysis session first"
+          message: "Complete today's voice analysis session first",
         });
       }
 
       // Check if neural session was already generated for this debug day
-      const neuralSessionGenerated = userSessions.find(session =>
-        TimeManager.getDayNumber(session.createdAt) === currentDayNumber &&
-        session.hasGeneratedGammaSession
+      const neuralSessionGenerated = userSessions.find(
+        (session) =>
+          TimeManager.getDayNumber(session.createdAt) === currentDayNumber &&
+          session.hasGeneratedGammaSession
       );
 
       if (neuralSessionGenerated) {
         return res.status(400).json({
-          message: "You've already generated a neural session today. Complete the existing session before generating a new one."
+          message:
+            "You've already generated a neural session today. Complete the existing session before generating a new one.",
         });
       }
 
       const existingImprovements = await db.query.userImprovements.findMany({
         orderBy: (improvements, { desc }) => [desc(improvements.createdAt)],
-        limit: 20 // Keep last 20 improvements
+        limit: 20, // Keep last 20 improvements
       });
 
       // Keep existing improvements
@@ -155,58 +160,95 @@ export function registerRoutes(app: Express) {
       const newImprovementsCount = Math.floor(Math.random() * 3) + 2; // Random number between 2-4
 
       // Generate new improvements with distributed timestamps
-      const newImprovements = Array.from({ length: newImprovementsCount }, (_, index) => {
-        // Calculate timestamp segments for even distribution across 30-400 seconds
-        // Newer improvements should have more recent timestamps
-        const totalRange = 370; // 400 - 30
-        const segmentSize = totalRange / newImprovementsCount;
-        const baseDelay = 30; // Minimum delay in seconds
+      const newImprovements = Array.from(
+        { length: newImprovementsCount },
+        (_, index) => {
+          // Calculate timestamp segments for even distribution across 30-400 seconds
+          // Newer improvements should have more recent timestamps
+          const totalRange = 370; // 400 - 30
+          const segmentSize = totalRange / newImprovementsCount;
+          const baseDelay = 30; // Minimum delay in seconds
 
-        // Calculate delay for this improvement (newer improvements have smaller delays)
-        const reversedIndex = newImprovementsCount - 1 - index; // Reverse index for newest first
-        const segmentStart = baseDelay + (reversedIndex * segmentSize);
-        const segmentEnd = segmentStart + segmentSize;
-        const randomDelay = Math.floor(Math.random() * (segmentEnd - segmentStart) + segmentStart);
+          // Calculate delay for this improvement (newer improvements have smaller delays)
+          const reversedIndex = newImprovementsCount - 1 - index; // Reverse index for newest first
+          const segmentStart = baseDelay + reversedIndex * segmentSize;
+          const segmentEnd = segmentStart + segmentSize;
+          const randomDelay = Math.floor(
+            Math.random() * (segmentEnd - segmentStart) + segmentStart
+          );
 
-        // Create timestamp with calculated delay
-        const timestamp = new Date(currentTime.getTime() - (randomDelay * 1000));
+          // Create timestamp with calculated delay
+          const timestamp = new Date(
+            currentTime.getTime() - randomDelay * 1000
+          );
 
-        // Generate random username
-        const firstNames = ['john', 'emma', 'kai', 'sofia', 'aiden', 'nina', 'omar', 'priya'];
-        const lastNames = ['smith', 'wilson', 'martinez', 'ali', 'kim', 'ivanov', 'mueller', 'lee'];
-        const nameType = Math.random() > 0.5 ? 'first_last' : 'username';
+          // Generate random username
+          const firstNames = [
+            "john",
+            "emma",
+            "kai",
+            "sofia",
+            "aiden",
+            "nina",
+            "omar",
+            "priya",
+          ];
+          const lastNames = [
+            "smith",
+            "wilson",
+            "martinez",
+            "ali",
+            "kim",
+            "ivanov",
+            "mueller",
+            "lee",
+          ];
+          const nameType = Math.random() > 0.5 ? "first_last" : "username";
 
-        let anonymousId;
-        if (nameType === 'first_last') {
-          const firstName = firstNames[Math.floor(Math.random() * firstNames.length)];
-          const lastName = lastNames[Math.floor(Math.random() * lastNames.length)];
-          anonymousId = Math.random() > 0.5 ?
-            `${firstName}_${lastName}` :
-            `${firstName}.${lastName}`;
-        } else {
-          const baseName = firstNames[Math.floor(Math.random() * firstNames.length)];
-          const suffix = Math.floor(Math.random() * 999);
-          anonymousId = Math.random() > 0.5 ?
-            `${baseName}${suffix}` :
-            `${baseName.charAt(0)}-${lastNames[Math.floor(Math.random() * lastNames.length)]}-${suffix}`;
+          let anonymousId;
+          if (nameType === "first_last") {
+            const firstName =
+              firstNames[Math.floor(Math.random() * firstNames.length)];
+            const lastName =
+              lastNames[Math.floor(Math.random() * lastNames.length)];
+            anonymousId =
+              Math.random() > 0.5
+                ? `${firstName}_${lastName}`
+                : `${firstName}.${lastName}`;
+          } else {
+            const baseName =
+              firstNames[Math.floor(Math.random() * firstNames.length)];
+            const suffix = Math.floor(Math.random() * 999);
+            anonymousId =
+              Math.random() > 0.5
+                ? `${baseName}${suffix}`
+                : `${baseName.charAt(0)}-${
+                    lastNames[Math.floor(Math.random() * lastNames.length)]
+                  }-${suffix}`;
+          }
+
+          const improvement = {
+            anonymousId,
+            improvement: Math.floor(Math.random() * 6) + 2, // Random improvement 2-7
+            category: "Wealth Alignment" as const, // Type assertion to match schema
+            createdAt: timestamp,
+          };
+
+          return improvement;
         }
-
-        const improvement = {
-          anonymousId,
-          improvement: Math.floor(Math.random() * 6) + 2, // Random improvement 2-7
-          category: "Wealth Alignment" as const, // Type assertion to match schema
-          createdAt: timestamp
-        };
-
-        return improvement;
-      });
+      );
 
       // Sort new improvements by timestamp (newest first)
-      newImprovements.sort((a, b) => b.createdAt.getTime() - a.createdAt.getTime());
+      newImprovements.sort(
+        (a, b) => b.createdAt.getTime() - a.createdAt.getTime()
+      );
 
       // Combine existing and new improvements, keeping the most recent ones
       const allImprovements = [...existingImprovements, ...newImprovements]
-        .sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime())
+        .sort(
+          (a, b) =>
+            new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+        )
         .slice(0, 20); // Keep only the 20 most recent improvements
 
       // Insert only the new improvements
@@ -215,14 +257,14 @@ export function registerRoutes(app: Express) {
         .values(newImprovements)
         .returning();
 
-
       // Update current session with audio data - only set generation state, not completion
-      const [updatedSession] = await db.update(sessions)
+      const [updatedSession] = await db
+        .update(sessions)
         .set({
           gammaSessionCompleted: false, // Initialize as not completed
           gammaSessionGeneratedAt: new Date(),
           audioData: req.body.audioData, // Store the audio data in the session
-          hasGeneratedGammaSession: true // New flag to track generation state
+          hasGeneratedGammaSession: true, // New flag to track generation state
         })
         .where(eq(sessions.id, todaySession.id))
         .returning();
@@ -230,14 +272,17 @@ export function registerRoutes(app: Express) {
       // Return session data with generation metadata
       res.json(updatedSession);
     } catch (error) {
-      console.error('[Neural Session API] Error in neural session generation:', {
-        error: error instanceof Error ? error.message : 'Unknown error',
-        stack: error instanceof Error ? error.stack : undefined,
-        userId: req.user?.id
-      });
+      console.error(
+        "[Neural Session API] Error in neural session generation:",
+        {
+          error: error instanceof Error ? error.message : "Unknown error",
+          stack: error instanceof Error ? error.stack : undefined,
+          userId: req.user?.id,
+        }
+      );
       res.status(500).json({
         message: "Failed to generate neural session",
-        details: error instanceof Error ? error.message : "Unknown error"
+        details: error instanceof Error ? error.message : "Unknown error",
       });
     }
   });
@@ -257,23 +302,25 @@ export function registerRoutes(app: Express) {
 
       // Find previous day's session
       const previousSession = await db.query.sessions.findFirst({
-        where: (sessions, { and, eq, gte, lt }) => and(
-          eq(sessions.userId, req.user!.id),
-          gte(sessions.createdAt, yesterday),
-          lt(sessions.createdAt, today),
-        ),
+        where: (sessions, { and, eq, gte, lt }) =>
+          and(
+            eq(sessions.userId, req.user!.id),
+            gte(sessions.createdAt, yesterday),
+            lt(sessions.createdAt, today)
+          ),
       });
 
       // Check if previous session exists and was completed with gamma session
-      const wasCompleted = previousSession ?
-        (previousSession.completed && previousSession.gammaSessionCompleted) : false;
+      const wasCompleted = previousSession
+        ? previousSession.completed && previousSession.gammaSessionCompleted
+        : false;
 
       res.json({ wasCompleted });
     } catch (error) {
-      console.error('Error checking previous session completion:', error);
+      console.error("Error checking previous session completion:", error);
       res.status(500).json({
         message: "Failed to check previous session completion",
-        error: error instanceof Error ? error.message : "Unknown error"
+        error: error instanceof Error ? error.message : "Unknown error",
       });
     }
   });
@@ -292,42 +339,45 @@ export function registerRoutes(app: Express) {
 
       // Find today's session
       const todaySession = await db.query.sessions.findFirst({
-        where: (sessions, { and, eq, gte, lt }) => and(
-          eq(sessions.userId, req.user!.id),
-          gte(sessions.createdAt, today),
-          lt(sessions.createdAt, tomorrow),
-          eq(sessions.completed, true)
-        ),
+        where: (sessions, { and, eq, gte, lt }) =>
+          and(
+            eq(sessions.userId, req.user!.id),
+            gte(sessions.createdAt, today),
+            lt(sessions.createdAt, tomorrow)
+            // eq(sessions.completed, true)
+          ),
       });
+      console.log(todaySession, "check today session");
 
       if (!todaySession) {
         return res.status(400).json({
-          message: "Complete today's voice analysis session first"
+          message: "Complete today's voice analysis session first",
         });
       }
 
       // Verify the session has been generated first
       if (!todaySession.hasGeneratedGammaSession) {
         return res.status(400).json({
-          message: "Cannot complete a session that hasn't been generated yet"
+          message: "Cannot complete a session that hasn't been generated yet",
         });
       }
 
       // Update the session to mark gamma completion
-      const [updatedSession] = await db.update(sessions)
+      const [updatedSession] = await db
+        .update(sessions)
         .set({
           gammaSessionCompleted: true,
-          gammaSessionCompletedAt: new Date() // Track when it was completed
+          gammaSessionCompletedAt: new Date(), // Track when it was completed
         })
         .where(eq(sessions.id, todaySession.id))
         .returning();
 
       res.json(updatedSession);
     } catch (error) {
-      console.error('Error completing gamma session:', error);
+      console.error("Error completing gamma session:", error);
       res.status(500).json({
         message: "Failed to complete gamma session",
-        error: error instanceof Error ? error.message : "Unknown error"
+        error: error instanceof Error ? error.message : "Unknown error",
       });
     }
   });
@@ -361,41 +411,51 @@ export function registerRoutes(app: Express) {
       }
 
       // For debug mode users, don't restrict based on current day
-      const todaySession = userData.isDebug ? null : userSessions.find(session => {
-        const sessionDay = TimeManager.getDayNumber(userData.firstAccessDate, session.createdAt);
-        return sessionDay === currentDayNumber;
-      });
+      const todaySession = userData.isDebug
+        ? null
+        : userSessions.find((session) => {
+            const sessionDay = TimeManager.getDayNumber(
+              userData.firstAccessDate,
+              session.createdAt
+            );
+            return sessionDay === currentDayNumber;
+          });
 
       // Map sessions with their day numbers
-      const sessionsWithDays = userSessions.map(session => ({
+      const sessionsWithDays = userSessions.map((session) => ({
         ...session,
-        dayNumber: TimeManager.getDayNumber(session.createdAt)
+        dayNumber: TimeManager.getDayNumber(session.createdAt),
       }));
 
       res.json({
         sessions: sessionsWithDays,
         todaySessionExists: !!todaySession,
         currentDayNumber,
-        nextRecordingTime: todaySession ? TimeManager.getESTMidnight(new Date(now)).toISOString() : null,
-        todaySession
+        nextRecordingTime: todaySession
+          ? TimeManager.getESTMidnight(new Date(now)).toISOString()
+          : null,
+        todaySession,
       });
     } catch (error) {
-      console.error('[Sessions API] Error fetching sessions:', {
-        error: error instanceof Error ? {
-          message: error.message,
-          stack: error.stack,
-          name: error.name
-        } : 'Unknown error type',
+      console.error("[Sessions API] Error fetching sessions:", {
+        error:
+          error instanceof Error
+            ? {
+                message: error.message,
+                stack: error.stack,
+                name: error.name,
+              }
+            : "Unknown error type",
         userId: req.user?.id,
         timestamp: new Date().toISOString(),
         requestPath: req.path,
-        query: req.query
+        query: req.query,
       });
 
       res.status(500).json({
         message: "Failed to fetch sessions",
         error: error instanceof Error ? error.message : "Unknown error",
-        timestamp: new Date().toISOString()
+        timestamp: new Date().toISOString(),
       });
     }
   });
@@ -404,21 +464,22 @@ export function registerRoutes(app: Express) {
   // Audio file routes
   app.get("/api/audio/track", (req, res) => {
     try {
-      const audioDir = path.join(process.cwd(), 'abundance-audio');
+      const audioDir = path.join(process.cwd(), "abundance-audio");
       const index = parseInt(req.query.index as string) || 0;
 
       // Read audio directory
-      const files = fs.readdirSync(audioDir)
-        .filter(file => file.toLowerCase().endsWith('.mp3'))
+      const files = fs
+        .readdirSync(audioDir)
+        .filter((file) => file.toLowerCase().endsWith(".mp3"))
         .sort((a, b) => {
           // Extract numbers from filenames and compare
-          const numA = parseInt(a.match(/\d+/)?.[0] || '0');
-          const numB = parseInt(b.match(/\d+/)?.[0] || '0');
+          const numA = parseInt(a.match(/\d+/)?.[0] || "0");
+          const numB = parseInt(b.match(/\d+/)?.[0] || "0");
           return numA - numB;
         });
 
       if (files.length === 0) {
-        return res.status(404).send('No audio files found');
+        return res.status(404).send("No audio files found");
       }
 
       // Use modulo to wrap around if index is out of bounds
@@ -426,19 +487,19 @@ export function registerRoutes(app: Express) {
       const filePath = path.join(audioDir, files[safeIndex]);
 
       if (!fs.existsSync(filePath)) {
-        return res.status(404).send('Audio file not found');
+        return res.status(404).send("Audio file not found");
       }
 
       // Set correct headers
-      res.setHeader('Content-Type', 'audio/mpeg');
-      res.setHeader('Accept-Ranges', 'bytes');
+      res.setHeader("Content-Type", "audio/mpeg");
+      res.setHeader("Accept-Ranges", "bytes");
 
       // Stream the file
       const stream = fs.createReadStream(filePath);
       stream.pipe(res);
     } catch (error) {
-      console.error('Error serving audio file:', error);
-      res.status(500).send('Error serving audio file');
+      console.error("Error serving audio file:", error);
+      res.status(500).send("Error serving audio file");
     }
   });
 
@@ -449,7 +510,7 @@ export function registerRoutes(app: Express) {
 
     try {
       const now = TimeManager.getCurrentEST();
-      console.log(`now is ${now}`)
+      console.log(`now is ${now}`);
       const [user] = await db
         .select()
         .from(users)
@@ -462,36 +523,38 @@ export function registerRoutes(app: Express) {
 
       // Get current day's session
       const currentDay = TimeManager.getDayNumber(user.firstAccessDate, now);
-      console.log(`current Day is ${currentDay}`)
+      console.log(`current Day is ${currentDay}`);
       const userSessions = await db.query.sessions.findMany({
         where: eq(sessions.userId, req.user!.id),
-        orderBy: (sessions, { desc }) => [desc(sessions.createdAt)]
+        orderBy: (sessions, { desc }) => [desc(sessions.createdAt)],
       });
 
-      
-     userSessions.forEach((session, index) => {
-  console.log(`Session ${index + 1}: Created at ${session.createdAt}`);
-     });
-      
+      userSessions.forEach((session, index) => {
+        console.log(`Session ${index + 1}: Created at ${session.createdAt}`);
+      });
 
       // Find if there's a completed session for today
-    const todaySession = userSessions.find(session => {
-  const sessionDay = TimeManager.getDayNumber(user.firstAccessDate, session.createdAt);
-  console.log(`Comparing currentDay (${currentDay}) with sessionDay (${sessionDay}) for session created at ${session.createdAt}`);
-  return sessionDay === currentDay; // Add return statement
-});
+      const todaySession = userSessions.find((session) => {
+        const sessionDay = TimeManager.getDayNumber(
+          user.firstAccessDate,
+          session.createdAt
+        );
+        console.log(
+          `Comparing currentDay (${currentDay}) with sessionDay (${sessionDay}) for session created at ${session.createdAt}`
+        );
+        return sessionDay === currentDay; // Add return statement
+      });
 
-
-      console.log(`todaySession is ${todaySession}`)
+      console.log(`todaySession is ${todaySession}`);
       const completed = todaySession?.affirmationCompleted || false;
-      console.log(`completed ius ${completed}`)
+      console.log(`completed ius ${completed}`);
 
       res.json({ completed });
     } catch (error) {
-      console.error('Error checking today\'s affirmation:', error);
+      console.error("Error checking today's affirmation:", error);
       res.status(500).json({
         error: "Failed to check today's affirmation status",
-        details: error instanceof Error ? error.message : "Unknown error"
+        details: error instanceof Error ? error.message : "Unknown error",
       });
     }
   });
@@ -518,17 +581,19 @@ export function registerRoutes(app: Express) {
       const currentDay = TimeManager.getDayNumber(user.firstAccessDate, now);
       const userSessions = await db.query.sessions.findMany({
         where: eq(sessions.userId, req.user!.id),
-        orderBy: (sessions, { desc }) => [desc(sessions.createdAt)]
+        orderBy: (sessions, { desc }) => [desc(sessions.createdAt)],
       });
 
       // Find today's session
-      const todaySession = userSessions.find(session =>
-        TimeManager.getDayNumber(user.firstAccessDate, session.createdAt) === currentDay
+      const todaySession = userSessions.find(
+        (session) =>
+          TimeManager.getDayNumber(user.firstAccessDate, session.createdAt) ===
+          currentDay
       );
 
       if (!todaySession) {
         return res.status(400).json({
-          message: "Complete today's voice analysis session first"
+          message: "Complete today's voice analysis session first",
         });
       }
 
@@ -542,14 +607,17 @@ export function registerRoutes(app: Express) {
 
         res.json({ success: true });
       } catch (error) {
-        console.error('Database error while updating affirmation status:', error);
+        console.error(
+          "Database error while updating affirmation status:",
+          error
+        );
         throw error;
       }
     } catch (error) {
-      console.error('Error completing affirmation:', error);
+      console.error("Error completing affirmation:", error);
       res.status(500).json({
         error: "Failed to complete affirmation",
-        details: error instanceof Error ? error.message : "Unknown error"
+        details: error instanceof Error ? error.message : "Unknown error",
       });
     }
   });
@@ -575,18 +643,21 @@ export function registerRoutes(app: Express) {
       const currentDay = TimeManager.getDayNumber(user.firstAccessDate, now);
       const userSessions = await db.query.sessions.findMany({
         where: eq(sessions.userId, req.user!.id),
-        orderBy: (sessions, { desc }) => [desc(sessions.createdAt)]
+        orderBy: (sessions, { desc }) => [desc(sessions.createdAt)],
       });
 
       // Find today's session
-      const todaySession = userSessions.find(session => {
-        const sessionDay = TimeManager.getDayNumber(user.firstAccessDate, session.createdAt);
+      const todaySession = userSessions.find((session) => {
+        const sessionDay = TimeManager.getDayNumber(
+          user.firstAccessDate,
+          session.createdAt
+        );
         return sessionDay === currentDay;
       });
 
       if (!todaySession) {
         return res.status(400).json({
-          message: "Complete today's voice analysis session first"
+          message: "Complete today's voice analysis session first",
         });
       }
 
@@ -594,7 +665,6 @@ export function registerRoutes(app: Express) {
       if (todaySession.dailyAffirmations) {
         return res.json({ affirmations: todaySession.dailyAffirmations });
       }
-
 
       // Generate new affirmations
       const AFFIRMATIONS = {
@@ -605,11 +675,12 @@ export function registerRoutes(app: Express) {
           "My neural patterns are perfectly tuned to attract money",
           "I embody the wealth frequency of the ultrasuccessful",
           "My brain is wired for unlimited financial abundance",
-          "I am a powerful creator of wealth and prosperity","My neural circuitry is optimized for massive wealth creation",
+          "I am a powerful creator of wealth and prosperity",
+          "My neural circuitry is optimized for massive wealth creation",
           "I carry the wealth frequency patterns ofbillionaires",
           "My DNA resonates perfectly with financial abundance",
           "I am genetically coded for exponential prosperity",
-          "My brain waves naturally attract unlimited resources"
+          "My brain waves naturally attract unlimited resources",
         ],
         abundance: [
           "Money flows to me easily and effortlessly",
@@ -623,7 +694,7 @@ export function registerRoutes(app: Express) {
           "My prosperity field magnetizes infinite opportunities",
           "Money multiplies effortlessly in my energy field",
           "My wealth frequency amplifies everything I touch",
-          "Abundance flows through my optimized neural pathways"
+          "Abundance flows through my optimized neural pathways",
         ],
         action: [
           "I take inspired actions that multiply my wealth",
@@ -637,7 +708,7 @@ export function registerRoutes(app: Express) {
           "I attract strategic opportunities at the perfect frequency",
           "My wealth DNA activates profitable decisions instantly",
           "I manifest abundance through aligned action",
-          "My brain waves synchronize with perfect timing"
+          "My brain waves synchronize with perfect timing",
         ],
         gratitude: [
           "I am deeply grateful for my growing wealth",
@@ -651,20 +722,24 @@ export function registerRoutes(app: Express) {
           "Thank you for my perfectly aligned neural patterns",
           "Deep gratitude activates my abundance DNA",
           "I appreciate my natural wealth magnetism",
-          "Thank you for my quantum wealth acceleration"
-        ]
+          "Thank you for my quantum wealth acceleration",
+        ],
       };
 
       // Select three random affirmations from each category
-      const dailyAffirmations = Object.entries(AFFIRMATIONS).reduce((acc, [category, affirmations]) => {
-        const shuffled = [...affirmations].sort(() => Math.random() - 0.5);
-        acc[category] = shuffled.slice(0, 3);
-        return acc;
-      }, {} as Record<string, string[]>);
+      const dailyAffirmations = Object.entries(AFFIRMATIONS).reduce(
+        (acc, [category, affirmations]) => {
+          const shuffled = [...affirmations].sort(() => Math.random() - 0.5);
+          acc[category] = shuffled.slice(0, 3);
+          return acc;
+        },
+        {} as Record<string, string[]>
+      );
 
       try {
         // Update the session with the generated affirmations
-        await db.update(sessions)
+        await db
+          .update(sessions)
           .set({ dailyAffirmations })
           .where(eq(sessions.id, todaySession.id));
 
@@ -677,20 +752,23 @@ export function registerRoutes(app: Express) {
 
         res.json({ affirmations: dailyAffirmations });
       } catch (dbError) {
-        console.error('[Affirmations API] Database error while storing affirmations:', {
-          error: dbError instanceof Error ? dbError.message : 'Unknown error',
-          stack: dbError instanceof Error ? dbError.stack : undefined
-        });
+        console.error(
+          "[Affirmations API] Database error while storing affirmations:",
+          {
+            error: dbError instanceof Error ? dbError.message : "Unknown error",
+            stack: dbError instanceof Error ? dbError.stack : undefined,
+          }
+        );
         throw dbError;
       }
     } catch (error) {
-      console.error('[Affirmations API] Error in affirmations generation:', {
-        error: error instanceof Error ? error.message : 'Unknown error',
-        stack: error instanceof Error ? error.stack : undefined
+      console.error("[Affirmations API] Error in affirmations generation:", {
+        error: error instanceof Error ? error.message : "Unknown error",
+        stack: error instanceof Error ? error.stack : undefined,
       });
       res.status(500).json({
         error: "Failed to generate daily affirmations",
-        details: error instanceof Error ? error.message : "Unknown error"
+        details: error instanceof Error ? error.message : "Unknown error",
       });
     }
   });
@@ -721,31 +799,42 @@ export function registerRoutes(app: Express) {
       // Get all user's sessions ordered by creation time
       const userSessions = await db.query.sessions.findMany({
         where: eq(sessions.userId, req.user!.id),
-        orderBy: (sessions, { desc }) => [desc(sessions.createdAt)]
+        orderBy: (sessions, { desc }) => [desc(sessions.createdAt)],
       });
 
       // In debug mode, we don't restrict session creation
       // For normal mode, check if a session exists for the current day
-      const existingSession = user.isDebug ? null : userSessions.find(session => {
-        const sessionDay = TimeManager.getDayNumber(user.firstAccessDate, session.createdAt);
-        return sessionDay === currentDay;
-      });
+      const existingSession = user.isDebug
+        ? null
+        : userSessions.find((session) => {
+            const sessionDay = TimeManager.getDayNumber(
+              user.firstAccessDate,
+              session.createdAt
+            );
+            return sessionDay === currentDay;
+          });
 
       // Allow new session if we're on a different debug day
-      if (existingSession && TimeManager.getDayNumber(user.firstAccessDate, existingSession.createdAt) === currentDay) {
+      if (
+        existingSession &&
+        TimeManager.getDayNumber(
+          user.firstAccessDate,
+          existingSession.createdAt
+        ) === currentDay
+      ) {
         // Calculate next recording time using TimeManager
         const nextRecordingTime = TimeManager.getNextMidnight(now);
         return res.status(429).json({
           message: "Only one recording per day is allowed",
           nextRecordingTime: nextRecordingTime.toISOString(),
-          latestSession: existingSession
+          latestSession: existingSession,
         });
       }
 
       // Get user's existing readings and improvement history
       const existingImprovements = await db.query.userImprovements.findMany({
         orderBy: (improvements, { desc }) => [desc(improvements.createdAt)],
-        limit: 20 // Keep last 20 improvements
+        limit: 20, // Keep last 20 improvements
       });
 
       // Generate only 2-4 new improvements
@@ -763,18 +852,21 @@ export function registerRoutes(app: Express) {
       const dailyWealthInsight = generateDailyInsight();
 
       // Create new session using debug-adjusted time
-      const [session] = await db.insert(sessions)
+      const [session] = await db
+        .insert(sessions)
         .values({
           userId: req.user!.id,
           wealthScore: req.body.wealthScore,
           audioUrl: req.body.audioUrl,
           audioData: req.body.audioData,
-          wealthReading: existingUser.wealthDnaPrediction || req.body.wealthReading,
-          expertOpinion: existingUser.lastExpertOpinion || req.body.expertOpinion,
+          wealthReading:
+            existingUser.wealthDnaPrediction || req.body.wealthReading,
+          expertOpinion:
+            existingUser.lastExpertOpinion || req.body.expertOpinion,
           completed: true,
           gammaSessionCompleted: false,
           dailyWealthInsight: dailyWealthInsight, // Explicitly assign server-generated insight
-          createdAt: now // Use debug-adjusted time for creation
+          createdAt: now, // Use debug-adjusted time for creation
         })
         .returning();
 
@@ -785,39 +877,48 @@ export function registerRoutes(app: Express) {
 
       // Check if user completed a session yesterday
       const yesterdaySession = await db.query.sessions.findFirst({
-        where: (sessions, { and, eq, gte, lt }) => and(
-          eq(sessions.userId, req.user!.id),
-          gte(sessions.createdAt, yesterdayEST),
-          lt(sessions.createdAt, TimeManager.getESTMidnight(now))
-        ),
+        where: (sessions, { and, eq, gte, lt }) =>
+          and(
+            eq(sessions.userId, req.user!.id),
+            gte(sessions.createdAt, yesterdayEST),
+            lt(sessions.createdAt, TimeManager.getESTMidnight(now))
+          ),
       });
 
       // Update streak information
-      const currentStreak = yesterdaySession ? (existingUser.currentStreak || 0) + 1 : 1;
-      const longestStreak = Math.max(currentStreak, existingUser.longestStreak || 0);
+      const currentStreak = yesterdaySession
+        ? (existingUser.currentStreak || 0) + 1
+        : 1;
+      const longestStreak = Math.max(
+        currentStreak,
+        existingUser.longestStreak || 0
+      );
 
       // Update user streak information
-      await db.update(users)
+      await db
+        .update(users)
         .set({
           currentStreak,
           longestStreak,
-          wealthDnaPrediction: req.body.wealthReading || existingUser.wealthDnaPrediction,
-          lastExpertOpinion: req.body.expertOpinion || existingUser.lastExpertOpinion
+          wealthDnaPrediction:
+            req.body.wealthReading || existingUser.wealthDnaPrediction,
+          lastExpertOpinion:
+            req.body.expertOpinion || existingUser.lastExpertOpinion,
         })
         .where(eq(users.id, req.user!.id));
 
       res.json(session);
     } catch (error) {
-      console.error('Error creating session:', error);
+      console.error("Error creating session:", error);
       res.status(500).json({
         error: "Failed to create session",
-        details: error instanceof Error ? error.message : "Unknown error"
+        details: error instanceof Error ? error.message : "Unknown error",
       });
     }
   });
 
   // Store community growth data in memory
-  let lastCommunityUpdate = new Date('2024-12-13');
+  let lastCommunityUpdate = new Date("2024-12-13");
   let baseCommunityCount = 45638;
   let currentOnlineUsers = 1550 + Math.floor(Math.random() * 7111); // Initial random between 1550-8660
   let lastOnlineUpdate = Date.now();
@@ -835,7 +936,9 @@ export function registerRoutes(app: Express) {
     try {
       // Get or generate community stats
       let stats = await db.query.communityStats.findFirst({
-        orderBy: (communityStats, { desc }) => [desc(communityStats.lastUpdated)],
+        orderBy: (communityStats, { desc }) => [
+          desc(communityStats.lastUpdated),
+        ],
       });
 
       const now = new Date();
@@ -843,7 +946,10 @@ export function registerRoutes(app: Express) {
 
       // Update total community count daily
       if (today > lastCommunityUpdate) {
-        const daysDiff = Math.floor((today.getTime() - lastCommunityUpdate.getTime()) / (1000 * 60 * 60 * 24));
+        const daysDiff = Math.floor(
+          (today.getTime() - lastCommunityUpdate.getTime()) /
+            (1000 * 60 * 60 * 24)
+        );
         for (let i = 0; i < daysDiff; i++) {
           baseCommunityCount += 75 + Math.floor(Math.random() * 326); // Random increase between 75 and 400
         }
@@ -858,8 +964,12 @@ export function registerRoutes(app: Express) {
         lastOnlineUpdate = Date.now();
       }
 
-      if (!stats || Date.now() - new Date(stats.lastUpdated).getTime() > 30000) {
-        const [newStats] = await db.insert(communityStats)
+      if (
+        !stats ||
+        Date.now() - new Date(stats.lastUpdated).getTime() > 30000
+      ) {
+        const [newStats] = await db
+          .insert(communityStats)
           .values({
             onlineUsers: currentOnlineUsers,
             totalUsers: baseCommunityCount,
@@ -873,7 +983,7 @@ export function registerRoutes(app: Express) {
 
       res.json(stats);
     } catch (error) {
-      console.error('Error fetching community stats:', error);
+      console.error("Error fetching community stats:", error);
       res.status(500).send("Failed to fetch community stats");
     }
   });
@@ -883,7 +993,9 @@ export function registerRoutes(app: Express) {
     try {
       // Get recent improvements ordered by creation time
       let improvements = await db.query.userImprovements.findMany({
-        orderBy: (userImprovements, { desc }) => [desc(userImprovements.createdAt)],
+        orderBy: (userImprovements, { desc }) => [
+          desc(userImprovements.createdAt),
+        ],
         limit: 10,
       });
 
@@ -892,52 +1004,106 @@ export function registerRoutes(app: Express) {
       const generateUsername = () => {
         // Diverse first names across demographics
         const firstNames = [
-          'emma', 'liam', 'sofia', 'noah', 'ava', 'muhammad', 'isabella', 'lucas',
-          'yuki', 'chen', 'priya', 'aiden', 'zara', 'diego', 'nina', 'kai',
-          'maria', 'james', 'leila', 'omar', 'ana', 'pavel', 'mei', 'andre'
+          "emma",
+          "liam",
+          "sofia",
+          "noah",
+          "ava",
+          "muhammad",
+          "isabella",
+          "lucas",
+          "yuki",
+          "chen",
+          "priya",
+          "aiden",
+          "zara",
+          "diego",
+          "nina",
+          "kai",
+          "maria",
+          "james",
+          "leila",
+          "omar",
+          "ana",
+          "pavel",
+          "mei",
+          "andre",
         ];
 
         // Diverse last names across demographics
         const lastNames = [
-          'smith', 'garcia', 'kim', 'patel', 'wang', 'mueller', 'silva', 'jones',
-          'zhang', 'kumar', 'lopez', 'ivanov', 'sato', 'nguyen', 'cohen', 'lee',
-          'rodriguez', 'singh', 'brown', 'ali', 'martinez', 'wilson', 'chen', 'park'
+          "smith",
+          "garcia",
+          "kim",
+          "patel",
+          "wang",
+          "mueller",
+          "silva",
+          "jones",
+          "zhang",
+          "kumar",
+          "lopez",
+          "ivanov",
+          "sato",
+          "nguyen",
+          "cohen",
+          "lee",
+          "rodriguez",
+          "singh",
+          "brown",
+          "ali",
+          "martinez",
+          "wilson",
+          "chen",
+          "park",
         ];
 
         const patterns = [
           // firstname.lastname
           () => {
-            const first = firstNames[Math.floor(Math.random() * firstNames.length)];
-            const last = lastNames[Math.floor(Math.random() * lastNames.length)];
+            const first =
+              firstNames[Math.floor(Math.random() * firstNames.length)];
+            const last =
+              lastNames[Math.floor(Math.random() * lastNames.length)];
             return `${first}.${last}`;
           },
           // firstnamelastInitial + birth year
           () => {
-            const first = firstNames[Math.floor(Math.random() * firstNames.length)];
-            const last = lastNames[Math.floor(Math.random() * lastNames.length)][0];
+            const first =
+              firstNames[Math.floor(Math.random() * firstNames.length)];
+            const last =
+              lastNames[Math.floor(Math.random() * lastNames.length)][0];
             const year = Math.floor(Math.random() * (2005 - 1960 + 1)) + 1960;
             return `${first}${last}${year}`;
           },
           // firstname_lastname
           () => {
-            const first = firstNames[Math.floor(Math.random() * firstNames.length)];
-            const last = lastNames[Math.floor(Math.random() * lastNames.length)];
+            const first =
+              firstNames[Math.floor(Math.random() * firstNames.length)];
+            const last =
+              lastNames[Math.floor(Math.random() * lastNames.length)];
             return `${first}_${last}`;
           },
           // lastnamefirstInitial + area code
           () => {
-            const first = firstNames[Math.floor(Math.random() * firstNames.length)][0];
-            const last = lastNames[Math.floor(Math.random() * lastNames.length)];
+            const first =
+              firstNames[Math.floor(Math.random() * firstNames.length)][0];
+            const last =
+              lastNames[Math.floor(Math.random() * lastNames.length)];
             const areaCode = Math.floor(Math.random() * 900) + 100;
             return `${last}${first}${areaCode}`;
           },
           // firstInitial-lastname-birthYear
           () => {
-            const first = firstNames[Math.floor(Math.random() * firstNames.length)][0];
-            const last = lastNames[Math.floor(Math.random() * lastNames.length)];
-            const year = (Math.floor(Math.random() * (2005 - 1960 + 1)) + 1960).toString().slice(2);
+            const first =
+              firstNames[Math.floor(Math.random() * firstNames.length)][0];
+            const last =
+              lastNames[Math.floor(Math.random() * lastNames.length)];
+            const year = (Math.floor(Math.random() * (2005 - 1960 + 1)) + 1960)
+              .toString()
+              .slice(2);
             return `${first}-${last}-${year}`;
-          }
+          },
         ];
 
         // Generate username with proper length constraints
@@ -956,16 +1122,17 @@ export function registerRoutes(app: Express) {
         const MAX_IMPROVEMENT = 7;
         const improvement = Math.min(
           MAX_IMPROVEMENT,
-          MIN_IMPROVEMENT + Math.floor(Math.random() * (MAX_IMPROVEMENT - MIN_IMPROVEMENT + 1))
+          MIN_IMPROVEMENT +
+            Math.floor(Math.random() * (MAX_IMPROVEMENT - MIN_IMPROVEMENT + 1))
         );
 
         // Validate improvement is within bounds
         if (improvement < MIN_IMPROVEMENT || improvement > MAX_IMPROVEMENT) {
-          console.error('Invalid improvement value generated:', improvement);
+          console.error("Invalid improvement value generated:", improvement);
           return {
             anonymousId: generateUsername(),
             improvement: MIN_IMPROVEMENT, // Fallback to minimum if calculation fails
-            category: 'Wealth Alignment' as const,
+            category: "Wealth Alignment" as const,
             createdAt: new Date(),
           };
         }
@@ -973,7 +1140,7 @@ export function registerRoutes(app: Express) {
         return {
           anonymousId: generateUsername(),
           improvement,
-          category: 'Wealth Alignment' as const,
+          category: "Wealth Alignment" as const,
           createdAt: new Date(),
         };
       };
@@ -984,17 +1151,20 @@ export function registerRoutes(app: Express) {
         await db.delete(userImprovements).execute();
 
         // Generate fresh improvements
-        const initialImprovements = Array(10).fill(null).map(() => {
-          const improvement = generateImprovement();
-          return improvement;
-        });
+        const initialImprovements = Array(10)
+          .fill(null)
+          .map(() => {
+            const improvement = generateImprovement();
+            return improvement;
+          });
 
         // Insert new improvements
-        improvements = await db.insert(userImprovements)
+        improvements = await db
+          .insert(userImprovements)
           .values(initialImprovements)
           .returning();
       } catch (error) {
-        console.error('Error resetting improvements:', error);
+        console.error("Error resetting improvements:", error);
         throw error;
       }
 
@@ -1004,24 +1174,27 @@ export function registerRoutes(app: Express) {
         const newImprovement = generateImprovement();
 
         try {
-          const [insertedImprovement] = await db.insert(userImprovements)
+          const [insertedImprovement] = await db
+            .insert(userImprovements)
             .values(newImprovement)
             .returning();
 
           // Refresh the improvements list
           improvements = await db.query.userImprovements.findMany({
-            orderBy: (userImprovements, { desc }) => [desc(userImprovements.createdAt)],
+            orderBy: (userImprovements, { desc }) => [
+              desc(userImprovements.createdAt),
+            ],
             limit: 10,
           });
         } catch (error) {
-          console.error('Error inserting new improvement:', error);
+          console.error("Error inserting new improvement:", error);
           throw error;
         }
       }
 
       res.json(improvements);
     } catch (error) {
-      console.error('Error with improvements:', error);
+      console.error("Error with improvements:", error);
       res.status(500).send("Failed to fetch improvements");
     }
   });
@@ -1037,11 +1210,11 @@ export function registerRoutes(app: Express) {
       if (!stories.length) {
         // Generate initial success stories if none exist
         const segments = [
-          'Early Career Professional',
-          'Small Business Owner',
-          'Creative Entrepreneur',
-          'Corporate Executive',
-          'Real Estate Investor'
+          "Early Career Professional",
+          "Small Business Owner",
+          "Creative Entrepreneur",
+          "Corporate Executive",
+          "Real Estate Investor",
         ];
 
         const storyTemplates = [
@@ -1049,7 +1222,7 @@ export function registerRoutes(app: Express) {
           "Transformed financial mindset using daily neural optimization. Income increased by [PERCENT]% within [TIME] days",
           "Used the [FREQUENCY] frequency daily, leading to [AMOUNT]k in unexpected opportunities within [TIME] days",
           "Began with similar patterns, now generating [AMOUNT]k+ in passive income after [TIME] days of activation",
-          "Overcame financial blocks using neural alignment, resulting in [PERCENT]% portfolio growth in [TIME] days"
+          "Overcame financial blocks using neural alignment, resulting in [PERCENT]% portfolio growth in [TIME] days",
         ];
 
         const newStories = segments.map((segment, index) => {
@@ -1057,13 +1230,18 @@ export function registerRoutes(app: Express) {
           const improvement = 25 + Math.floor(Math.random() * 75); // 25-100%
           const amount = 20 + Math.floor(Math.random() * 80); // $20k-$100k
           const percent = 30 + Math.floor(Math.random() * 70); // 30-100%
-          const frequency = ['Abundance', 'Confidence', 'Opportunity', 'Action'][Math.floor(Math.random() * 4)];
+          const frequency = [
+            "Abundance",
+            "Confidence",
+            "Opportunity",
+            "Action",
+          ][Math.floor(Math.random() * 4)];
 
           let story = storyTemplates[index]
-            .replace('[TIME]', timeframe.toString())
-            .replace('[AMOUNT]', amount.toString())
-            .replace('[PERCENT]', percent.toString())
-            .replace('[FREQUENCY]', frequency);
+            .replace("[TIME]", timeframe.toString())
+            .replace("[AMOUNT]", amount.toString())
+            .replace("[PERCENT]", percent.toString())
+            .replace("[FREQUENCY]", frequency);
 
           return {
             userSegment: segment,
@@ -1074,18 +1252,18 @@ export function registerRoutes(app: Express) {
           };
         });
 
-        stories = await db.insert(successStories)
+        stories = await db
+          .insert(successStories)
           .values(newStories)
           .returning();
       }
 
       res.json(stories);
     } catch (error) {
-      console.error('Error fetching success stories:', error);
+      console.error("Error fetching success stories:", error);
       res.status(500).send("Failed to fetch success stories");
     }
   });
-
 
   // Debug endpoint to skip to next day
   app.post("/api/debug/skip-day", async (req, res) => {
@@ -1115,11 +1293,16 @@ export function registerRoutes(app: Express) {
         .where(eq(sessions.userId, user.id));
 
       // Calculate current day number before update
-      const currentDay = TimeManager.getDayNumber(user.firstAccessDate, new Date());
+      const currentDay = TimeManager.getDayNumber(
+        user.firstAccessDate,
+        new Date()
+      );
 
       // Filter sessions from the current day
-      const todaysSessions = currentSessions.filter(session =>
-        TimeManager.getDayNumber(user.firstAccessDate, session.createdAt) === currentDay
+      const todaysSessions = currentSessions.filter(
+        (session) =>
+          TimeManager.getDayNumber(user.firstAccessDate, session.createdAt) ===
+          currentDay
       );
 
       // Move today's sessions to previous day by updating their timestamps
@@ -1130,7 +1313,7 @@ export function registerRoutes(app: Express) {
         await db
           .update(sessions)
           .set({
-            createdAt: sessionDate
+            createdAt: sessionDate,
           })
           .where(eq(sessions.id, session.id));
       }
@@ -1139,16 +1322,16 @@ export function registerRoutes(app: Express) {
       await db
         .update(users)
         .set({
-          firstAccessDate: newFirstAccessDate
+          firstAccessDate: newFirstAccessDate,
         })
         .where(eq(users.id, user.id));
 
       res.json({
         message: "Day skipped successfully",
-        newFirstAccessDate: newFirstAccessDate.toISOString()
+        newFirstAccessDate: newFirstAccessDate.toISOString(),
       });
     } catch (error) {
-      console.error('Error skipping day:', error);
+      console.error("Error skipping day:", error);
       res.status(500).json({ error: "Failed to skip day" });
     }
   });
@@ -1180,14 +1363,13 @@ export function registerRoutes(app: Express) {
         currentDay,
         currentStreak: user.currentStreak || 0,
         longestStreak: user.longestStreak || 0,
-        nextSessionTime: nextMidnight.toISOString()
+        nextSessionTime: nextMidnight.toISOString(),
       });
-
     } catch (error) {
-      console.error('Error getting day info:', error);
+      console.error("Error getting day info:", error);
       res.status(500).json({
         error: "Failed to get day information",
-        details: error instanceof Error ? error.message : String(error)
+        details: error instanceof Error ? error.message : String(error),
       });
     }
   });
@@ -1201,9 +1383,9 @@ export function registerRoutes(app: Express) {
     try {
       const { status } = req.body;
 
-      if (!['trial', 'free', 'paid', 'churned'].includes(status)) {
+      if (!["trial", "free", "paid", "churned"].includes(status)) {
         return res.status(400).json({
-          message: "Invalid subscription status"
+          message: "Invalid subscription status",
         });
       }
 
@@ -1211,20 +1393,20 @@ export function registerRoutes(app: Express) {
       const [updatedUser] = await db
         .update(users)
         .set({
-          subscriptionStatus: status
+          subscriptionStatus: status,
         })
         .where(eq(users.id, req.user!.id))
         .returning();
 
       res.json({
         message: "Subscription status updated successfully",
-        user: updatedUser
+        user: updatedUser,
       });
     } catch (error) {
-      console.error('Error updating subscription status:', error);
+      console.error("Error updating subscription status:", error);
       res.status(500).json({
         message: "Failed to update subscription status",
-        error: error instanceof Error ? error.message : "Unknown error"
+        error: error instanceof Error ? error.message : "Unknown error",
       });
     }
   });
@@ -1248,13 +1430,13 @@ export function registerRoutes(app: Express) {
 
       res.json({
         status: user.subscriptionStatus,
-        isActive: user.subscriptionStatus !== 'churned'
+        isActive: user.subscriptionStatus !== "churned",
       });
     } catch (error) {
-      console.error('Error fetching subscription status:', error);
+      console.error("Error fetching subscription status:", error);
       res.status(500).json({
         message: "Failed to fetch subscription status",
-        error: error instanceof Error ? error.message : "Unknown error"
+        error: error instanceof Error ? error.message : "Unknown error",
       });
     }
   });
@@ -1269,9 +1451,10 @@ export function registerRoutes(app: Express) {
       const { status } = req.body;
 
       // Validate status
-      if (!status || status !== 'trial') {
+      if (!status || status !== "trial") {
         return res.status(400).json({
-          message: "Invalid subscription status. Only 'trial' status is supported."
+          message:
+            "Invalid subscription status. Only 'trial' status is supported.",
         });
       }
 
@@ -1279,7 +1462,7 @@ export function registerRoutes(app: Express) {
       const [updatedUser] = await db
         .update(users)
         .set({
-          subscriptionStatus: status
+          subscriptionStatus: status,
         })
         .where(eq(users.id, req.user!.id))
         .returning();
@@ -1290,16 +1473,16 @@ export function registerRoutes(app: Express) {
 
       res.json({
         message: "Subscription status updated successfully",
-        status: updatedUser.subscriptionStatus
+        status: updatedUser.subscriptionStatus,
       });
     } catch (error) {
-      console.error('Error updating status:', {
+      console.error("Error updating status:", {
         error: error instanceof Error ? error.message : "Unknown error",
-        userId: req.user?.id
+        userId: req.user?.id,
       });
       res.status(500).json({
         message: "Failed to update subscription status",
-        error: error instanceof Error ? error.message : "Unknown error"
+        error: error instanceof Error ? error.message : "Unknown error",
       });
     }
   });
