@@ -190,10 +190,8 @@ export function registerAdminRoutes(app: express.Express) {
               createdAt: users.createdAt, // Optional based on your schema
             })
             .from(users);
-      console.log(query, "testing query in backend ");
 
       const usersData = await query;
-      console.log(usersData, "testing userdata in backend ");
 
       // Process users to add `subscription_status` logic
       const processedUsers = usersData.map((user) => {
@@ -217,7 +215,7 @@ export function registerAdminRoutes(app: express.Express) {
       });
 
       // Aggregate analytics if needed
-      
+
       type SubscriptionStatus = "free" | "trial" | "paid" | "churned";
 
       const analytics: Record<SubscriptionStatus | "total", number> =
@@ -237,8 +235,6 @@ export function registerAdminRoutes(app: express.Express) {
           { free: 0, trial: 0, paid: 0, churned: 0, total: 0 }
         );
 
-      // Send the response including user events and analytics
-      console.log(analytics, processedUsers);
       res.json({
         success: true,
         analytics,

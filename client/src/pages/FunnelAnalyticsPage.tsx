@@ -89,7 +89,7 @@ const FunnelAnalyticsPage: React.FC = () => {
       }
 
       const data = await response.json();
-      console.log(data, "testing data");
+
       const analytics = data.analytics || {};
       // const userRegisteredValue = analytics["user_registered"] || 0;
       // setUserRegistered(userRegisteredValue);
