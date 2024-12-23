@@ -7,10 +7,13 @@ import { registerRoutes } from "./routes";
 import { db } from "../db";
 import { sql } from "drizzle-orm";
 import { SERVER_CONFIG, ENV_CONFIG, DB_CONFIG } from "./config";
-
+import { registerAdminRoutes } from "./token";
+ 
 const app = express();
 const server = createServer(app);
 
+
+ 
 async function initializeDatabase() {
   let retryCount = 0;
   while (retryCount < DB_CONFIG.retryAttempts) {
@@ -35,6 +38,7 @@ async function startServer() {
 
   setupAuth(app);
   registerRoutes(app);
+  registerAdminRoutes(app)
 
   if (ENV_CONFIG.isDevelopment) {
     await setupVite(app, server);
@@ -42,12 +46,15 @@ async function startServer() {
     app.use(express.static(SERVER_CONFIG.staticPath));
     app.get('*', (_req, res) => {
       res.sendFile('index.html', { root: SERVER_CONFIG.staticPath });
+      //res.send('Hello from the GET route!');
+
     });
   }
 
-  server.listen(SERVER_CONFIG.port, SERVER_CONFIG.host, () => {
-    console.log(`Server running on http://${SERVER_CONFIG.host}:${SERVER_CONFIG.port}`);
-  });
+server.listen(SERVER_CONFIG.port, '127.0.0.1', () => {
+  console.log(`Server running on http://127.0.0.1:${SERVER_CONFIG.port}`);
+});
+
 
   process.on('SIGTERM', () => {
     server.close(() => {

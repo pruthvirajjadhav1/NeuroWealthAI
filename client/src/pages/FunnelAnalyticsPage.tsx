@@ -18,12 +18,21 @@ interface FunnelStep {
   conversionRate: number;
 }
 
+interface UserEvent {
+  userId: string;
+  eventType: string;
+  timestamp: string;
+    eventData?: string; // New field
+
+}
+
 interface FunnelData {
   lastUpdated: string;
   timeframe: '1d' | '7d' | '30d' | 'custom';
   startDate: string;
   endDate: string;
   steps: FunnelStep[];
+  userEvents: UserEvent[];  // Added field for user events (e.g., registration, upgrade)
 }
 
 const FunnelAnalyticsPage = () => {
@@ -64,6 +73,7 @@ const FunnelAnalyticsPage = () => {
       }
 
       const data = await response.json();
+      console.log(`funnel data is ${JSON.stringify(funnelData)}`);
       setFunnelData(data);
     } catch (error) {
       console.error("Error fetching funnel data:", error);
@@ -144,77 +154,73 @@ const FunnelAnalyticsPage = () => {
           <CardContent>
             {funnelData && (
               <div className="space-y-4">
-                <div className="h-[400px]">
-                  <ResponsiveContainer width="100%" height="100%">
-                    <LineChart
-                      data={funnelData.steps}
-                      margin={{
-                        top: 5,
-                        right: 30,
-                        left: 20,
-                        bottom: 5,
-                      }}
-                    >
-                      <CartesianGrid strokeDasharray="3 3" />
-                      <XAxis dataKey="name" />
-                      <YAxis />
-                      <Tooltip 
-                        formatter={(value: number, name: string) => [
-                          name === 'Users' ? `${value} users` : `${value.toFixed(1)}%`,
-                          name
-                        ]}
-                      />
-                      <Legend />
-                      <Line
-                        type="monotone"
-                        name="Users"
-                        dataKey="value"
-                        stroke="#3b82f6"
-                        activeDot={{ r: 8 }}
-                      />
-                      <Line
-                        type="monotone"
-                        name="Conversion Rate"
-                        dataKey="conversionRate"
-                        stroke="#10b981"
-                        activeDot={{ r: 8 }}
-                      />
-                    </LineChart>
-                  </ResponsiveContainer>
-                </div>
+                
 
-                <div className="grid gap-4">
-                  {funnelData.steps.map((step, index) => (
-                    <Card key={step.name}>
-                      <CardContent className="p-4">
-                        <div className="flex justify-between items-center">
-                          <div>
-                            <h3 className="font-medium">{step.name}</h3>
-                            <p className="text-sm text-muted-foreground">
-                              {step.value} users
-                            </p>
-                            <p className="text-xs text-muted-foreground mt-1">
-                              {step.description}
-                            </p>
-                          </div>
-                          {index > 0 && (
-                            <div className="text-right">
-                              <p className="text-sm font-medium">
-                                Conversion from previous step
-                              </p>
-                              <p className="text-lg font-bold text-primary">
-                                {calculateConversionRate(
-                                  step.value,
-                                  funnelData.steps[index - 1].value
-                                )}
-                              </p>
-                            </div>
-                          )}
-                        </div>
-                      </CardContent>
-                    </Card>
-                  ))}
-                </div>
+               <div className="grid gap-4">
+  {funnelData?.steps?.map((step, index) => (
+    <Card key={step.name}>
+      <CardContent className="p-4">
+        <div className="flex justify-between items-center">
+          <div>
+            <h3 className="font-medium">{step.name}</h3>
+            <p className="text-sm text-muted-foreground">{step.value} users</p>
+            <p className="text-xs text-muted-foreground mt-1">{step.description}</p>
+          </div>
+          {index > 0 && (
+            <div className="text-right">
+              <p className="text-sm font-medium">Conversion from previous step</p>
+              <p className="text-lg font-bold text-primary">
+                {calculateConversionRate(
+                  step.value,
+                  funnelData.steps[index - 1]?.value || 0
+                )}
+              </p>
+            </div>
+          )}
+        </div>
+      </CardContent>
+    </Card>
+  ))}
+</div>
+
+
+                {/* User Events Table */}
+                <Card>
+                  <CardHeader>
+                    <CardTitle>Tracked User Events</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    {funnelData?.userEvents && funnelData.userEvents.length > 0 ? (
+  <div className="overflow-x-auto">
+    <table className="min-w-full table-auto">
+      <thead>
+        <tr>
+          <th className="px-4 py-2">User ID</th>
+          <th className="px-4 py-2">Event</th>
+          <th className="px-4 py-2">Timestamp</th>
+          <th className="px-4 py-2">EventData</th>
+
+        </tr>
+      </thead>
+      <tbody>
+        {funnelData.userEvents.map((event) => (
+          <tr key={event.userId}>
+            <td className="border px-4 py-2">{event.userId}</td>
+            <td className="border px-4 py-2">{event.eventType}</td>
+            <td className="border px-4 py-2">{event.timestamp}</td>
+            <td className="border px-4 py-2">{event.eventData || "N/A"}</td> {/* Display data */}
+
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+) : (
+  <p>No user events found.</p>
+)}
+
+                  </CardContent>
+                </Card>
               </div>
             )}
           </CardContent>

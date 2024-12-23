@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
-import type { User } from "@db/schema";
 import { useToast } from "@/hooks/use-toast";
+import { User } from "@db/schema";
+import { useSearchParams } from "./use-search-params";
 
 type RequestResult = {
   ok: true;
@@ -40,6 +41,19 @@ export function useUser() {
   const [error, setError] = useState<Error | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const { toast } = useToast();
+  const [isIntro, setIsIntro] = useState(false);
+   const [searchParams] = useSearchParams();
+  const flag = searchParams.get('is_intro');
+  console.log(`flag is ${flag}`)
+  useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const introParam = urlParams.get("is_intro");
+    if (flag) {
+      setIsIntro(true);
+          console.log(`is_intro is ${isIntro}`);
+    }
+    console.log(`is_intro is ${isIntro}`);
+  }, []); // This will only run once on component mount
 
   useEffect(() => {
     fetchUser();
@@ -61,13 +75,44 @@ export function useUser() {
       }
 
       const data = await response.json();
+      console.log(`setting user_data ... ${JSON.stringify(data)}`)
+  
       setUser(data);
+      return data
     } catch (err) {
       setError(err instanceof Error ? err : new Error("Failed to fetch user"));
     } finally {
       setIsLoading(false);
     }
   };
+const triggerFunnelEvent = async (userId: string) => {
+  console.log("Triggering funnel event for intro user");
+
+  // Updated endpoint and ensured consistency with the funnel tracking format
+  const funnelResponse = await fetch("/api/admin/funnel/track", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      eventType: "user_registered", // Ensure consistency with expected funnel events
+      eventData: JSON.stringify({ source: "intro_flow" }), // eventData should be serialized as a string
+      userId,
+      sessionId: localStorage.getItem("sessionId") || Math.random().toString(36).substring(7), // Ensure sessionId exists
+      clientTimestamp: new Date().toISOString(), // Match the funnel track format
+    }),
+  });
+
+  const responseJson = await funnelResponse.json();
+
+  console.log("Funnel Event Response:", responseJson);
+
+  // Handle errors in the response
+  if (!funnelResponse.ok) {
+    console.error("Failed to trigger funnel event:", responseJson);
+  }
+};
+
 
   const login = async (userData: any) => {
     const result = await handleRequest("/api/login", "POST", userData);
@@ -79,7 +124,6 @@ export function useUser() {
       });
     } else {
       await fetchUser();
-      // Redirect admin users to /admin, others to dashboard
       window.location.href = result.isAdmin ? '/admin' : '/';
     }
     return result;
@@ -101,7 +145,10 @@ export function useUser() {
   };
 
   const register = async (userData: any) => {
-    const result = await handleRequest("/api/register", "POST", userData);
+  const result = await handleRequest("/api/register", "POST", {
+    ...userData,  // Spread the existing user data
+    isIntro: isIntro,  // Add the isIntro value here
+  });
     if (!result.ok) {
       toast({
         title: "Registration failed",
@@ -109,7 +156,14 @@ export function useUser() {
         variant: "destructive",
       });
     } else {
-      await fetchUser();
+      const fetchedUser = await fetchUser(); // This fetches and updates the state
+    console.log(`Fetched user data: ${JSON.stringify(fetchedUser)}`);
+    
+    // Use the fetched user data directly
+    if (flag && fetchedUser?.id) {
+      console.log(`Triggering event for user ID: ${fetchedUser.id}`);
+      await triggerFunnelEvent(fetchedUser.id);
+    }
       window.location.href = '/';
     }
     return result;

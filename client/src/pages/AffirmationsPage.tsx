@@ -147,7 +147,7 @@ export default function AffirmationsPage() {
   });
 
   const todaySessionCompleted = todayAffirmationData?.completed || false;
-
+  console.log(`todaySessionCompleted is ${todaySessionCompleted}`)
   const completeMutation = useMutation({
     mutationFn: async () => {
       console.log('[Affirmations] Starting session completion...');
@@ -339,7 +339,7 @@ export default function AffirmationsPage() {
 
   // Helper function to determine if user has access
   const hasAccess = isPaidUser && (!isTrialUser || hasEnoughData);
-
+   
   // Show loading skeleton while data is being fetched
   if (!userData || !sessionData || isAffirmationStatusLoading) {
     return (
