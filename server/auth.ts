@@ -5,13 +5,19 @@ import session from "express-session";
 import createMemoryStore from "memorystore";
 import { scrypt, randomBytes, timingSafeEqual } from "crypto";
 import { promisify } from "util";
-import { users, insertUserSchema, registrationTokens, loginSchema, type User as SelectUser } from "../db/schema";
+import { users, insertUserSchema, registrationTokens, loginSchema, type User as SelectUser, ltvTransactions } from "../db/schema";
 import { db } from "../db";
 import { eq } from "drizzle-orm";
 import { AUTH_CONFIG } from "./config";
-
+import Stripe from 'stripe';
+import express from 'express';
+import  *  as dotenv from 'dotenv';
+dotenv.config();
 const scryptAsync = promisify(scrypt);
 const ADMIN_PASSWORD_HASH = "5dca0889c2f04a8c95c22f323fda74a00a6de7c1e0467c5c1d28627e239e3dd7f16f4d9f37010a46c9ce4854c17e001213e2e67800763bc64f42f1fc5add449e.f69525a0fed2b5c9bc3223a76fda7d1c";
+const stripe = new Stripe(process.env.STRIPE_KEY_BACKEND as string, {
+  apiVersion: '2024-12-18.acacia',
+});
 
 const crypto = {
   hash: async (password: string) => {
@@ -72,6 +78,7 @@ export function setupAuth(app: Express) {
   app.use(session(sessionSettings));
   app.use(passport.initialize());
   app.use(passport.session());
+  app.use('/api/webhook/stripe', express.raw({ type: 'application/json' }));
 
   // Add session debugging middleware
   app.use((req: Request, res: Response, next: NextFunction) => {
@@ -314,4 +321,137 @@ export function setupAuth(app: Express) {
     }
     res.status(401).send("Not logged in");
   });
+
+  app.post("/api/create-payment-intent", async(req,res)=>{
+    try{
+
+      const { email, userId } = req.body;
+
+      if(!email){
+        return res.status(400).json({error: 'Email is required'})
+      }
+
+      const user= await db.select().from(users).where(eq(users.email,email)).limit(1);
+
+      if(!user || user.length===0){
+        return res.status(400).json({error: 'User not found'})
+      }
+
+      const paymentIntent = await stripe.paymentIntents.create({
+        amount: 50,
+        currency: 'usd',
+        description: 'NeuroWealth AI 7-Day Trial',
+        receipt_email: email,
+        automatic_payment_methods: { enabled: true },
+      });
+
+
+
+    }catch(error){
+      console.error('Error creating payment intent:', error);
+      res.status(500).json({ error: error || 'Internal server error' });
+    }
+  })
+  
+  
+  app.post('/api/create-payment-intent', async (req, res) => {
+    try {
+      const { email, userId } = req.body;
+  
+      if (!email) {
+        return res.status(400).json({ error: 'Email is required' });
+      }
+  
+      const paymentIntent = await stripe.paymentIntents.create({
+        amount: 50,
+        currency: 'usd',
+        description: 'NeuroWealth AI 7-Day Trial',
+        receipt_email: email,
+        automatic_payment_methods: { enabled: true },
+      });
+  
+
+      const session = await stripe.checkout.sessions.create({
+        line_items: [
+          {
+            price: 'price_1QYuMaFbsA3VXWZbzRHIv0ma', 
+            quantity: 1,
+          },
+        ],
+        mode: 'subscription',
+        success_url: `http://localhost:3000/?success=true`,
+        cancel_url: `http://localhost:3000/?canceled=true`,
+      });
+  
+      // Transaction logic for updating the user and inserting into `ltvTransactions`
+      const transactionResult = await db.transaction(async (tx) => {
+        const updatedUser = await tx
+          .update(users)
+          .set({ subscriptionStatus: 'trial' })
+          .where(eq(users.email, email))
+          .returning({ id: users.id, subscriptionStatus: users.subscriptionStatus });
+  
+        if (!updatedUser || updatedUser.length === 0) {
+          throw new Error('User not found or failed to update subscription status');
+        }
+  
+        const newTransaction = await tx
+          .insert(ltvTransactions)
+          .values({
+            userId: updatedUser[0].id,
+            amount: 50,
+            type: 'addition',
+            createdAt: new Date().toISOString(),
+          });
+  
+        if (!newTransaction) {
+          throw new Error('Failed to insert transaction');
+        }
+  
+        return { updatedUser, newTransaction };
+      });
+  
+      res.json({
+        clientSecret: paymentIntent.client_secret,
+        sessionId: session.id,  // Returning the session id here
+        transactionResult,
+      });
+    } catch (error) {
+      console.error('Error creating payment intent:', error);
+      res.status(500).json({ error: error || 'Internal server error' });
+    }
+  });
+
+ 
+  app.post('/api/webhook/stripe', async (req, res) => {
+    console.log('Raw body:', req.body.toString());
+    const sig = req.headers['stripe-signature'] as string | undefined;
+  
+    if (!sig) {
+      console.error('Webhook error: Missing stripe-signature header');
+      return res.status(400).send('Webhook Error: Missing stripe-signature header');
+    }
+  
+    const endpointSecret = process.env.STRIPE_WEBHOOK_SECRET as string;
+  
+    try {
+      const event = stripe.webhooks.constructEvent(req.body, sig, endpointSecret);
+      console.log('Webhook received:', event.type);
+  
+      if (event.type === 'checkout.session.completed') {
+        const session = event.data.object;
+        console.log('Payment successful:', session);
+      }
+  
+      // Respond with a success message
+      return res.json({ received: true });
+    } catch (err: any) {
+      console.error(`Webhook error: ${err.message}`);
+      return res.status(400).send(`Webhook Error: ${err.message}`);
+    }
+  });
+  
+    
+
+
 }

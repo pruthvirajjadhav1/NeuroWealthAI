@@ -1,31 +1,64 @@
-import { Card } from "@/components/ui/card";
+import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
-import { Crown } from "lucide-react";
+import { useUser } from "@/hooks/use-user";
+import { loadStripe } from '@stripe/stripe-js';
+import * as dotenv from 'dotenv';
+dotenv.config();
 
-export default function TrialPage() {
+const TrialPage = () => {
+  const [isLoading, setIsLoading] = useState(false);
+  const { user } = useUser();
+  console.log('Stripe key:', process.env.STRIPE_KEY_FRONTEND);
+
+  const handleCheckout = async () => {
+    setIsLoading(true);
+    try {
+      const response = await fetch('/api/create-payment-intent', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email: user?.email,
+          userId: user?.id,
+        }),
+      });
+
+      const { sessionId } = await response.json();
+
+      if (sessionId) {
+        const stripe = await loadStripe(process.env.STRIPE_KEY_FRONTEND as string);
+        const result = await stripe?.redirectToCheckout({ sessionId });
+        if (result?.error) {
+          console.error('Stripe Checkout error:', result.error.message);
+        }
+      } else {
+        console.error('Error: Could not create session or redirect');
+      }
+    } catch (error) {
+      console.error('Error initiating checkout:', error);
+    } finally {
+      setIsLoading(false); 
+    }
+  };
+
   return (
     <div className="container max-w-6xl mx-auto px-4 py-8">
-      <Card className="max-w-2xl mx-auto p-6 space-y-6">
-        <div className="flex items-center justify-center">
-          <Crown className="h-12 w-12 text-yellow-500" />
-        </div>
-
-        <div className="text-center space-y-4">
-          <h1 className="text-3xl font-bold">Unlock Your Wealth Potential</h1>
-          <p className="text-muted-foreground">
-            Start your 7-day trial and experience the full power of NeuroWealth AI.
-          </p>
-        </div>
-
-        <div className="space-y-4">
-          <Button 
-            onClick={() => window.location.href = 'https://neurowealth.ai'}
-            className="w-full bg-yellow-500 hover:bg-yellow-600 text-white"
-          >
-            Start Free Trial
-          </Button>
-        </div>
-      </Card>
+      <div className="text-center space-y-4">
+        <h1 className="text-3xl font-bold">Unlock Your Wealth Potential</h1>
+        <p className="text-muted-foreground">
+          Start your 7-day trial for just <strong>$0.50</strong> and experience the full power of NeuroWealth AI.
+        </p>
+      </div>
+      <Button
+        onClick={handleCheckout}
+        className="w-full bg-yellow-500 hover:bg-yellow-600 text-white"
+        disabled={isLoading}
+      >
+        {isLoading ? "Processing..." : "Start Free Trial"}
+      </Button>
     </div>
   );
-}
+};
+
+export default TrialPage;
