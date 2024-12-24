@@ -155,9 +155,10 @@ const FunnelAnalyticsPage: React.FC = () => {
 
       const data = await response.json();
       const analytics = data.analytics || {};
+      console.log(analytics, "testing analytics");
       const userRegisteredValue = analytics["total"] || 0;
       setUserRegistered(userRegisteredValue);
-      const importantKeys = ["total", "free", "trial", "paid"];
+      const importantKeys = ["total", "free", "trial", "paid", "churned"];
 
       const steps = importantKeys.map((key, index) => {
         const stepValue = analytics[key] || 0;
@@ -354,6 +355,54 @@ const FunnelAnalyticsPage: React.FC = () => {
                   ))}
                 </div>
 
+                <CardHeader>
+                  <CardTitle>User Flow </CardTitle>
+                  <CardDescription>
+                    Track user progression After Successful Registration
+                  </CardDescription>
+                </CardHeader>
+
+                <div className="h-[400px]">
+                  <ResponsiveContainer width="100%" height="100%">
+                    <LineChart
+                      data={funnelData2.steps}
+                      margin={{
+                        top: 5,
+                        right: 30,
+                        left: 20,
+                        bottom: 5,
+                      }}
+                    >
+                      <CartesianGrid strokeDasharray="3 3" />
+                      <XAxis dataKey="name" />
+                      <YAxis />
+                      <Tooltip
+                        formatter={(value: number, name: string) => [
+                          name === "Users"
+                            ? `${value} users`
+                            : `${value.toFixed(1)}%`,
+                          name,
+                        ]}
+                      />
+                      <Legend />
+                      <Line
+                        type="monotone"
+                        name="Users"
+                        dataKey="value"
+                        stroke="#3b82f6"
+                        activeDot={{ r: 8 }}
+                      />
+                      <Line
+                        type="monotone"
+                        name="Conversion Rate"
+                        dataKey="conversionRate"
+                        stroke="#10b981"
+                        activeDot={{ r: 8 }}
+                      />
+                    </LineChart>
+                  </ResponsiveContainer>
+                </div>
+
                 {funnelData2 && funnelData2.steps && (
                   <div className="grid gap-4">
                     {funnelData2.steps.map((step, index) => (
@@ -369,17 +418,19 @@ const FunnelAnalyticsPage: React.FC = () => {
                                 {step.description}
                               </p>
                             </div>
-                            {index > 0 && (
+                            {index > 1 && (
                               <div className="text-right">
                                 <p className="text-sm font-medium">
-                                  Registered Users Conversion From Total to{" "}
+                                  Registered Users Conversion From{" "}
+                                  {funnelData2.steps[index - 1].name} to{" "}
                                   {step.name}
                                 </p>
+
                                 <p className="text-lg font-bold text-primary">
-                                  {(
-                                    (step.value / userRegistered) * 100 || 0
-                                  ).toFixed(2)}
-                                  %
+                                  {calculateConversionRate(
+                                    step.value,
+                                    funnelData2.steps[index - 1].value
+                                  )}
                                 </p>
                               </div>
                             )}
