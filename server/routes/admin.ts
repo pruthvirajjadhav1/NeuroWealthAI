@@ -1,7 +1,7 @@
 import { Router } from "express";
 import { v4 as uuidv4 } from "uuid";
 import { db } from "../../db";
-import { registrationTokens, users, sessions, funnel_events, ltvTransactions } from "../../db/schema";
+import { registrationTokens, users, sessions, funnel_events, ltvTransactions, utmTracking } from "../../db/schema";
 import { eq, like, desc, sql, and } from "drizzle-orm";
 import { z } from "zod";
 import type { Request, Response, NextFunction } from "express";
@@ -419,7 +419,7 @@ adminRouter.post("/tokens", requireAdmin, async (req, res) => {
 });
 
 // Get funnel analytics data
-adminRouter.get("/funnel", requireAdmin, async (req, res) => {
+adminRouter.get("/", requireAdmin, async (req, res) => {
       const requestId = Math.random().toString(36).substring(7);
       console.log('[Funnel Analytics Request]', {
         requestId,

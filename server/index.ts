@@ -8,6 +8,7 @@ import { sql } from "drizzle-orm";
 import { SERVER_CONFIG, ENV_CONFIG, DB_CONFIG } from "./config";
 import { registerAdminRoutes } from "./token";
 
+
 const app = express();
 const server = createServer(app);
 
@@ -30,7 +31,6 @@ async function initializeDatabase() {
   }
   return ENV_CONFIG.isDevelopment;
 }
-
 async function startServer() {
   app.use(express.json({ limit: "50mb" }));
   app.use(express.urlencoded({ extended: false, limit: "50mb" }));
@@ -64,6 +64,7 @@ async function startServer() {
     }, SERVER_CONFIG.gracefulShutdownTimeout);
   });
 }
+
 
 (async () => {
   try {

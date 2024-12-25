@@ -5,7 +5,7 @@ import session from "express-session";
 import createMemoryStore from "memorystore";
 import { scrypt, randomBytes, timingSafeEqual } from "crypto";
 import { promisify } from "util";
-import { users, insertUserSchema, registrationTokens, loginSchema, type User as SelectUser } from "../db/schema";
+import { users, insertUserSchema, registrationTokens, loginSchema, type User as SelectUser, utmTracking } from "../db/schema";
 import { db } from "../db";
 import { eq } from "drizzle-orm";
 import { AUTH_CONFIG } from "./config";
@@ -314,5 +314,27 @@ export function setupAuth(app: Express) {
       return res.json(req.user);
     }
     res.status(401).send("Not logged in");
+  });
+
+  app.get('/api/users/utm', async (req, res) => {
+    try {
+      const utmData = await db
+        .select({
+          id: utmTracking.id,
+          userId: utmTracking.userId,
+          source: utmTracking.source,
+          adid: utmTracking.adid,
+          angle: utmTracking.angle,
+          funnel: utmTracking.funnel,
+          createdAt: utmTracking.createdAt,
+          rawParams: utmTracking.rawParams,
+        })
+        .from(utmTracking);
+  
+      res.json(utmData);
+    } catch (error) {
+      console.error("Error seeding or fetching data:", error);
+      res.status(500).json({ message: "Failed to seed or fetch data" });
+    }
   });
 }
