@@ -37,6 +37,7 @@ import { cn } from "@/lib/utils";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { queryClient } from "@/lib/queryClient";
 import { HelpCircle } from "lucide-react";
+import AdminUtmPage from "./pages/AdminUtmPage";
 
 function App() {
   const { user, isLoading } = useUser();
@@ -118,7 +119,8 @@ function App() {
     if (location === "/admin") return <AdminPage />;
     if (location === "/admin/users") return <UserManagementPage />;
     if (location === "/admin/funnel") return <FunnelAnalyticsPage />;
-    return <AdminPage />; // Default to admin page for unknown admin routes
+    if (location === "/admin/utm") return <AdminUtmPage />
+    return <AdminPage />; 
   }
 
   // Handle regular authentication

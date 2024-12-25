@@ -29,11 +29,11 @@ export default function RegisterPage() {
   const token = searchParams.get('token');
   
   // Redirect if no token provided
-  // useEffect(() => {
-  //   if (!token) {
-  //     window.location.href = '/login';
-  //   }
-  // }, [token]);
+  useEffect(() => {
+    if (!token) {
+      window.location.href = '/login';
+    }
+  }, [token]);
 
   const form = useForm({
     resolver: zodResolver(insertUserSchema),
@@ -48,7 +48,6 @@ export default function RegisterPage() {
   const onSubmit = async (values: { username: string; password: string; email?: string }) => {
     try {
       try {
-        console.log('[Client Registration Debug] Starting registration:' )
         // Get stored UTM data from localStorage
         const storedUtmData = localStorage.getItem('utm_data');
         console.log('[UTM Debug] Retrieved stored UTM data:', {

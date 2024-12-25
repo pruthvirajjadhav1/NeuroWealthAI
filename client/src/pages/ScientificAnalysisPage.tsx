@@ -30,10 +30,36 @@ export default function ScientificAnalysisPage() {
   const { user } = useUser();
 
   // Fetch user's latest wealth score data
-  const { data: sessionData } = useQuery<SessionResponse>({
+  const { data: sessionData, isLoading } = useQuery<SessionResponse>({
     queryKey: ["/api/sessions"],
     enabled: !!user,
   });
+
+  // Display a loading indicator while fetching data
+  if (isLoading) {
+    return (
+      <div className="container mx-auto px-4 pt-24 pb-8 sm:pt-28">
+        <p className="text-center text-cyan-300">Loading...</p>
+      </div>
+    );
+  }
+
+  // Check if the user has completed a session
+  const hasCompletedSession = sessionData?.sessions?.length > 0;
+
+  if (!hasCompletedSession) {
+    return (
+      <div className="container mx-auto px-4 pt-24 pb-8 sm:pt-28">
+        <h1 className="text-3xl font-bold text-center bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
+          Neural Oscillation Analysis
+        </h1>
+        <p className="text-center text-muted-foreground mt-4">
+          Please complete your first voice analysis to unlock the Scientific Analysis tab.
+        </p>
+      </div>
+    );
+  }
+  console.log(`sessionData is ${JSON.stringify(sessionData)}`)
 
   const latestScore = sessionData?.sessions?.[0]?.wealthScore ?? 50;
   

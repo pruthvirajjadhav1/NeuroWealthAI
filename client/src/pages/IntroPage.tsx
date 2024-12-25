@@ -19,7 +19,7 @@ export default function IntroPage() {
       funnel: searchParams.get('utm_funnel'),
       raw: Object.fromEntries(searchParams.entries()) // Store all parameters
     };
-    
+
     // Enhanced UTM parameter logging
     console.log('[UTM Debug] Initial page load:', {
       currentUrl: window.location.href,
@@ -79,9 +79,13 @@ export default function IntroPage() {
   };
 
   // Track funnel events with enhanced error handling and debugging
-  const trackFunnelEvent = async (eventType: string, eventData?: string) => {
+    const trackFunnelEvent = async (eventType: string, eventData?: string) => {
     const eventId = Math.random().toString(36).substring(7);
     const eventStart = new Date();
+    
+    const sessionId = localStorage.getItem('sessionId') ||  Math.random().toString(36).substring(7);
+    console.log(`sessionId is ${sessionId}`)
+    localStorage.setItem('sessionId', sessionId);
     
     // Pre-request logging
     console.log('[Funnel Event Starting]', {
@@ -116,6 +120,7 @@ export default function IntroPage() {
         body: JSON.stringify({
           eventType,
           eventData,
+          sessionId,
           clientTimestamp: new Date().toISOString(),
           previousEvent: localStorage.getItem('lastEventTimestamp')
         }),
@@ -358,6 +363,8 @@ export default function IntroPage() {
                     // Construct registration URL with token and UTM parameters
                     const registrationUrl = new URL('/register', window.location.href);
                     registrationUrl.searchParams.set('token', responseData.token);
+                    registrationUrl.searchParams.set('is_intro', 'true');  // Add is_intro parameter
+
                     
                     // Add UTM parameters from stored data
                     if (utmParams) {

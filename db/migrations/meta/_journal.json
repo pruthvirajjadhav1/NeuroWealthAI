@@ -8,6 +8,13 @@
       "when": 1734285981817,
       "tag": "0000_parallel_vector",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1734767378210,
+      "tag": "0001_sticky_living_lightning",
+      "breakpoints": true
     }
   ]
 }
