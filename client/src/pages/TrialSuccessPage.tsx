@@ -3,40 +3,9 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Crown } from "lucide-react";
 import { useLocation } from "wouter";
-import { useToast } from "@/hooks/use-toast";
 
 export default function TrialSuccessPage() {
   const [_, setLocation] = useLocation();
-  const { toast } = useToast();
-
-  const activateTrial = async () => {
-    try {
-      const response = await fetch('/api/update-subscription-status', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        credentials: 'include',
-        body: JSON.stringify({ status: 'trial' })
-      });
-
-      if (response.ok) {
-        toast({
-          title: "Success",
-          description: "Your trial access has been activated!",
-        });
-        setLocation('/');
-      } else {
-        throw new Error('Failed to activate trial access');
-      }
-    } catch (error) {
-      toast({
-        title: "Error",
-        description: "Failed to activate your trial access. Please try again.",
-        variant: "destructive",
-      });
-    }
-  };
 
   return (
     <div className="container max-w-6xl mx-auto px-4 py-8">
@@ -46,18 +15,13 @@ export default function TrialSuccessPage() {
         </div>
 
         <div className="text-center space-y-4">
-          <h1 className="text-3xl font-bold">Welcome to Your Trial Access!</h1>
+          <h1 className="text-3xl font-bold">Trial Activated</h1>
           <p className="text-muted-foreground">
-            Click below to activate your 7-day trial and unlock all advanced features of our neural wealth system.
+            Thank you for starting your 7-day trial with NeuroWealth AI.
           </p>
-
-          <Button 
-            onClick={activateTrial}
-            className="w-full bg-yellow-500 hover:bg-yellow-600 text-white"
-          >
-            Start My Trial Access
-          </Button>
+            <Button onClick={() => setLocation("/")} className="w-full bg-yellow-500 hover:bg-yellow-600 text-white">Continue to App</Button>
         </div>
+
       </Card>
     </div>
   );

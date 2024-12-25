@@ -169,6 +169,33 @@ const triggerFunnelEvent = async (userId: string) => {
     return result;
   };
 
+  const updateSubscriptionStatus = async (status: 'paid' | 'trial' | 'churned' | 'free') => {
+    try {
+      const response = await fetch("/api/update-subscription-status", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ status }),
+        credentials: "include",
+      });
+      
+      if (!response.ok) {
+        throw new Error("Failed to update subscription status");
+      }
+
+      await fetchUser();
+
+    } catch (err) {
+      console.error("Failed to update subscription status:", err);
+      toast({
+        title: "Error",
+        description: "Failed to update subscription status",
+        variant: "destructive",
+      });
+    }
+  }
+
   return {
     user,
     isLoading,
@@ -176,5 +203,6 @@ const triggerFunnelEvent = async (userId: string) => {
     login,
     logout,
     register,
+    updateSubscriptionStatus,
   };
 }
