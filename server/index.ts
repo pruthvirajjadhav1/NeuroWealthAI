@@ -7,6 +7,7 @@ import { db } from "../db";
 import { sql } from "drizzle-orm";
 import { SERVER_CONFIG, ENV_CONFIG, DB_CONFIG } from "./config";
 import { registerAdminRoutes } from "./token";
+import stripeRoutes from "./routes/stripe";
 
 const app = express();
 const server = createServer(app);
@@ -38,6 +39,8 @@ async function startServer() {
   setupAuth(app);
   registerRoutes(app);
   registerAdminRoutes(app);
+  //register stripe routes
+  app.use("/api", stripeRoutes)
 
   if (ENV_CONFIG.isDevelopment) {
     await setupVite(app, server);

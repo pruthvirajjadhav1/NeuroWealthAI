@@ -84,7 +84,8 @@ export function setupAuth(app: Express) {
       user: req.user ? {
         id: req.user.id,
         username: req.user.username,
-        isAdmin: req.user.isAdmin
+        isAdmin: req.user.isAdmin,
+        subscriptionStatus: req.user.subscriptionStatus,
       } : null,
       timestamp: new Date().toISOString()
     });
@@ -160,6 +161,7 @@ export function setupAuth(app: Express) {
       userId: user.id,
       username: user.username,
       isAdmin: user.isAdmin,
+      subscriptionStatus: user.subscriptionStatus,
       timestamp: new Date().toISOString()
     });
     done(null, user.id);
@@ -182,6 +184,7 @@ export function setupAuth(app: Express) {
         userId: id,
         found: !!user,
         isAdmin: user?.isAdmin,
+        subscriptionStatus: user?.subscriptionStatus,
         timestamp: new Date().toISOString()
       });
 
@@ -266,7 +269,7 @@ export function setupAuth(app: Express) {
       if (err) return next(err);
       return res.json({
         message: "Registration successful",
-        user: { id: newUser.id, username: newUser.username },
+        user: { id: newUser.id, username: newUser.username, subscriptionStatus: newUser.subscriptionStatus },
       });
     });
   } catch (error) {
@@ -295,7 +298,8 @@ export function setupAuth(app: Express) {
           user: {
             id: user.id,
             username: user.username,
-            isAdmin: user.isAdmin
+            isAdmin: user.isAdmin,
+            subscriptionStatus: user.subscriptionStatus
           },
         });
       });
@@ -309,9 +313,16 @@ export function setupAuth(app: Express) {
     });
   });
 
-  app.get("/api/user", (req, res) => {
+  app.get("/api/user", async (req, res) => {
     if (req.isAuthenticated()) {
-      return res.json(req.user);
+      const userId = req.user?.id;
+      const [user] = await db
+        .select()
+        .from(users)
+        .where(eq(users.id, userId as number))
+        .limit(1);
+
+      return res.json(user);
     }
     res.status(401).send("Not logged in");
   });
