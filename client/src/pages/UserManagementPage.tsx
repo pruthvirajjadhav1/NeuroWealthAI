@@ -26,6 +26,7 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
+import axios from "axios";
 
 type User = {
   id: number;
@@ -72,107 +73,22 @@ export default function UserManagementPage() {
   const [ltvDialogOpen, setLtvDialogOpen] = useState(false);
   const [ltvData, setLtvData] = useState<LtvData | null>(null);
   const [error, setError] = useState<string | null>(null);
-
   useEffect(() => {
-    // Remove redirect and only fetch if user is admin
     if (user?.isAdmin) {
-      fetchUsers();
+      const fetchUsers = async () => { 
+        const response=await axios.get("/api/users/data");
+        console.log(response)
+        if(response.status==200){
+          setUsers(response.data);
+        }
+        else{
+          setError("Failed to fetch users.");
+        }
+       };
+       fetchUsers()
     }
   }, [user]);
 
-  const fetchUsers = async () => {
-    setError(null);
-    console.log("[UserManagement] Starting fetch with auth state:", {
-      isAuthenticated: !!user,
-      isAdmin: user?.isAdmin,
-      timestamp: new Date().toISOString()
-    });
-
-    try {
-      // Log request details
-      console.log("[UserManagement] Making API request to /api/admin/users");
-
-      const response = await fetch("/api/admin/users", {
-        credentials: "include",
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json',
-          'Cache-Control': 'no-cache'  // Prevent caching
-        }
-      });
-
-      console.log("[UserManagement] Received response:", {
-        status: response.status,
-        statusText: response.statusText,
-        headers: Object.fromEntries(response.headers.entries()),
-        timestamp: new Date().toISOString()
-      });
-
-      if (!response.ok) {
-        const errorText = await response.text();
-        console.error("[UserManagement] API Error:", {
-          status: response.status,
-          statusText: response.statusText,
-          error: errorText,
-          timestamp: new Date().toISOString()
-        });
-
-        // Set specific error message based on status code
-        let errorMessage = "Failed to fetch users. ";
-        if (response.status === 401) {
-          errorMessage += "Authentication required. Please log in again.";
-        } else if (response.status === 403) {
-          errorMessage += "You don't have permission to access this resource.";
-        } else if (response.status === 404) {
-          errorMessage += "User data endpoint not found.";
-        } else {
-          errorMessage += `Server error: ${errorText}`;
-        }
-
-        setError(errorMessage);
-        throw new Error(errorMessage);
-      }
-
-      const data = await response.json();
-      console.log("[UserManagement] Received users data:", {
-        userCount: data.length,
-        sampleUser: data[0] ? {
-          id: data[0].id,
-          username: data[0].username,
-          subscriptionStatus: data[0].subscriptionStatus
-        } : null,
-        timestamp: new Date().toISOString()
-      });
-
-      setUsers(data);
-
-    } catch (error) {
-      console.error("[UserManagement] Error fetching users:", {
-        error: error instanceof Error ? {
-          name: error.name,
-          message: error.message,
-          stack: error.stack
-        } : error,
-        authState: {
-          isAuthenticated: !!user,
-          isAdmin: user?.isAdmin
-        },
-        timestamp: new Date().toISOString()
-      });
-
-      // Show error in UI
-      const errorMessage = error instanceof Error ? error.message : "An unexpected error occurred";
-      setError(errorMessage);
-
-      toast({
-        title: "Error",
-        description: errorMessage,
-        variant: "destructive",
-      });
-    } finally {
-      setIsLoading(false);
-    }
-  };
 
   const updateUserStatus = async (userId: number, newStatus: 'paid' | 'trial' | 'churned' | 'free', isDebug?: boolean) => {
     try {

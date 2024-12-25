@@ -5,7 +5,7 @@ import session from "express-session";
 import createMemoryStore from "memorystore";
 import { scrypt, randomBytes, timingSafeEqual } from "crypto";
 import { promisify } from "util";
-import { users, insertUserSchema, registrationTokens, loginSchema, type User as SelectUser, utmTracking } from "../db/schema";
+import { users, insertUserSchema, registrationTokens, loginSchema, type User as SelectUser, utmTracking, users } from "../db/schema";
 import { db } from "../db";
 import { eq } from "drizzle-orm";
 import { AUTH_CONFIG } from "./config";
@@ -318,6 +318,31 @@ export function setupAuth(app: Express) {
 
   app.get('/api/users/utm', async (req, res) => {
     try {
+      const requestId = Math.random().toString(36).substring(7);
+
+    console.log('[Admin Users Request]', {
+      requestId,
+      adminUser: res.locals.adminUser,
+      query: req.query,
+      headers: {
+        ...req.headers,
+        cookie: undefined // Don't log cookies for security
+      },
+      timestamp: new Date().toISOString()
+    });
+
+    if (!req.user?.isAdmin) {
+      console.error('[Admin Users Auth Error]', {
+        requestId,
+        userId: req.user?.id,
+        isAdmin: req.user?.isAdmin,
+        timestamp: new Date().toISOString()
+      });
+      return res.status(403).json({ 
+        message: "Not authorized to access admin functions",
+        requestId 
+      });
+    }
       const utmData = await db
         .select({
           id: utmTracking.id,
@@ -337,4 +362,54 @@ export function setupAuth(app: Express) {
       res.status(500).json({ message: "Failed to seed or fetch data" });
     }
   });
+
+  app.get('/api/users/data', async (req, res) => {
+    try {
+      const requestId = Math.random().toString(36).substring(7);
+
+    console.log('[Admin Users Request]', {
+      requestId,
+      adminUser: res.locals.adminUser,
+      query: req.query,
+      headers: {
+        ...req.headers,
+        cookie: undefined 
+      },
+      timestamp: new Date().toISOString()
+    });
+
+    if (!req.user?.isAdmin) {
+      console.error('[Admin Users Auth Error]', {
+        requestId,
+        userId: req.user?.id,
+        isAdmin: req.user?.isAdmin,
+        timestamp: new Date().toISOString()
+      });
+      return res.status(403).json({ 
+        message: "Not authorized to access admin functions",
+        requestId 
+      });
+    }
+      const userData = await db
+      .select({
+        id: users.id,
+        username: users.username,
+        email: users.email,
+        isAdmin: users.isAdmin,
+        subscriptionStatus: users.subscriptionStatus,
+        createdAt: users.createdAt,
+        lastAccessDate: users.lastAccessDate,
+        isIntro: users.isIntro,
+        isDebug: users.isDebug,
+        totalSessions:users.totalSessions,
+        lastActionGuide:users.lastActionGuide
+      })
+      .from(users);
+
+      res.json(userData);
+    } catch (error) {
+      console.error("Error seeding or fetching data:", error);
+      res.status(500).json({ message: "Failed to seed or fetch data" });
+    }
+  })
 }
