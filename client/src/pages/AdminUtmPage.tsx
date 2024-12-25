@@ -30,26 +30,33 @@ const AdminUtmPage = () => {
     useEffect(() => {
         const filterData = () => {
             let filtered = utmDatas;
-
+    
             // Filter by selected source
             if (selectedSource) {
                 filtered = filtered.filter((data) => data.source === selectedSource);
             }
-
-            // Filter by search query
+    
+            // Filter by search query (only in rawParams)
             if (searchQuery) {
-                filtered = filtered.filter((data) =>
-                    Object.values(data).some(value =>
-                        typeof value === 'string' && value.toLowerCase().includes(searchQuery.toLowerCase())
-                    )
-                );
+                filtered = filtered.filter((data) => {
+                    try {
+                        const params = JSON.parse(data.rawParams);
+                        return Object.values(params).some(value =>
+                            typeof value === 'string' && value.toLowerCase().includes(searchQuery.toLowerCase())
+                        );
+                    } catch (error) {
+                        // Ignore invalid JSON in rawParams
+                        return false;
+                    }
+                });
             }
-
+    
             setFilteredData(filtered);
         };
-
+    
         filterData();
     }, [selectedSource, searchQuery, utmDatas]);
+    
 
     const renderSkeletonRows = () => (
         Array.from({ length: 5 }).map((_, index) => (
