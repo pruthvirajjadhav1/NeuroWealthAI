@@ -170,7 +170,7 @@ const AdminUtmPage = () => {
           </Card>
 
           {/* LTV Cards */}
-          <Card className="border-0">
+          {/* <Card className="border-0">
             <CardHeader className="pb-2">
               <h2 className="text-white text-sm font-medium">Free Users LTV</h2>
             </CardHeader>
@@ -186,25 +186,25 @@ const AdminUtmPage = () => {
             <CardContent className="text-2xl font-bold text-white">
               {ltvAnalytics?.trialUsersLTV || 0}
             </CardContent>
-          </Card>
+          </Card> */}
 
           <Card className="border-0">
             <CardHeader className="pb-2">
-              <h2 className="text-white text-sm font-medium">Paid Users LTV</h2>
+              <h2 className="text-white text-sm font-medium">LTV Amount</h2>
             </CardHeader>
             <CardContent className="text-2xl font-bold text-white">
-              {ltvAnalytics?.paidUsersLTV || 0}
+              ${ltvAnalytics?.paidUsersLTV || 0}
             </CardContent>
           </Card>
 
-          <Card className="border-0">
+          {/* <Card className="border-0">
             <CardHeader className="pb-2">
               <h2 className="text-white text-sm font-medium">Churned Users LTV</h2>
             </CardHeader>
             <CardContent className="text-2xl font-bold text-white">
               {ltvAnalytics?.churnedUsersLTV || 0}
             </CardContent>
-          </Card>
+          </Card> */}
         </div>
       </div>
     </>
