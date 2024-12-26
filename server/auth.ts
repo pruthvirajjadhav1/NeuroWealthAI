@@ -412,4 +412,62 @@ export function setupAuth(app: Express) {
       res.status(500).json({ message: "Failed to seed or fetch data" });
     }
   })
+
+  app.get('/api/users/analytics', async (req, res) => {
+    try {
+      const requestId = Math.random().toString(36).substring(7);
+  
+      console.log('[User Analytics Request]', {
+        requestId,
+        adminUser: res.locals.adminUser,
+        query: req.query,
+        headers: {
+          ...req.headers,
+          cookie: undefined 
+        },
+        timestamp: new Date().toISOString()
+      });
+  
+      // Check if the user is an admin
+      if (!req.user?.isAdmin) {
+        console.error('[User Analytics Auth Error]', {
+          requestId,
+          userId: req.user?.id,
+          isAdmin: req.user?.isAdmin,
+          timestamp: new Date().toISOString()
+        });
+        return res.status(403).json({ 
+          message: "Not authorized to access admin functions",
+          requestId 
+        });
+      }
+  
+      // Fetch user data
+      const userData = await db.select({
+        subscriptionStatus: users.subscriptionStatus,
+      }).from(users);
+  
+      // Perform analytics calculations
+      const totalUsers = userData.length;
+      const subscriptionBreakdown = userData.reduce((acc, user) => {
+        acc[user.subscriptionStatus] = (acc[user.subscriptionStatus] || 0) + 1;
+        return acc;
+      }, {});
+  
+      // Construct analytics response
+      const analytics = {
+        totalUsers,
+        subscriptionBreakdown,
+      };
+  
+      res.json({ 
+        analytics,
+        requestId
+      });
+    } catch (error) {
+      console.error("Error fetching analytics data:", error);
+      res.status(500).json({ message: "Failed to fetch analytics data" });
+    }
+  });
+  
 }
