@@ -9,7 +9,7 @@ const SearchBar = ({ onSearch }: { onSearch: (query: string) => void }) => {
         onSearch(e.target.value);
     };
     return (
-        <div className="space-y-2 py-6 ">
+        <div className="space-y-2 py-6 flex-1 w-full sm:w-4/5 ">
             <div className="flex items-center space-x-2">
                 <div className="relative flex items-center w-full">
                     <div className="absolute inset-y-0 start-0 flex items-center pl-3 text-[#8F8F8F]">

@@ -17,7 +17,6 @@ import {
   loginSchema,
   type User as SelectUser,
   utmTracking,
-  users,
   ltvTransactions,
 } from "../db/schema";
 import { db } from "../db";
@@ -454,64 +453,105 @@ export function setupAuth(app: Express) {
     }
   });
 
-  app.get("/api/users/analytics", async (req, res) => {
+  // app.get("/api/users/analytics", async (req, res) => {
+  //   try {
+  //     const requestId = Math.random().toString(36).substring(7);
+
+  //     console.log("[User Analytics Request]", {
+  //       requestId,
+  //       adminUser: res.locals.adminUser,
+  //       query: req.query,
+  //       headers: {
+  //         ...req.headers,
+  //         cookie: undefined,
+  //       },
+  //       timestamp: new Date().toISOString(),
+  //     });
+
+  //     // Check if the user is an admin
+  //     if (!req.user?.isAdmin) {
+  //       console.error("[User Analytics Auth Error]", {
+  //         requestId,
+  //         userId: req.user?.id,
+  //         isAdmin: req.user?.isAdmin,
+  //         timestamp: new Date().toISOString(),
+  //       });
+  //       return res.status(403).json({
+  //         message: "Not authorized to access admin functions",
+  //         requestId,
+  //       });
+  //     }
+
+  //     // Fetch user data
+  //     const userData = await db
+  //       .select({
+  //         subscriptionStatus: users.subscriptionStatus,
+  //       })
+  //       .from(users);
+
+  //     // Perform analytics calculations
+  //     const totalUsers = userData.length;
+  //     const subscriptionBreakdown = userData.reduce((acc, user) => {
+  //       acc[user.subscriptionStatus] = (acc[user.subscriptionStatus] || 0) + 1;
+  //       return acc;
+  //     }, {});
+
+  //     // Construct analytics response
+  //     const analytics = {
+  //       totalUsers,
+  //       subscriptionBreakdown,
+  //     };
+
+  //     res.json({
+  //       analytics,
+  //       requestId,
+  //     });
+  //   } catch (error) {
+  //     console.error("Error fetching analytics data:", error);
+  //     res.status(500).json({ message: "Failed to fetch analytics data" });
+  //   }
+  // });
+  app.get('/api/users/analytics', async (req, res) => {
+    const { column, query, additionalColumn, additionalQuery } = req.query;
+  
     try {
-      const requestId = Math.random().toString(36).substring(7);
-
-      console.log("[User Analytics Request]", {
-        requestId,
-        adminUser: res.locals.adminUser,
-        query: req.query,
-        headers: {
-          ...req.headers,
-          cookie: undefined,
-        },
-        timestamp: new Date().toISOString(),
-      });
-
-      // Check if the user is an admin
-      if (!req.user?.isAdmin) {
-        console.error("[User Analytics Auth Error]", {
-          requestId,
-          userId: req.user?.id,
-          isAdmin: req.user?.isAdmin,
-          timestamp: new Date().toISOString(),
-        });
-        return res.status(403).json({
-          message: "Not authorized to access admin functions",
-          requestId,
-        });
+      // Ensure the required parameters are provided
+      if (!column || !query) {
+        return res.status(400).json({ message: 'Missing required query parameters.' });
       }
-
-      // Fetch user data
-      const userData = await db
-        .select({
-          subscriptionStatus: users.subscriptionStatus,
-        })
-        .from(users);
-
-      // Perform analytics calculations
-      const totalUsers = userData.length;
-      const subscriptionBreakdown = userData.reduce((acc, user) => {
-        acc[user.subscriptionStatus] = (acc[user.subscriptionStatus] || 0) + 1;
-        return acc;
-      }, {});
-
-      // Construct analytics response
-      const analytics = {
-        totalUsers,
-        subscriptionBreakdown,
-      };
-
+  
+      let usersQuery = db.select().from(users).where((users as any)[column].ilike(`%${query}%`));
+  
+      // Handle additional filtering condition
+      if (additionalColumn && additionalQuery) {
+        let usersQuery = db.select().from(users).where((users as any)[column], query);
+      }
+  
+      // Execute the query
+      const filteredUsers = await usersQuery;
+  
+      // Calculate the analytics
+      const totalUsers = filteredUsers.length;
+      const freeUsers = filteredUsers.filter(user => user.subscriptionStatus === 'free').length;
+      const trialUsers = filteredUsers.filter(user => user.subscriptionStatus === 'trial').length;
+      const paidUsers = filteredUsers.filter(user => user.subscriptionStatus === 'paid').length;
+      const churnedUsers = filteredUsers.filter(user => user.subscriptionStatus === 'churned').length;
+  
+      // Return the analytics response
       res.json({
-        analytics,
-        requestId,
+        totalUsers,
+        freeUsers,
+        trialUsers,
+        paidUsers,
+        churnedUsers,
       });
+  
     } catch (error) {
-      console.error("Error fetching analytics data:", error);
-      res.status(500).json({ message: "Failed to fetch analytics data" });
+      console.error('Error fetching filtered user analytics:', error);
+      res.status(500).json({ message: 'Failed to fetch analytics data', error: error });
     }
-  });
+  });  
+  
 
   app.get("/api/users/ltvanalytics", async (req, res) => {
     try {
