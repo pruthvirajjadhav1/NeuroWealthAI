@@ -70,8 +70,21 @@ const AdminUtmPage = () => {
         setLoading(false);
       }
     };
+    const fetchAnalytics = async () => {
+      try {
+        const response = await fetch('/api/users/analytics/all');
+        const data = await response.json();
+        setAnalytics(data);
+      } catch (error) {
+        console.error('Error fetching analytics:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
 
+    
     fetchData();
+    fetchAnalytics();
   }, []);
 
   const handleSearchClick = () => {

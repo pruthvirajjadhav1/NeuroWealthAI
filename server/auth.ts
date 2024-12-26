@@ -513,70 +513,199 @@ export function setupAuth(app: Express) {
   // });
   app.get('/api/users/analytics', async (req, res) => {
     try {
-      // Fetch subscription stats from the database, grouped by subscriptionStatus
-      const subscriptionStats = await db
-        .select({
-          subscriptionStatus: users.subscriptionStatus,
-          count: sql<number>`COUNT(*)`,
-        })
-        .from(users)
-        .groupBy(users.subscriptionStatus);
+      // Fetch user IDs from utm_tracking
+
+      const { column, query } = req.query;
+      if (!column || !query) {
+      return res.status(400).json({ message: 'Missing query parameters.' });
+      }
+
+      const filteredUserIds = await db
+      .select({
+        userId: utmTracking.userId,
+      })
+      .from(utmTracking)
+      .where(sql`${utmTracking.source} LIKE ${'%' + query + '%'}`); // Adjust filter based on query
   
-      // Initialize stats object
-      const stats = {
+    // Ensure userIds is an array of integers
+    const userIds = filteredUserIds.map(user => user.userId);
+    console.log(userIds);
+  
+    if (userIds.length === 0) {
+      return res.json({
+        totalUsers: 0,
         freeUsers: 0,
         trialUsers: 0,
         paidUsers: 0,
         churnedUsers: 0,
-      };
-  
-      // Populate stats object based on database query result
-      subscriptionStats.forEach(stat => {
-        const key = `${stat.subscriptionStatus}Users`;
-        if (key in stats) {
-          stats[key as keyof typeof stats] = Number(stat.count);
-        }
-      });
-  
-      // Calculate LTV amount for all users
-      const ltvStats = await db
-        .select({
-          subscriptionStatus: users.subscriptionStatus,
-          totalLTV: sql<number>`COALESCE(SUM(ltv_transactions.amount), 0)`,
-        })
-        .from(users)
-        .leftJoin(ltvTransactions, eq(users.id, ltvTransactions.userId))
-        .groupBy(users.subscriptionStatus);
-  
-      // Map LTV stats into a structured object
-      const ltv = {
         freeUsersLTV: 0,
         trialUsersLTV: 0,
         paidUsersLTV: 0,
         churnedUsersLTV: 0,
-      };
-  
-      ltvStats.forEach(stat => {
-        const key = `${stat.subscriptionStatus}UsersLTV`;
-        if (key in ltv) {
-          ltv[key as keyof typeof ltv] = Number(stat.totalLTV);
-        }
       });
+    }
   
-      // Calculate the total number of users
-      const totalUsers = Object.values(stats).reduce((a, b) => a + b, 0);
+    // Fetch subscription stats for the filtered users
+    const subscriptionStats = await db
+      .select({
+        subscriptionStatus: users.subscriptionStatus,
+        count: sql<number>`COUNT(*)`,
+      })
+      .from(users)
+      .where(sql`${users.id} IN (${sql.join(userIds, sql`, `)})`) // Correctly format userIds for the IN clause
+      .groupBy(users.subscriptionStatus);
   
-      // Respond with the analytics data
-      res.json({
-        totalUsers,
-        ...stats,
-        ...ltv,
-      });
+    console.log(subscriptionStats);
+  
+    const stats = {
+      freeUsers: 0,
+      trialUsers: 0,
+      paidUsers: 0,
+      churnedUsers: 0,
+    };
+  
+    subscriptionStats.forEach(stat => {
+      const key = `${stat.subscriptionStatus}Users`;
+      if (key in stats) {
+        stats[key as keyof typeof stats] = Number(stat.count);  // Ensure count is parsed as a number
+      }
+    });
+  
+    // Fetch LTV amounts for the filtered users
+    const ltvStats = await db
+      .select({
+        subscriptionStatus: users.subscriptionStatus,
+        totalLTV: sql<number>`COALESCE(SUM(ltv_transactions.amount), 0)`,
+      })
+      .from(users)
+      .leftJoin(ltvTransactions, eq(users.id, ltvTransactions.userId))
+      .where(sql`${users.id} IN (${sql.join(userIds, sql`, `)})`) // Correctly format userIds for the IN clause
+      .groupBy(users.subscriptionStatus);
+  
+    const ltv = {
+      freeUsersLTV: 0,
+      trialUsersLTV: 0,
+      paidUsersLTV: 0,
+      churnedUsersLTV: 0,
+    };
+  
+    ltvStats.forEach(stat => {
+      const key = `${stat.subscriptionStatus}UsersLTV`;
+      if (key in ltv) {
+        ltv[key as keyof typeof ltv] = Number(stat.totalLTV);  // Ensure totalLTV is parsed as a number
+      }
+    });
+  
+    // Calculate total users
+    const totalUsers = Object.values(stats).reduce((a, b) => a + b, 0);
+  
+    // Respond with the analytics data
+    res.json({
+      totalUsers,
+      ...stats,
+      ...ltv,
+    });
+  
+
     } catch (error) {
-      console.error(error);
-      res.status(500).json({ message: 'Failed to fetch analytics' });
+      console.error('Error fetching analytics:', error);
+      res.status(500).json({ message: 'Failed to fetch analytics.' });
     }
   });
+
+  app.get('/api/users/analytics/all', async (req, res) => {
+  try {
+    // Fetch all user IDs (i.e., no filtering)
+    const allUserIds = await db
+      .select({
+        userId: users.id,
+      })
+      .from(users);
+
+    const userIds = allUserIds.map(user => user.userId);
+    console.log('All User IDs:', userIds);
+
+    if (userIds.length === 0) {
+      return res.json({
+        totalUsers: 0,
+        freeUsers: 0,
+        trialUsers: 0,
+        paidUsers: 0,
+        churnedUsers: 0,
+        freeUsersLTV: 0,
+        trialUsersLTV: 0,
+        paidUsersLTV: 0,
+        churnedUsersLTV: 0,
+      });
+    }
+
+    // Fetch subscription stats for all users
+    const subscriptionStats = await db
+      .select({
+        subscriptionStatus: users.subscriptionStatus,
+        count: sql<number>`COUNT(*)`,
+      })
+      .from(users)
+      .where(sql`${users.id} IN (${sql.join(userIds, sql`, `)})`) // Use all userIds
+      .groupBy(users.subscriptionStatus);
+
+    console.log('Subscription Stats:', subscriptionStats);
+
+    const stats = {
+      freeUsers: 0,
+      trialUsers: 0,
+      paidUsers: 0,
+      churnedUsers: 0,
+    };
+
+    subscriptionStats.forEach(stat => {
+      const key = `${stat.subscriptionStatus}Users`;
+      if (key in stats) {
+        stats[key as keyof typeof stats] = Number(stat.count);  // Ensure count is parsed as a number
+      }
+    });
+
+    // Fetch LTV amounts for all users
+    const ltvStats = await db
+      .select({
+        subscriptionStatus: users.subscriptionStatus,
+        totalLTV: sql<number>`COALESCE(SUM(ltv_transactions.amount), 0)`,
+      })
+      .from(users)
+      .leftJoin(ltvTransactions, eq(users.id, ltvTransactions.userId))
+      .where(sql`${users.id} IN (${sql.join(userIds, sql`, `)})`) // Use all userIds
+      .groupBy(users.subscriptionStatus);
+
+    const ltv = {
+      freeUsersLTV: 0,
+      trialUsersLTV: 0,
+      paidUsersLTV: 0,
+      churnedUsersLTV: 0,
+    };
+
+    ltvStats.forEach(stat => {
+      const key = `${stat.subscriptionStatus}UsersLTV`;
+      if (key in ltv) {
+        ltv[key as keyof typeof ltv] = Number(stat.totalLTV);  // Ensure totalLTV is parsed as a number
+      }
+    });
+
+    // Calculate total users
+    const totalUsers = Object.values(stats).reduce((a, b) => a + b, 0);
+
+    // Respond with the analytics data
+    res.json({
+      totalUsers,
+      ...stats,
+      ...ltv,
+    });
+
+  } catch (error) {
+    console.error('Error fetching analytics:', error);
+    res.status(500).json({ message: 'Failed to fetch analytics.' });
+  }
+});
+
   
   
 
