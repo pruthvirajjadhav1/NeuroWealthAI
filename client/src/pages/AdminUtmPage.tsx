@@ -18,9 +18,12 @@ const AdminUtmPage = () => {
     paidUsers: 0,
     churnedUsers: 0,
   });
-  
-  const [additionalColumn, setAdditionalColumn] = useState<string | undefined>(undefined);
-  const [additionalQuery, setAdditionalQuery] = useState<string | undefined>(undefined);
+  const [ltvAnalytics, setLtvAnalytics] = useState({
+    freeUsersLTV: 0,
+    trialUsersLTV: 0,
+    paidUsersLTV: 0,
+    churnedUsersLTV: 0,
+  });
 
   // Fetch data based on user request
   const fetchFilteredUserAnalytics = async () => {
@@ -30,8 +33,6 @@ const AdminUtmPage = () => {
           params: {
             column: selectedColumn,
             query: searchQuery,
-            additionalColumn,
-            additionalQuery,
           },
         });
 
@@ -41,6 +42,13 @@ const AdminUtmPage = () => {
           trialUsers: response.data.trialUsers,
           paidUsers: response.data.paidUsers,
           churnedUsers: response.data.churnedUsers,
+        });
+
+        setLtvAnalytics({
+          freeUsersLTV: response.data.freeUsersLTV,
+          trialUsersLTV: response.data.trialUsersLTV,
+          paidUsersLTV: response.data.paidUsersLTV,
+          churnedUsersLTV: response.data.churnedUsersLTV,
         });
       } catch (error) {
         console.error("Error fetching filtered user analytics:", error);
@@ -76,8 +84,7 @@ const AdminUtmPage = () => {
         <h1 className="text-2xl font-semibold text-white mb-8">Analytics</h1>
 
         <div className="flex flex-wrap items-center justify-end gap-4 mb-4 w-full">
-        <SearchBar onSearch={(query) => setSearchQuery(query)} />
-          />
+          <SearchBar onSearch={(query) => setSearchQuery(query)} />
           <select
             value={selectedColumn}
             onChange={(e) => setSelectedColumn(e.target.value)}
@@ -88,6 +95,7 @@ const AdminUtmPage = () => {
             <option value="adid">Adid</option>
             <option value="angle">Angle</option>
             <option value="funnel">Funnel</option>
+            <option value="rawParams">Params</option>
             <option value="createdAt">Created At</option>
           </select>
 
@@ -148,12 +156,40 @@ const AdminUtmPage = () => {
             </CardContent>
           </Card>
 
+          {/* LTV Cards */}
           <Card className="border-0">
             <CardHeader className="pb-2">
-              <h2 className="text-white text-sm font-medium">LTV Value</h2>
+              <h2 className="text-white text-sm font-medium">Free Users LTV</h2>
             </CardHeader>
             <CardContent className="text-2xl font-bold text-white">
-              Total Amount: ${ltvanalytics.totalAmount || 0}
+              {ltvAnalytics?.freeUsersLTV || 0}
+            </CardContent>
+          </Card>
+
+          <Card className="border-0">
+            <CardHeader className="pb-2">
+              <h2 className="text-white text-sm font-medium">Trial Users LTV</h2>
+            </CardHeader>
+            <CardContent className="text-2xl font-bold text-white">
+              {ltvAnalytics?.trialUsersLTV || 0}
+            </CardContent>
+          </Card>
+
+          <Card className="border-0">
+            <CardHeader className="pb-2">
+              <h2 className="text-white text-sm font-medium">Paid Users LTV</h2>
+            </CardHeader>
+            <CardContent className="text-2xl font-bold text-white">
+              {ltvAnalytics?.paidUsersLTV || 0}
+            </CardContent>
+          </Card>
+
+          <Card className="border-0">
+            <CardHeader className="pb-2">
+              <h2 className="text-white text-sm font-medium">Churned Users LTV</h2>
+            </CardHeader>
+            <CardContent className="text-2xl font-bold text-white">
+              {ltvAnalytics?.churnedUsersLTV || 0}
             </CardContent>
           </Card>
         </div>

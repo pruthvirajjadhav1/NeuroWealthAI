@@ -20,7 +20,7 @@ import {
   ltvTransactions,
 } from "../db/schema";
 import { db } from "../db";
-import { eq } from "drizzle-orm";
+import { eq, sql } from "drizzle-orm";
 import { AUTH_CONFIG } from "./config";
 
 const scryptAsync = promisify(scrypt);
@@ -481,7 +481,7 @@ export function setupAuth(app: Express) {
   //         requestId,
   //       });
   //     }
-
+ 
   //     // Fetch user data
   //     const userData = await db
   //       .select({
@@ -512,45 +512,72 @@ export function setupAuth(app: Express) {
   //   }
   // });
   app.get('/api/users/analytics', async (req, res) => {
-    const { column, query, additionalColumn, additionalQuery } = req.query;
-  
     try {
-      // Ensure the required parameters are provided
-      if (!column || !query) {
-        return res.status(400).json({ message: 'Missing required query parameters.' });
-      }
+      // Fetch subscription stats from the database, grouped by subscriptionStatus
+      const subscriptionStats = await db
+        .select({
+          subscriptionStatus: users.subscriptionStatus,
+          count: sql<number>`COUNT(*)`,
+        })
+        .from(users)
+        .groupBy(users.subscriptionStatus);
   
-      let usersQuery = db.select().from(users).where((users as any)[column].ilike(`%${query}%`));
+      // Initialize stats object
+      const stats = {
+        freeUsers: 0,
+        trialUsers: 0,
+        paidUsers: 0,
+        churnedUsers: 0,
+      };
   
-      // Handle additional filtering condition
-      if (additionalColumn && additionalQuery) {
-        let usersQuery = db.select().from(users).where((users as any)[column], query);
-      }
-  
-      // Execute the query
-      const filteredUsers = await usersQuery;
-  
-      // Calculate the analytics
-      const totalUsers = filteredUsers.length;
-      const freeUsers = filteredUsers.filter(user => user.subscriptionStatus === 'free').length;
-      const trialUsers = filteredUsers.filter(user => user.subscriptionStatus === 'trial').length;
-      const paidUsers = filteredUsers.filter(user => user.subscriptionStatus === 'paid').length;
-      const churnedUsers = filteredUsers.filter(user => user.subscriptionStatus === 'churned').length;
-  
-      // Return the analytics response
-      res.json({
-        totalUsers,
-        freeUsers,
-        trialUsers,
-        paidUsers,
-        churnedUsers,
+      // Populate stats object based on database query result
+      subscriptionStats.forEach(stat => {
+        const key = `${stat.subscriptionStatus}Users`;
+        if (key in stats) {
+          stats[key as keyof typeof stats] = Number(stat.count);
+        }
       });
   
+      // Calculate LTV amount for all users
+      const ltvStats = await db
+        .select({
+          subscriptionStatus: users.subscriptionStatus,
+          totalLTV: sql<number>`COALESCE(SUM(ltv_transactions.amount), 0)`,
+        })
+        .from(users)
+        .leftJoin(ltvTransactions, eq(users.id, ltvTransactions.userId))
+        .groupBy(users.subscriptionStatus);
+  
+      // Map LTV stats into a structured object
+      const ltv = {
+        freeUsersLTV: 0,
+        trialUsersLTV: 0,
+        paidUsersLTV: 0,
+        churnedUsersLTV: 0,
+      };
+  
+      ltvStats.forEach(stat => {
+        const key = `${stat.subscriptionStatus}UsersLTV`;
+        if (key in ltv) {
+          ltv[key as keyof typeof ltv] = Number(stat.totalLTV);
+        }
+      });
+  
+      // Calculate the total number of users
+      const totalUsers = Object.values(stats).reduce((a, b) => a + b, 0);
+  
+      // Respond with the analytics data
+      res.json({
+        totalUsers,
+        ...stats,
+        ...ltv,
+      });
     } catch (error) {
-      console.error('Error fetching filtered user analytics:', error);
-      res.status(500).json({ message: 'Failed to fetch analytics data', error: error });
+      console.error(error);
+      res.status(500).json({ message: 'Failed to fetch analytics' });
     }
-  });  
+  });
+  
   
 
   app.get("/api/users/ltvanalytics", async (req, res) => {
