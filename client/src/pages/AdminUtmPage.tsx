@@ -18,6 +18,39 @@ const AdminUtmPage = () => {
     paidUsers: 0,
     churnedUsers: 0,
   });
+  const [ltvanalytics, setltvAnalytics] = useState({
+    totalAmount: 0,
+    uniqueUsers: 0,
+    totalTransactions: 0,
+    averageAmountPerTransaction: 0,
+    averageAmountPerUser: 0,
+  });
+  const [userStatistics, setUserStatistics] = useState<any[]>([]);
+
+  useEffect(() => {
+    const fetchAnalytics = async () => {
+      try {
+        const response = await axios.get("/api/users/ltvanalytics");
+        const { summary, userStatistics } = response.data;
+
+        // Update the analytics state with the fetched summary
+        setltvAnalytics({
+          totalAmount: summary.totalAmount,
+          uniqueUsers: summary.uniqueUsers,
+          totalTransactions: summary.totalTransactions,
+          averageAmountPerTransaction: summary.averageAmountPerTransaction,
+          averageAmountPerUser: summary.averageAmountPerUser,
+        });
+
+        // Update the userStatistics state
+        setUserStatistics(userStatistics);
+      } catch (error) {
+        console.error("Error fetching analytics data:", error);
+      }
+    };
+
+    fetchAnalytics();
+  }, []);
 
   useEffect(() => {
     const fetchAnalytics = async () => {
@@ -170,10 +203,29 @@ const AdminUtmPage = () => {
               <h2 className="text-white text-sm font-medium">LTV Value</h2>
             </CardHeader>
             <CardContent className="text-2xl font-bold text-white">
-              {"343 $"}
+              Total Amount: ${ltvanalytics.totalAmount}
             </CardContent>
           </Card>
         </div>
+        <Card>
+          <CardHeader>
+            <h2>User Analytics</h2>
+          </CardHeader>
+          <CardContent>
+            <div>
+              <p>Total Amount: ${ltvanalytics.totalAmount}</p>
+              <p>Unique Users: {ltvanalytics.uniqueUsers}</p>
+              <p>Total Transactions: {ltvanalytics.totalTransactions}</p>
+              <p>
+                Average Amount Per Transaction: $
+                {ltvanalytics.averageAmountPerTransaction}
+              </p>
+              <p>
+                Average Amount Per User: ${ltvanalytics.averageAmountPerUser}
+              </p>
+            </div>
+          </CardContent>
+        </Card>
 
         {/* Overview Section */}
         <div className="mt-4">
