@@ -105,13 +105,13 @@ const AdminUtmPage = () => {
             onChange={(e) => setSelectedColumn(e.target.value)}
             className="w-full sm:w-1/5 h-10 border border-gray-700 rounded px-4 py-2 bg-gray-800 text-white text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
           >
-            <option value="userId">User ID</option>
+            {/* <option value="userId">User ID</option> */}
             <option value="source">Source</option>
             <option value="adid">Adid</option>
             <option value="angle">Angle</option>
             <option value="funnel">Funnel</option>
-            <option value="rawParams">Params</option>
-            <option value="createdAt">Created At</option>
+            {/* <option value="rawParams">Params</option> */}
+            {/* <option value="createdAt">Created At</option> */}
           </select>
 
           {/* Button to trigger search */}
