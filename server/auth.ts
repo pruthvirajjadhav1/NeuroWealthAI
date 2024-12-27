@@ -157,9 +157,9 @@ export function setupAuth(app: Express) {
           timestamp: new Date().toISOString(),
         });
 
-        // if (!isMatch) {
-        //   return done(null, false, { message: "Incorrect username or password." });
-        // }
+        if (!isMatch) {
+          return done(null, false, { message: "Incorrect username or password." });
+        }
 
         return done(null, user);
       } catch (err) {
