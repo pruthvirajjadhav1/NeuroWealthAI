@@ -50,6 +50,8 @@ const AdminUtmPage = () => {
           paidUsersLTV: response.data.paidUsersLTV,
           churnedUsersLTV: response.data.churnedUsersLTV,
         });
+
+        console.log(response.data);
       } catch (error) {
         console.error("Error fetching filtered user analytics:", error);
       }

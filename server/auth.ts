@@ -22,6 +22,7 @@ import {
 import { db } from "../db";
 import { eq, sql } from "drizzle-orm";
 import { AUTH_CONFIG } from "./config";
+import { z } from "zod";
 
 const scryptAsync = promisify(scrypt);
 const ADMIN_PASSWORD_HASH =
@@ -511,21 +512,30 @@ export function setupAuth(app: Express) {
   //     res.status(500).json({ message: "Failed to fetch analytics data" });
   //   }
   // });
+  const QuerySchema = z.object({
+    column: z.string().min(1),
+    query: z.string().min(1)
+  });
   app.get('/api/users/analytics', async (req, res) => {
     try {
       // Fetch user IDs from utm_tracking
 
-      const { column, query } = req.query;
-      if (!column || !query) {
-      return res.status(400).json({ message: 'Missing query parameters.' });
+      const result = QuerySchema.safeParse(req.query);
+      if (!result.success) {
+        return res.status(400).json({ 
+          message: 'Invalid query parameters',
+          errors: result.error.errors 
+        });
       }
-
+  
+      const { column, query } = result.data;
+  
       const filteredUserIds = await db
-      .select({
-        userId: utmTracking.userId,
-      })
-      .from(utmTracking)
-      .where(sql`${utmTracking.source} LIKE ${'%' + query + '%'}`); // Adjust filter based on query
+        .select({
+          userId: utmTracking.userId,
+        })
+        .from(utmTracking)
+        .where(sql`${sql.identifier(column)} LIKE ${query}`);
   
     // Ensure userIds is an array of integers
     const userIds = filteredUserIds.map(user => user.userId);
