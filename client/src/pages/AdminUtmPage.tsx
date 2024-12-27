@@ -23,6 +23,7 @@ const AdminUtmPage = () => {
     trialUsersLTV: 0,
     paidUsersLTV: 0,
     churnedUsersLTV: 0,
+    totalLTV: 0,
   });
 
   // Fetch data based on user request
@@ -49,16 +50,21 @@ const AdminUtmPage = () => {
           trialUsersLTV: response.data.trialUsersLTV,
           paidUsersLTV: response.data.paidUsersLTV,
           churnedUsersLTV: response.data.churnedUsersLTV,
+          totalLTV:
+            response.data.freeUsersLTV +
+            response.data.trialUsersLTV +
+            response.data.paidUsersLTV +
+            response.data.churnedUsersLTV,
         });
 
-        console.log(response.data);
+        console.log("Filtered Data:", response.data);
       } catch (error) {
         console.error("Error fetching filtered user analytics:", error);
       }
     }
   };
 
-  // Fetch UTM data once on component mount
+  // Fetch UTM data and analytics on component mount
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -72,26 +78,39 @@ const AdminUtmPage = () => {
         setLoading(false);
       }
     };
+
     const fetchAnalytics = async () => {
       try {
-        const response = await fetch('/api/users/analytics/all');
-        const data = await response.json();
-        setAnalytics(data);
+        const response = await axios.get("/api/users/analytics/all");
+        const data = response.data;
+
+        setAnalytics({
+          totalUsers: data.totalUsers,
+          freeUsers: data.freeUsers,
+          trialUsers: data.trialUsers,
+          paidUsers: data.paidUsers,
+          churnedUsers: data.churnedUsers,
+        });
+
+        setLtvAnalytics({
+          freeUsersLTV: data.freeUsersLTV,
+          trialUsersLTV: data.trialUsersLTV,
+          paidUsersLTV: data.paidUsersLTV,
+          churnedUsersLTV: data.churnedUsersLTV,
+          totalLTV: data.totalLTV,
+        });
+
+        console.log("Analytics Data:", data);
       } catch (error) {
-        console.error('Error fetching analytics:', error);
+        console.error("Error fetching analytics:", error);
       } finally {
         setLoading(false);
       }
     };
 
-    
     fetchData();
     fetchAnalytics();
   }, []);
-
-  const handleSearchClick = () => {
-    fetchFilteredUserAnalytics();
-  };
 
   return (
     <>
@@ -105,16 +124,12 @@ const AdminUtmPage = () => {
             onChange={(e) => setSelectedColumn(e.target.value)}
             className="w-full sm:w-1/5 h-10 border border-gray-700 rounded px-4 py-2 bg-gray-800 text-white text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
           >
-            {/* <option value="userId">User ID</option> */}
             <option value="source">Source</option>
             <option value="adid">Adid</option>
             <option value="angle">Angle</option>
             <option value="funnel">Funnel</option>
-            {/* <option value="rawParams">Params</option> */}
-            {/* <option value="createdAt">Created At</option> */}
           </select>
 
-          {/* Button to trigger search */}
           <button
             onClick={fetchFilteredUserAnalytics}
             className="w-auto h-10 bg-blue-600 text-white px-4 py-2 rounded"
@@ -123,15 +138,13 @@ const AdminUtmPage = () => {
           </button>
         </div>
 
-        {/* First Row */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-4">
-          {/* Analytics Cards */}
           <Card className="border-0">
             <CardHeader className="pb-2">
               <h2 className="text-white text-sm font-medium">Total Users</h2>
             </CardHeader>
             <CardContent className="text-2xl font-bold text-white">
-              {analytics?.totalUsers || 0}
+              {analytics.totalUsers || 0}
             </CardContent>
           </Card>
 
@@ -140,7 +153,7 @@ const AdminUtmPage = () => {
               <h2 className="text-white text-sm font-medium">Free Users</h2>
             </CardHeader>
             <CardContent className="text-2xl font-bold text-white">
-              {analytics?.freeUsers || 0}
+              {analytics.freeUsers || 0}
             </CardContent>
           </Card>
 
@@ -149,7 +162,7 @@ const AdminUtmPage = () => {
               <h2 className="text-white text-sm font-medium">Trial Users</h2>
             </CardHeader>
             <CardContent className="text-2xl font-bold text-white">
-              {analytics?.trialUsers || 0}
+              {analytics.trialUsers || 0}
             </CardContent>
           </Card>
 
@@ -158,7 +171,7 @@ const AdminUtmPage = () => {
               <h2 className="text-white text-sm font-medium">Paid Users</h2>
             </CardHeader>
             <CardContent className="text-2xl font-bold text-white">
-              {analytics?.paidUsers || 0}
+              {analytics.paidUsers || 0}
             </CardContent>
           </Card>
 
@@ -167,46 +180,18 @@ const AdminUtmPage = () => {
               <h2 className="text-white text-sm font-medium">Churned Users</h2>
             </CardHeader>
             <CardContent className="text-2xl font-bold text-white">
-              {analytics?.churnedUsers || 0}
+              {analytics.churnedUsers || 0}
             </CardContent>
           </Card>
-
-          {/* LTV Cards */}
-          {/* <Card className="border-0">
-            <CardHeader className="pb-2">
-              <h2 className="text-white text-sm font-medium">Free Users LTV</h2>
-            </CardHeader>
-            <CardContent className="text-2xl font-bold text-white">
-              {ltvAnalytics?.freeUsersLTV || 0}
-            </CardContent>
-          </Card>
-
-          <Card className="border-0">
-            <CardHeader className="pb-2">
-              <h2 className="text-white text-sm font-medium">Trial Users LTV</h2>
-            </CardHeader>
-            <CardContent className="text-2xl font-bold text-white">
-              {ltvAnalytics?.trialUsersLTV || 0}
-            </CardContent>
-          </Card> */}
 
           <Card className="border-0">
             <CardHeader className="pb-2">
               <h2 className="text-white text-sm font-medium">LTV Amount</h2>
             </CardHeader>
             <CardContent className="text-2xl font-bold text-white">
-              ${ltvAnalytics?.paidUsersLTV || 0}
+              ${((ltvAnalytics.totalLTV || 0) / 100).toFixed(2)}
             </CardContent>
           </Card>
-
-          {/* <Card className="border-0">
-            <CardHeader className="pb-2">
-              <h2 className="text-white text-sm font-medium">Churned Users LTV</h2>
-            </CardHeader>
-            <CardContent className="text-2xl font-bold text-white">
-              {ltvAnalytics?.churnedUsersLTV || 0}
-            </CardContent>
-          </Card> */}
         </div>
       </div>
     </>
