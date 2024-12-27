@@ -46,12 +46,32 @@ export default function ScientificAnalysisPage() {
     enabled: !!user,
   });
 
+  const abortController = new AbortController();
+
+  // Function to simulate async requests
+  const fetchData = async () => {
+    try {
+      const response = await fetch("/api/data", {
+        signal: abortController.signal,
+      });
+      const data = await response.json();
+      console.log(data);
+    } catch (err) {
+      if (err.name === "AbortError") {
+        console.log("Request aborted");
+      } else {
+        console.error(err);
+      }
+    }
+  };
+
   // Display a loading indicator while fetching data
 
   // Check if the user has completed a session
   const hasCompletedSession = sessionData?.sessions?.length > 0;
-
-  if (!hasCompletedSession) {
+  if (!hasCompletedSession && !sessionData?.todaySessionExists) {
+    abortController.abort();
+    fetchData();
     return (
       <div className="container mx-auto px-4 pt-24 pb-8 sm:pt-28">
         <h1 className="text-3xl font-bold text-center bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
