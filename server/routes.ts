@@ -1,5 +1,6 @@
 import { TimeManager } from "./utils/time-manager";
 import express, { Express } from "express";
+import { Request, Response } from 'express';
 import { eq, and, gte, lt } from "drizzle-orm";
 import { db } from "../db";
 import {
@@ -8,12 +9,15 @@ import {
   communityStats,
   userImprovements,
   successStories,
+  ltvTransactions
 } from "@db/schema";
 import { generateDailyInsight } from "./utils/wealthInsights";
 import path from "path";
 import fs from "fs";
 import passport from "passport";
 import { LucideAlignHorizontalDistributeCenter } from "lucide-react";
+import Stripe from "stripe";
+import { add } from "date-fns";
 
 export function registerRoutes(app: Express) {
   // User routes
@@ -1487,5 +1491,213 @@ export function registerRoutes(app: Express) {
     }
   });
 
+  // Stripe checkout Routes
+  const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
+  app.get('/api/create-checkout-session', async (req, res) => {
+    if (!req.isAuthenticated()) {
+      return res.status(401).send("Not authenticated");
+    }
+
+    const trialProdId = 'prod_RTWuay78zosOYS'; 
+    const recurringProdId = 'prod_RTWvNiuXUu6vaK';
+    try {
+      const customer = await stripe.customers.create({
+        metadata: {
+          userId: req.user!.id
+        }
+      });
+    
+      // Create Checkout Session
+      const session = await stripe.checkout.sessions.create({
+        customer: customer.id, //associate session with customer 
+        payment_method_types: ['card'],
+        line_items: [
+          {
+            price_data: {
+              product: recurringProdId,
+              currency: 'usd',
+              recurring: {
+                interval: 'month'
+              },
+              unit_amount: 2999,
+            },
+            quantity: 1,
+          },
+          {
+            price_data: {
+              product: trialProdId,
+              currency: 'usd',
+              unit_amount: 50,
+            },
+            quantity: 1,
+          }
+        ],
+        subscription_data: {
+          trial_period_days: 7,
+          metadata: {
+            userId: req.user.id,
+          },      
+        },
+        mode: 'subscription',
+        success_url: `${process.env.FRONTEND_URL}/trial-thank-you?session_id={CHECKOUT_SESSION_ID}`,
+        cancel_url: `${process.env.FRONTEND_URL}/`,
+      });
+
+      res.json({ sessionId: session.id });
+    } catch (error) {
+      res.status(500).json({
+        message: "Failed to checkout User",
+        error: error instanceof Error ? error : "Unknown error",
+      });
+    }
+  });
+
+  // Verify the stripe session for successful payment
+  app.get('/api/verify-session/:sessionId', async (req, res) => {
+    try {
+      const session = await stripe.checkout.sessions.retrieve(req.params.sessionId);
+      
+      if (session.payment_status === 'paid') {
+        const subscription = await stripe.subscriptions.retrieve(session.subscription);
+        
+        res.json({
+          paid: true,
+          subscription: {
+            status: subscription.status,
+            trial_end: subscription.trial_end,
+            current_period_end: subscription.current_period_end
+          }
+        });
+      } else {
+        res.json({ paid: false });
+      }
+    } catch (error) {
+      res.status(500).json({
+        message: "Failed to verify session",
+        error: error instanceof Error ? error.message : "Unknown error"
+      });
+    }
+  });
+
+  // Stripe webhook handler to update DB on Payment Success/Failure
+  interface StripeRequest extends Request {
+    body: Buffer;
+  }
+  type SubscriptionStatus = 'free' | 'trial' | 'paid' | 'churned';
+  //helper to safely parse numeric userId from metadata
+  function getUserIdFromMetadata(metadata: Stripe.Metadata): number {
+    if (!metadata || !metadata.userId) {
+      throw new Error('Missing userId in metadata');
+    }
+    const userId = parseInt(metadata.userId, 10);
+    if (isNaN(userId)) {
+      console.log('Failed to parse userId:', metadata.userId);
+      throw new Error('Invalid userId in metadata');
+    }
+    return userId;
+  }
+    
+  async function updateUserSubscription(
+    userId: number,
+    addition: number,
+    updates: Partial<{
+      subscriptionStatus: SubscriptionStatus;
+      subscriptionId: string | null;
+      trialEndsAt: Date | null;
+    }>
+  ): Promise<void> {
+    try {
+      const [updatedUser] = await db
+        .update(users)
+        .set(updates)
+        .where(eq(users.id, userId))
+        .returning();
+  
+      if (addition !== 0) {
+        const [newTransaction] = await db
+        .insert(ltvTransactions)
+        .values({
+          userId: userId,
+          amount: addition,
+          type: "addition",
+        })
+        .returning();
+
+        console.log('Inserted new LTV transaction:', newTransaction);
+      }
+
+      if (!updatedUser) {
+        throw new Error(`No user found with ID: ${userId}`);
+      }
+    } catch (error) {
+      console.error('Error updating user subscription:', error);
+      throw error;
+    }
+  }
+  
+  async function handleSubscriptionUpdate(subscription: Stripe.Subscription): Promise<void> {
+    const userId = getUserIdFromMetadata(subscription.metadata);
+    let status: SubscriptionStatus;
+    let addition: number;
+    addition = 0;
+    console.log("LOGGGG STATUSSSSSSSSSSSSSSS", subscription.status)
+    if (subscription.status === 'trialing') {
+      status = "trial";
+      addition = 50;
+    } else if (subscription.status === 'active') {
+        status = 'paid';
+        addition = 2990;
+    } else if (subscription.status === 'past_due' || subscription.status === 'unpaid' || subscription.status === 'canceled') {
+      if (!subscription.trial_end || subscription.trial_end < Math.floor(Date.now() / 1000)) {
+        status = 'churned';
+      } else {
+        status = "free"
+      }
+    } else {
+      status = "free";
+    }
+    
+    await updateUserSubscription(userId, addition, {
+      subscriptionStatus: status,
+      subscriptionId: subscription.id,
+      trialEndsAt: subscription.trial_end ? new Date(subscription.trial_end * 1000) : null,
+    });
+  }
+      
+  const stripeWebhookHandler = async (req: StripeRequest, res: Response) => {
+    const signature = req.headers['stripe-signature'];
+
+    if (!signature) {
+      return res.status(400).json({ error: 'Missing stripe-signature header' });
+    }
+    try {
+      const event = stripe.webhooks.constructEvent(
+        req.body,
+        signature,
+        process.env.STRIPE_WEBHOOK_SECRET!
+      );
+      
+      switch (event.type) {
+        case 'customer.subscription.updated':
+          await handleSubscriptionUpdate(event.data.object as Stripe.Subscription);
+          break;
+      }
+  
+      return res.json({ received: true });
+    } catch (error) {
+      console.error('Webhook error:', error);
+      return res.status(400).json({
+        error: error instanceof Error ? error.message : 'Unknown error'
+      });
+    }
+  };
+  
+  //Mount the handler
+  app.post(
+    '/api/webhook/stripe',
+    express.raw({ type: 'application/json' }),
+    stripeWebhookHandler
+  );  
+  
   // End of routes
 }

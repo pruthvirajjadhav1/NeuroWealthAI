@@ -1,6 +1,13 @@
+import { Elements } from '@stripe/react-stripe-js';
+import { loadStripe } from '@stripe/stripe-js';
 import { Card } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 import { Crown } from "lucide-react";
+import PaymentCheckoutForm from './PaymentCheckoutForm';
+
+// if (!process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY) {
+//   throw new Error("Stripe publishable key is not defined in .env");
+// }
+const stripePromise = loadStripe("pk_test_51QaZDFDLDmCdDSpqxUExi9n0KfcZGOjJ5GNgbwTvM2oLnZ0jX22qonCXwvhjN3Ew88HlN0mDpQzFe25SkqhMFeQp00MWyWwlZD");
 
 export default function TrialPage() {
   return (
@@ -16,15 +23,9 @@ export default function TrialPage() {
             Start your 7-day trial and experience the full power of NeuroWealth AI.
           </p>
         </div>
-
-        <div className="space-y-4">
-          <Button 
-            onClick={() => window.location.href = 'https://neurowealth.ai'}
-            className="w-full bg-yellow-500 hover:bg-yellow-600 text-white"
-          >
-            Start Free Trial
-          </Button>
-        </div>
+        <Elements stripe={stripePromise}>
+          <PaymentCheckoutForm />
+        </Elements>
       </Card>
     </div>
   );

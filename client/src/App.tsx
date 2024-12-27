@@ -29,6 +29,7 @@ import ScientificAnalysisPage from "./pages/ScientificAnalysisPage";
 import AffirmationsPage from "./pages/AffirmationsPage";
 import TrialPage from "./pages/TrialPage";
 import TrialSuccessPage from "./pages/TrialSuccessPage";
+import PaymentCheckoutForm from "./pages/PaymentCheckoutForm";
 import ProofPage from "./pages/ProofPage";
 import HelpPage from "./pages/HelpPage";
 import IntroPage from "./pages/IntroPage";
