@@ -276,6 +276,13 @@ export default function AdminPage() {
           >
             Funnel Analytics
           </Button>
+          <Button 
+            onClick={() => window.location.href = '/admin/utm'}
+            variant="outline"
+            className="border-cyan-700/50 hover:bg-cyan-950/30 hover:border-cyan-600/50 transition-all duration-300"
+          >
+            Utm Tracking
+          </Button>
         </div>
       </div>
 
