@@ -338,7 +338,9 @@ export default function UserManagementPage() {
                 </TableCell>
                 {/* <TableCell>{user.totalSessions}</TableCell> */}
                 <TableCell>
-                  <div className="space-y-2">{ltvData[user.id] || 0}</div>
+                  <div className="space-y-2">
+                    {(ltvData[user.id] || 0) / 100}$
+                  </div>
                 </TableCell>
               </TableRow>
             ))}
