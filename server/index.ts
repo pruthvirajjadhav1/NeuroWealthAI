@@ -7,7 +7,7 @@ import { db } from "../db";
 import { sql } from "drizzle-orm";
 import { SERVER_CONFIG, ENV_CONFIG, DB_CONFIG } from "./config";
 import { registerAdminRoutes } from "./token";
-import stripeRoutes from "./routes/stripe";
+import stripeRoutes from "../server/routes/stripe";
 
 const app = express();
 const server = createServer(app);

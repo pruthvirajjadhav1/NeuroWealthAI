@@ -1,7 +1,8 @@
 import express, { Request, Response } from 'express';
 import Stripe from 'stripe';
-import { db } from '@db';
+import { db } from '../../db';
 import { users } from '@db/schema';
+import { NodePgDatabase } from 'drizzle-orm/node-postgres';
 import { eq, and } from 'drizzle-orm';
 import {  AUTH_CONFIG } from "../config"
 import { TimeManager } from '../utils/time-manager';
@@ -109,7 +110,7 @@ router.post('/create-checkout-session', async (req: Request, res: Response) => {
                     const userId = invoice?.customer as string
                     const subscriptionId = invoice?.subscription as string
                       //Update Subscription
-                      await db.transaction(async (tx) => {
+                      await db.transaction(async (tx: any) => {
                          // Get user by stripeID and if exists then set to active
                          const [user] = await db.select().from(users).where(eq(users.id, Number(userId)));
                            if (user) {
@@ -141,7 +142,7 @@ router.post('/create-checkout-session', async (req: Request, res: Response) => {
                 const userId = invoice?.customer as string;
                 const subscriptionId = invoice?.subscription as string
                 // Update status to churned
-                  await db.transaction(async (tx) => {
+                  await db.transaction(async (tx: any) => {
                        const [user] = await tx.select().from(users).where(eq(users.id, Number(userId)));
                     if(user){
                         await tx.update(users).set({
@@ -166,7 +167,7 @@ router.post('/create-checkout-session', async (req: Request, res: Response) => {
                   try {
                   const userId = subscription?.customer as string;
                       // Update status to churned
-                      await db.transaction(async (tx) => {
+                      await db.transaction(async (tx: any) => {
                             const [user] = await tx.select().from(users).where(eq(users.id, Number(userId)));
                             if(user){
                                     await tx.update(users).set({
